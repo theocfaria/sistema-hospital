@@ -30,4 +30,59 @@ public class PacientRepositoryTest {
         assertEquals(1, loadedList.size());
         assertEquals("Test User", loadedList.get(0).getName());
     }
+
+    @Test
+    @DisplayName("Deve buscar paciente pelo id")
+    void testFindByID(){
+        List<Pacient> list = new ArrayList<>();
+
+        Pacient p1 = new Pacient("Test User1", "123.456.789-00", "password");
+        Pacient p2 = new Pacient("Test User2", "987.654.321-00", "password");
+
+        list.add(p1);
+        list.add(p2);
+
+        PacientRepository repo = new PacientRepository() {
+            @Override
+            public List<Pacient> loadAll() {
+                return List.of(p1, p2);
+            }
+        };
+
+        UUID id = list.get(1).getId();
+
+        Pacient paciente = repo.findByID(id.toString());
+
+        assertNotNull(paciente);
+        assertEquals(id, paciente.getId());
+        assertEquals("Test User2", paciente.getName());
+    }
+
+    @Test
+    @DisplayName("Deve buscar paciente pelo cpf")
+    void testFindByCPF(){
+        List<Pacient> list = new ArrayList<>();
+
+        Pacient p1 = new Pacient("Test User1", "123.456.789-00", "password");
+        Pacient p2 = new Pacient("Test User2", "987.654.321-00", "password");
+
+        list.add(p1);
+        list.add(p2);
+
+        PacientRepository repo = new PacientRepository() {
+            @Override
+            public List<Pacient> loadAll() {
+                return List.of(p1, p2);
+            }
+        };
+
+        String cpf = list.get(1).getCpf();
+
+        Pacient paciente = repo.findByCPF(cpf);
+
+        assertNotNull(paciente);
+        assertEquals(cpf, paciente.getCpf());
+        assertEquals("Test User2", paciente.getName());
+
+    }
 }
