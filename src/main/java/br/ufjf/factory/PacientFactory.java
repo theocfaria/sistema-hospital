@@ -9,7 +9,7 @@ import br.ufjf.model.Pacient;
 import br.ufjf.repository.PacientRepository;
 
 public class PacientFactory {
-    public static void main(String[] args) {
+    public static void populate() {
         List<Pacient> list = new ArrayList<>();
 
         for (int i = 0; i < 100; i++) {
