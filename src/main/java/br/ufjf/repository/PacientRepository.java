@@ -52,4 +52,26 @@ public class PacientRepository {
             return new ArrayList<>();
         }
     }
+
+    public Pacient findByID(String id){
+        List<Pacient> pacientes = loadAll();
+
+        for(Pacient paciente: pacientes){
+            if(paciente.getId().toString().equals(id)){
+                return paciente;
+            }
+        }
+        return null;
+    }
+
+    public Pacient findByCPF(String cpf){
+        List<Pacient> pacientes = loadAll();
+
+        for(Pacient paciente: pacientes){
+            if(paciente.getCpf().equals(cpf)){
+                return paciente;
+            }
+        }
+        return null;
+    }
 }
