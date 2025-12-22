@@ -1,9 +1,19 @@
 package br.ufjf.model;
 
-class User {
+public abstract class User {
     protected String name;
     protected String cpf;
     protected String password;
+
+    public User() {
+
+    }
+
+    public User(String name, String cpf, String password) {
+        this.name = name;
+        this.cpf = cpf;
+        this.password = password;
+    }
 
     public String getName() {
         return this.name;

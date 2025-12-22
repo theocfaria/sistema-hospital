@@ -14,8 +14,8 @@ import com.google.gson.reflect.TypeToken;
 
 import br.ufjf.model.Pacient;
 
-class PacientRepository {
-    private final String FILEPATH = "pacients.json";
+public class PacientRepository {
+    private final String FILEPATH = "src/main/java/br/ufjf/data/pacients.json";
     private final Gson gson;
 
     public PacientRepository() {
@@ -25,10 +25,12 @@ class PacientRepository {
     }
 
     public void saveAll(List<Pacient> list) {
-        try (FileWriter writer = new FileWriter(FILEPATH)) {
+        File file = new File(FILEPATH);
+
+        try (FileWriter writer = new FileWriter(file)) {
             gson.toJson(list, writer);
         } catch (IOException e) {
-            System.out.println("Erro ao salvar.");
+            System.out.println("Erro ao salvar: " + e.getMessage());
         }
     }
 
