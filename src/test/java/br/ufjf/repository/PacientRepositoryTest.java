@@ -83,6 +83,29 @@ public class PacientRepositoryTest {
         assertNotNull(paciente);
         assertEquals(cpf, paciente.getCpf());
         assertEquals("Test User2", paciente.getName());
+    }
 
+    @Test
+    @DisplayName("Deve atualizar paciente")
+
+    void testUpdate(){
+        List<Pacient> list = new ArrayList<>();
+
+        Pacient p1 = new Pacient("Test User1", "123.456.789-00", "password");
+
+        list.add(p1);
+
+        PacientRepository repo = new PacientRepository() {
+            @Override
+            public List<Pacient> loadAll() {
+                return List.of(p1);
+            }
+        };
+
+        repo.updateByID(p1.getId().toString(), "Murilo", "123");
+
+        assertNotNull(repo.findByID(p1.getId().toString()));
+        assertEquals("Murilo", list.get(0).getName());
+        assertEquals("123", list.get(0).getPassword());
     }
 }

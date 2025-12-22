@@ -74,4 +74,17 @@ public class PacientRepository {
         }
         return null;
     }
+
+    public void updateByID(String id, String name, String password){
+        List<Pacient> pacientes = loadAll();
+
+        for(Pacient paciente: pacientes){
+            if(paciente.getId().toString().equals(id)){
+                paciente.setName(name);
+                paciente.setPassword(password);
+
+                saveAll(pacientes);
+            }
+        }
+    }
 }
