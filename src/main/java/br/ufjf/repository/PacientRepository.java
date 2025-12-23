@@ -53,38 +53,64 @@ public class PacientRepository {
         }
     }
 
-    public Pacient findByID(String id){
+    public Pacient findByID(String id) {
         List<Pacient> pacientes = loadAll();
 
-        for(Pacient paciente: pacientes){
-            if(paciente.getId().toString().equals(id)){
+        for (Pacient paciente : pacientes) {
+            if (paciente.getId().toString().equals(id)) {
                 return paciente;
             }
         }
         return null;
     }
 
-    public Pacient findByCPF(String cpf){
+    public Pacient findByCPF(String cpf) {
         List<Pacient> pacientes = loadAll();
 
-        for(Pacient paciente: pacientes){
-            if(paciente.getCpf().equals(cpf)){
+        for (Pacient paciente : pacientes) {
+            if (paciente.getCpf().equals(cpf)) {
                 return paciente;
             }
         }
         return null;
     }
 
-    public void updateByID(String id, String name, String password){
+    public void updateByID(String id, String name, String password) {
         List<Pacient> pacientes = loadAll();
 
-        for(Pacient paciente: pacientes){
-            if(paciente.getId().toString().equals(id)){
+        for (Pacient paciente : pacientes) {
+            if (paciente.getId().toString().equals(id)) {
                 paciente.setName(name);
                 paciente.setPassword(password);
 
                 saveAll(pacientes);
             }
         }
+    }
+
+    public void deleteByID(String id) {
+        List<Pacient> aux = loadAll();
+        List<Pacient> list = new ArrayList<>();
+
+        for (Pacient pacient : aux) {
+            if (pacient.getId().toString().equals(id)) {
+                continue;
+            }
+            list.add(pacient);
+        }
+        saveAll(list);
+    }
+
+    public void deleteByCpf(String cpf) {
+        List<Pacient> aux = loadAll();
+        List<Pacient> list = new ArrayList<>();
+
+        for (Pacient pacient : aux) {
+            if (pacient.getCpf().toString().equals(cpf)) {
+                continue;
+            }
+            list.add(pacient);
+        }
+        saveAll(list);
     }
 }

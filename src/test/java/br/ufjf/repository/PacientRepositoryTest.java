@@ -1,18 +1,16 @@
 package br.ufjf.repository;
 
-import br.ufjf.model.Pacient;
-import com.google.gson.reflect.TypeToken;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.DisplayName;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import br.ufjf.model.Pacient;
 
 public class PacientRepositoryTest {
     @Test
@@ -33,7 +31,7 @@ public class PacientRepositoryTest {
 
     @Test
     @DisplayName("Deve buscar paciente pelo id")
-    void testFindByID(){
+    void testFindByID() {
         List<Pacient> list = new ArrayList<>();
 
         Pacient p1 = new Pacient("Test User1", "123.456.789-00", "password");
@@ -60,7 +58,7 @@ public class PacientRepositoryTest {
 
     @Test
     @DisplayName("Deve buscar paciente pelo cpf")
-    void testFindByCPF(){
+    void testFindByCPF() {
         List<Pacient> list = new ArrayList<>();
 
         Pacient p1 = new Pacient("Test User1", "123.456.789-00", "password");
@@ -87,8 +85,7 @@ public class PacientRepositoryTest {
 
     @Test
     @DisplayName("Deve atualizar paciente")
-
-    void testUpdate(){
+    void testUpdate() {
         List<Pacient> list = new ArrayList<>();
 
         Pacient p1 = new Pacient("Test User1", "123.456.789-00", "password");
@@ -107,5 +104,65 @@ public class PacientRepositoryTest {
         assertNotNull(repo.findByID(p1.getId().toString()));
         assertEquals("Murilo", list.get(0).getName());
         assertEquals("123", list.get(0).getPassword());
+    }
+
+    @Test
+    @DisplayName("Deve deletar um paciente passado seu ID")
+    void testDeleteByID() {
+        List<Pacient> list = new ArrayList<>();
+
+        Pacient p1 = new Pacient("Test User1", "123.456.789-00", "password");
+        Pacient p2 = new Pacient("Test User2", "123.456.789-00", "password");
+
+        list.add(p1);
+        list.add(p2);
+
+        PacientRepository repo = new PacientRepository() {
+            @Override
+            public List<Pacient> loadAll() {
+                return list;
+            }
+
+            @Override
+            public void saveAll(List<Pacient> novaLista) {
+                list.clear();
+                list.addAll(novaLista);
+            }
+        };
+
+        repo.deleteByID(p1.getId().toString());
+
+        assertNotNull(list.get(0));
+        assertEquals("Test User2", list.get(0).getName().toString());
+    }
+
+    @Test
+    @DisplayName("Deve deletar um paciente passado seu CPF")
+    void testDeleteByCPF() {
+        List<Pacient> list = new ArrayList<>();
+
+        Pacient p1 = new Pacient("Test User1", "222.222.222-22", "password");
+        Pacient p2 = new Pacient("Test User2", "123.456.789-00", "password");
+
+        list.add(p1);
+        list.add(p2);
+
+        PacientRepository repo = new PacientRepository() {
+            @Override
+            public List<Pacient> loadAll() {
+                return list;
+            }
+
+            @Override
+            public void saveAll(List<Pacient> novaLista) {
+                list.clear();
+                list.addAll(novaLista);
+            }
+        };
+
+        repo.deleteByCpf(p1.getCpf());
+
+        assertEquals(1, list.size());
+        assertEquals("Test User2", list.get(0).getName().toString());
     }
 }
