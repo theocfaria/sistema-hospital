@@ -1,7 +1,9 @@
 package br.ufjf;
 
+import br.ufjf.factory.PacientFactory;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Olá, mundo!");
+        PacientFactory.populate();
     }
 }
