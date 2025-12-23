@@ -18,7 +18,18 @@ public abstract class User {
         this.cpf = cpf;
         this.password = password;
     }
-    public UUID getId() {return this.id;}
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public UUID getId() {
+        return this.id;
+    }
 
     public String getName() {
         return this.name;
@@ -31,10 +42,4 @@ public abstract class User {
     public String getPassword() {
         return this.password;
     }
-
-    public void setName(String name) { this.name = name; }
-
-    public void setCpf(String cpf) { this.cpf = cpf; }
-
-    public void setPassword(String password) { this.password = password; }
 }
