@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class MedicoFactory {
-    public static void populate() {
+    public static void populate(int range) {
         List<Medico> list = new ArrayList<>();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < range; i++) {
             Faker faker = new Faker(Locale.of("pt", "BR"));
 
             String name = faker.name().fullName();
