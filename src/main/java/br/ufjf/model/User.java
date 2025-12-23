@@ -32,9 +32,11 @@ public abstract class User {
         return this.password;
     }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public void setCpf(String cpf) { this.cpf = cpf; }
-
-    public void setPassword(String password) { this.password = password; }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
