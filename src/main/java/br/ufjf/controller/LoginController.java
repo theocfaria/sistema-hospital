@@ -2,9 +2,11 @@ package br.ufjf.controller;
 
 import br.ufjf.model.Medico;
 import br.ufjf.model.Pacient;
+import br.ufjf.model.Receptionist;
 import br.ufjf.model.User;
 import br.ufjf.repository.MedicoRepository;
 import br.ufjf.repository.PacientRepository;
+import br.ufjf.repository.ReceptionistRepository;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -18,6 +20,7 @@ public class LoginController {
     @FXML private Button BtnLogin;
     PacientRepository  pacientRepository = new PacientRepository();
     MedicoRepository medicoRepository = new MedicoRepository();
+    ReceptionistRepository receptionistRepository = new ReceptionistRepository();
 
     private User verificarLogin(){
         String cpf = TxtCpf.getText();
@@ -36,6 +39,14 @@ public class LoginController {
         for(Medico medico: medicos){
             if(medico.getCpf().equals(cpf) && medico.getPassword().equals(password)){
                 return medico;
+            }
+        }
+
+        List<Receptionist> receptionists = receptionistRepository.loadAll();
+
+        for(Receptionist receptionist: receptionists){
+            if(receptionist.getCpf().equals(cpf) && receptionist.getPassword().equals(password)){
+                return receptionist;
             }
         }
         return null;
