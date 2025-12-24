@@ -12,8 +12,30 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
-<properties>    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>    <maven.compiler.release>21</maven.compiler.release>  </properties>  <build>    <plugins>      <plugin>        <groupId>org.apache.maven.plugins</groupId>        <artifactId>maven-jar-plugin</artifactId>        <version>3.3.0</version>        <configuration>          <archive>            <manifest>              <addClasspath>true</addClasspath>              <mainClass>br.ufjf.Main</mainClass>            </manifest>          </archive>        </configuration>      </plugin>    </plugins>  </build>
+<properties>    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>    <maven.compiler.release>21</maven.compiler.release>  </properties>  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-maven-plugin</artifactId>
+            <version>0.0.8</version>
+            <configuration>
+                <mainClass>br.ufjf.Main</mainClass>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
   <dependencies>
+      <dependency>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-controls</artifactId>
+          <version>21</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-fxml</artifactId>
+          <version>21</version>
+      </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
@@ -30,6 +52,7 @@
       <version>5.10.0</version>
       <scope>test</scope>
     </dependency>
+
 
   </dependencies>
 </project>
