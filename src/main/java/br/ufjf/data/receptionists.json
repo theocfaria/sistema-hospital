@@ -1,8 +1,20 @@
 [
   {
-    "id": "96cf5d64-588b-46d1-8a06-6e3f87b825c2",
-    "name": "Test User",
-    "cpf": "123.456.789-00",
+    "id": "dbca2326-edf3-4e93-9ade-89ea609e629c",
+    "name": "Janaína Banheira Jr.",
+    "cpf": "562.560.283-25",
+    "password": "password"
+  },
+  {
+    "id": "156a46dc-f9ef-424e-bd2c-03b37d76896b",
+    "name": "João Victor Pereira",
+    "cpf": "447.167.683-09",
+    "password": "password"
+  },
+  {
+    "id": "fdd0ebb6-627c-49c3-97d2-05fe1b203d49",
+    "name": "Sra. Emilly Castanho",
+    "cpf": "565.676.326-90",
     "password": "password"
   }
 ]
