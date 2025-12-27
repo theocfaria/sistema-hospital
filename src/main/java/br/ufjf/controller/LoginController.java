@@ -8,16 +8,22 @@ import br.ufjf.repository.MedicoRepository;
 import br.ufjf.repository.PacientRepository;
 import br.ufjf.repository.ReceptionistRepository;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
 
 public class LoginController {
     @FXML private TextField TxtCpf;
     @FXML private TextField TxtPassword;
     @FXML private Button BtnLogin;
+    private User usuarioLogado;
     PacientRepository  pacientRepository = new PacientRepository();
     MedicoRepository medicoRepository = new MedicoRepository();
     ReceptionistRepository receptionistRepository = new ReceptionistRepository();
@@ -54,17 +60,31 @@ public class LoginController {
 
     @FXML
     private void login(){
-        User tipo = verificarLogin();
+        usuarioLogado = verificarLogin();
 
-        if(tipo==null){
+        if(usuarioLogado==null){
             new Alert(Alert.AlertType.ERROR, "CPF e/ou senha incorretos. Não foi possível fazer o login").showAndWait();
             TxtCpf.setText("");
             TxtPassword.setText("");
-            TxtCpf.requestFocus();
         }else{
-            new Alert(Alert.AlertType.INFORMATION, "Login feito corretamente! " + tipo.getClass().getSimpleName()).showAndWait();
+            new Alert(Alert.AlertType.INFORMATION, "Login feito corretamente! ");
+            abrirTela(usuarioLogado.getClass().getSimpleName());
         }
     }
 
+    private void abrirTela(String fxml){
+        try{
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/view/"+fxml+".fxml")
+            );
 
+            Parent root= loader.load();
+            Stage stage = (Stage)BtnLogin.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
