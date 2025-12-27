@@ -67,18 +67,21 @@ public class LoginController {
             TxtCpf.setText("");
             TxtPassword.setText("");
         }else{
-            new Alert(Alert.AlertType.INFORMATION, "Login feito corretamente! ");
-            abrirTela(usuarioLogado.getClass().getSimpleName());
+            abrirTela(usuarioLogado);
         }
     }
 
-    private void abrirTela(String fxml){
+    private void abrirTela(User user){
         try{
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/view/"+fxml+".fxml")
+                    getClass().getResource("/view/entities/"+user.getDashboardFxml())
             );
 
             Parent root= loader.load();
+
+            DashboardController controller = loader.getController();
+            controller.setUser(user);
+
             Stage stage = (Stage)BtnLogin.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setResizable(false);

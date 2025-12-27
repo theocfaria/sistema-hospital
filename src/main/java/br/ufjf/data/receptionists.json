@@ -1,20 +1,20 @@
 [
   {
-    "id": "48f1eee5-296e-4bc1-bdc5-8180b4d1cec5",
-    "name": "João Vitor da Cunha",
-    "cpf": "661.122.886-13",
+    "id": "d8f04b4d-c9b3-4135-9313-33fd1d761361",
+    "name": "Víctor Siqueiro",
+    "cpf": "452.172.682-80",
     "password": "password"
   },
   {
-    "id": "d3ef1c16-d266-4c22-b8b0-e7e69f3e9d93",
-    "name": "Maria Laura Rios",
-    "cpf": "744.217.521-00",
+    "id": "68f4ff7d-cb35-4dcb-9886-d3bf3449bed7",
+    "name": "Kléber Banheira",
+    "cpf": "322.703.443-32",
     "password": "password"
   },
   {
-    "id": "88701f80-7476-4dc9-90bf-c8ce2de45760",
-    "name": "Djalma da Mota Jr.",
-    "cpf": "745.472.384-56",
+    "id": "7aa97f44-6c17-4552-8f18-7f3366430dce",
+    "name": "Sra. Louise Modesto",
+    "cpf": "455.174.556-11",
     "password": "password"
   }
 ]

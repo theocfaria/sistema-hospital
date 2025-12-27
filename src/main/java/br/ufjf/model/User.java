@@ -42,4 +42,6 @@ public abstract class User {
     public String getPassword() {
         return this.password;
     }
+
+    abstract public String getDashboardFxml();
 }
