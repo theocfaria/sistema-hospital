@@ -8,4 +8,8 @@ public class Medico extends User {
     public Medico(String name, String cpf, String password) {
         super(name, cpf, password);
     }
+
+    public String getDashboardFxml() {
+        return "DashboardMedico.fxml";
+    }
 }
