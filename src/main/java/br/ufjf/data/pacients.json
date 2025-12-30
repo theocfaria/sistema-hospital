@@ -1,20 +1,20 @@
 [
   {
-    "id": "a73aa2a3-43eb-4e61-86a6-5fbc7cbd8ba9",
-    "name": "Gael Antena",
-    "cpf": "458.383.132-34",
+    "id": "b1abfd51-bb37-4862-b3c2-3ba94ce599c6",
+    "name": "Ígor Rameira",
+    "cpf": "330.032.231-60",
     "password": "password"
   },
   {
-    "id": "a45645b7-bee7-4c31-be9a-6e8ec1ba6d1e",
-    "name": "Pedro Lucas Teixeira Filho",
-    "cpf": "641.662.172-08",
+    "id": "e5bed20e-9b1c-4de7-b7e7-b26b5cc1959c",
+    "name": "Amanda Bittencourt",
+    "cpf": "887.541.712-10",
     "password": "password"
   },
   {
-    "id": "15010b50-2783-4b48-b124-f815564637b5",
-    "name": "Lucas Aroeira",
-    "cpf": "057.044.306-78",
+    "id": "af2a0631-291d-4769-9d97-46a9cf8f3a69",
+    "name": "Alexandre da Maia",
+    "cpf": "668.054.252-98",
     "password": "password"
   }
 ]
