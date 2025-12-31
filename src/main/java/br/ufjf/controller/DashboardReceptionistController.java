@@ -26,7 +26,7 @@ public class DashboardReceptionistController implements DashboardController, Cha
 
     @FXML
     public void gerenciarMedicos(){
-        carregarContent(content,"GerenciarMedicos.fxml");
+        carregarContent(content,"entities/Receptionist/TabelaGerenciarMedicos.fxml");
     }
 
     @FXML

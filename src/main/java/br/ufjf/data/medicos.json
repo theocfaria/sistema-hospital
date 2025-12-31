@@ -1,20 +1,20 @@
 [
   {
-    "id": "2b8e81cd-3040-431d-b52d-5dea5be798f0",
-    "name": "Pedro Miguel Rocha",
-    "cpf": "071.512.273-88",
+    "id": "c3e0f25a-9cd5-4129-925f-cf096f96eff3",
+    "name": "Feliciano Vieira",
+    "cpf": "034.408.251-24",
     "password": "password"
   },
   {
-    "id": "303aa632-3960-48f6-8173-582acc89153f",
-    "name": "Davi Lucca Coqueiro Neto",
-    "cpf": "078.002.370-60",
+    "id": "ca543822-3958-4498-9f8a-a54f0f75721a",
+    "name": "Elisa Vimaranes",
+    "cpf": "552.666.633-67",
     "password": "password"
   },
   {
-    "id": "15bdbadd-f02e-4d61-ade6-039f4f42b5a3",
-    "name": "Antônio Soares",
-    "cpf": "050.704.368-56",
+    "id": "1d8b214c-5b8a-44db-9242-70a7d9d24704",
+    "name": "Lucca Rocha",
+    "cpf": "164.513.275-73",
     "password": "password"
   }
 ]
