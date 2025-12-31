@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufjf.controller.MedicoTableController">
+<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufjf.controller.MedicoTableController">
     <children>
         <Label text="Gerenciamento de Médicos" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
 
-        <TableView fx:id="tableMedicos" prefHeight="300.0" prefWidth="450.0">
+        <TableView fx:id="tableMedicos" prefHeight="300.0" prefWidth="500.0">
             <columns>
-                <TableColumn fx:id="colNome" text="Nome" prefWidth="150.0" />
-                <TableColumn fx:id="colCrm" text="CRM" prefWidth="100.0" />
-                <TableColumn fx:id="colEspecialidade" text="Especialidade" prefWidth="150.0" />
+                <TableColumn fx:id="colNome" text="Nome" prefWidth="180.0" />
+                <TableColumn fx:id="colCpf" text="CPF" prefWidth="140.0" />
+                <TableColumn fx:id="colPassword" text="Senha" prefWidth="140.0" />
             </columns>
         </TableView>
 
