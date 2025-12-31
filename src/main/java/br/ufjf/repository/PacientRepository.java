@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken;
 
 import br.ufjf.model.Pacient;
 
-public class PacientRepository extends BaseRepository<Pacient> {
+public class PacientRepository extends BaseUserRepository<Pacient> {
     public PacientRepository() {
         super(Pacient.class);
     }

@@ -30,7 +30,7 @@
          <children>
             <Button fx:id="BtnAssiduidade" mnemonicParsing="false" text="Monitorar assiduidade" />
             <Button fx:id="BtnDocumentos" layoutX="34.0" layoutY="25.0" mnemonicParsing="false" text="Emitir documentos" />
-            <Button fx:id="BtnAgenda" layoutX="34.0" layoutY="65.0" mnemonicParsing="false" text="Gerenciar agenda" />
+            <Button fx:id="BtnAgenda" layoutX="34.0" layoutY="65.0" mnemonicParsing="false" onAction="#gerenciarAgenda" text="Gerenciar agenda" />
             <Button fx:id="BtnHistorico" layoutX="34.0" layoutY="105.0" mnemonicParsing="false" text="Histórico clínico" />
          </children>
          <BorderPane.margin>

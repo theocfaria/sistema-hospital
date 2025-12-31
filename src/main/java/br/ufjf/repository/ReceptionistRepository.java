@@ -6,7 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class ReceptionistRepository extends BaseRepository<Receptionist>{
+public class ReceptionistRepository extends BaseUserRepository<Receptionist> {
 
     public ReceptionistRepository() { super(Receptionist.class); }
 

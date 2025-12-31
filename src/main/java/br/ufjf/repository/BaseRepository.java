@@ -13,7 +13,7 @@ import com.google.gson.GsonBuilder;
 
 import br.ufjf.model.User;
 
-abstract class BaseRepository<T extends User> {
+abstract class BaseRepository<T> {
     private final String FILEPATH;
     private final Gson gson;
 
@@ -51,66 +51,5 @@ abstract class BaseRepository<T extends User> {
             System.out.println("Erro ao carregar.");
             return new ArrayList<>();
         }
-    }
-
-    public T findByID(String id) {
-        List<T> elements = loadAll();
-
-        for (T element : elements) {
-            if (element.getId().toString().equals(id)) {
-                return element;
-            }
-        }
-        return null;
-    }
-
-    public T findByCPF(String cpf) {
-        List<T> elements = loadAll();
-
-        for (T element : elements) {
-            if (element.getCpf().equals(cpf)) {
-                return element;
-            }
-        }
-        return null;
-    }
-
-    public void updateByID(String id, String name, String password) {
-        List<T> elements = loadAll();
-
-        for (T element : elements) {
-            if (element.getId().toString().equals(id)) {
-                element.setName(name);
-                element.setPassword(password);
-
-                saveAll(elements);
-            }
-        }
-    }
-
-    public void deleteByID(String id) {
-        List<T> elements = loadAll();
-        List<T> list = new ArrayList<>();
-
-        for (T element : elements) {
-            if (element.getId().toString().equals(id)) {
-                continue;
-            }
-            list.add(element);
-        }
-        saveAll(list);
-    }
-
-    public void deleteByCpf(String cpf) {
-        List<T> elements = loadAll();
-        List<T> list = new ArrayList<>();
-
-        for (T element : elements) {
-            if (element.getCpf().toString().equals(cpf)) {
-                continue;
-            }
-            list.add(element);
-        }
-        saveAll(list);
     }
 }

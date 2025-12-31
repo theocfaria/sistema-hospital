@@ -6,7 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class MedicoRepository extends BaseRepository<Medico> {
+public class MedicoRepository extends BaseUserRepository<Medico> {
     public MedicoRepository() {
         super(Medico.class);
     }
