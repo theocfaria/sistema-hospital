@@ -1,17 +1,25 @@
 package br.ufjf.model;
 
 import java.time.DayOfWeek;
+import java.time.LocalTime;
 import java.util.List;
 
 public class Medico extends User {
     private List<DayOfWeek> diasAtendimento;
+    private String inicio;
+    private String fim;
+    private int duracao;
+
     public Medico() {
         super();
     }
 
-    public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento) {
+    public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento, String inicio, String fim, int duracao) {
         super(name, cpf, password);
-        diasAtendimento = diasAtendimento;
+        this.diasAtendimento = diasAtendimento;
+        this.inicio = inicio;
+        this.fim = fim;
+        this.duracao = duracao;
     }
 
     public String getDashboardFxml() {
@@ -22,5 +30,29 @@ public class Medico extends User {
     }
     public List<DayOfWeek> getDiasAtendimento() {
         return this.diasAtendimento;
+    }
+
+    public LocalTime getInicio() {
+        return LocalTime.parse(inicio);
+    }
+
+    public void setInicio(LocalTime inicio) {
+        this.inicio = inicio.toString();
+    }
+
+    public LocalTime getFim() {
+        return LocalTime.parse(fim);
+    }
+
+    public void setFim(LocalTime fim) {
+        this.fim = fim.toString();
+    }
+
+    public int getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(Integer duracao) {
+        this.duracao = duracao;
     }
 }

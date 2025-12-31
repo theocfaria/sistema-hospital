@@ -88,14 +88,22 @@ public class AgendaController implements DashboardController {
     @FXML
     public void salvarHorarios(){
         List<DayOfWeek> diasSelecionados = obterDiasSelecionados();
+        LocalTime inicio = medico.getInicio();
+        LocalTime fim = medico.getFim();
+        int duracao = medico.getDuracao();
 
         if(diasSelecionados.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Nenhum dia para atendimento selecionado");
             alert.show();
             return;
         }
+
         medico.setDiasAtendimento(diasSelecionados);
-        medicoRepository.updateDiasAtendimento(medico.getCpf(),diasSelecionados);
+        medico.setInicio(inicio);
+        medico.setFim(fim);
+        medico.setDuracao(duracao);
+
+        medicoRepository.updateHorarios(medico.getCpf(), diasSelecionados, inicio, fim, duracao);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION, "Dias de atendimento salvos com sucesso");
         alert.show();
