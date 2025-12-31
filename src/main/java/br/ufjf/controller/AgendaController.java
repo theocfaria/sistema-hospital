@@ -97,12 +97,6 @@ public class AgendaController implements DashboardController {
             alert.show();
             return;
         }
-
-        medico.setDiasAtendimento(diasSelecionados);
-        medico.setInicio(inicio);
-        medico.setFim(fim);
-        medico.setDuracao(duracao);
-
         medicoRepository.updateHorarios(medico.getCpf(), diasSelecionados, inicio, fim, duracao);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION, "Dias de atendimento salvos com sucesso");
