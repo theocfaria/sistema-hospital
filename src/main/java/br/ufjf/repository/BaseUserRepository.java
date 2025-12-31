@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.lang.reflect.Type;
 
+import br.ufjf.model.Consulta;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -34,6 +35,12 @@ abstract class BaseUserRepository<T extends User> {
         } catch (IOException e) {
             System.out.println("Erro ao salvar: " + e.getMessage());
         }
+    }
+
+    public void save(T element) {
+        List<T> elements = loadAll();
+        elements.add(element);
+        saveAll(elements);
     }
 
     public List<T> loadAll() {

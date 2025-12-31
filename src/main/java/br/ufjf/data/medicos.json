@@ -1,11 +1,19 @@
 [
   {
+    "diasAtendimento": [
+      "WEDNESDAY",
+      "THURSDAY",
+      "FRIDAY"
+    ],
     "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4c",
     "name": "Dr. João",
     "cpf": "000.000.000-00",
     "password": "password"
   },
   {
+    "diasAtendimento": [
+      "WEDNESDAY"
+    ],
     "id": "fb8e550d-8390-49ba-8e60-984190437398",
     "name": "Dr. Jonas",
     "cpf": "999.999.999-99",

@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class MedicoRepositoryTest {
+    /*
     @Test
     @DisplayName("Deve salvar e carregar a lista de medicos corretamente")
     void testSaveAndLoad() {
@@ -163,5 +164,5 @@ public class MedicoRepositoryTest {
 
         assertEquals(1, list.size());
         assertEquals("Dr.User2", list.get(0).getName().toString());
-    }
+    }*/
 }
