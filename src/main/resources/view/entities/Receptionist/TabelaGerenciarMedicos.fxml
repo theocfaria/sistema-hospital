@@ -16,8 +16,8 @@
         </TableView>
 
         <HBox spacing="10" alignment="CENTER">
-            <Button text="Adicionar Novo" onAction="#handleNovoMedico" />
-            <Button text="Excluir" onAction="#handleExcluirMedico" />
+            <Button id="btnAdd" text="Adicionar Novo" onAction="#handleAbrirCadastro" />
+            <Button id="btnDelete" text="Excluir" onAction="#handleExcluirMedico" />
         </HBox>
     </children>
 </VBox>

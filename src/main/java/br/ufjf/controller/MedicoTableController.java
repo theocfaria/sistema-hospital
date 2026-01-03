@@ -5,9 +5,17 @@ import br.ufjf.repository.MedicoRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.Optional;
 
 public class MedicoTableController {
 
@@ -15,6 +23,8 @@ public class MedicoTableController {
     @FXML private TableColumn<Medico, String> colNome;
     @FXML private TableColumn<Medico, String> colCpf;
     @FXML private TableColumn<Medico, String> colPassword;
+    @FXML private Button btnDelete;
+    @FXML private Button btnAdd;
 
     private ObservableList<Medico> medicoData = FXCollections.observableArrayList();
 
@@ -39,14 +49,49 @@ public class MedicoTableController {
     }
 
     @FXML
-    private void handleNovoMedico() {
-        // Por enquanto não faz nada, só evita o erro de carregamento
-        System.out.println("Botão Adicionar clicado, mas sem modal ainda.");
+    private void handleAbrirCadastro() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/entities/Receptionist/Modals/Create.fxml"));
+            Parent root = loader.load();
+
+            MedicoFormController formController = loader.getController();
+
+            formController.setLista(medicoData);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 400, 500));
+            stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void handleExcluirMedico() {
-        // Por enquanto não faz nada, só evita o erro de carregamento
-        System.out.println("Botão Adicionar clicado, mas sem modal ainda.");
+
+        Medico selecionado = tableMedicos.getSelectionModel().getSelectedItem();
+
+        if(selecionado != null){
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmação de Exclusão");
+            alert.setHeaderText("Excluir o médico: " + selecionado.getName() + " ?");
+            alert.setContentText("Tem certeza que deseja excluir? Essa ação não poderá ser desfeita!");
+
+            ButtonType botaoSim = new ButtonType("Sim");
+            ButtonType botaoNao = new ButtonType("Cancelar");
+            alert.getButtonTypes().setAll(botaoSim, botaoNao);
+
+            Optional<ButtonType> resultado = alert.showAndWait();
+
+            if(resultado.isPresent() && resultado.get() == botaoSim){
+                medicoData.remove(selecionado);
+                MedicoRepository repository = new MedicoRepository();
+                repository.deleteByCpf(selecionado.getCpf());
+            }
+        }
     }
 }
