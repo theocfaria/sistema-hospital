@@ -1,0 +1,20 @@
+[
+  {
+    "id": "dc8f1b45-4658-407e-947c-bd19efae7f89",
+    "name": "Louise Fontinhas",
+    "cpf": "514.834.687-63",
+    "password": "password"
+  },
+  {
+    "id": "eaf4dbb0-4fde-442a-a082-5a29cbf94576",
+    "name": "Fábio Hernandes",
+    "cpf": "248.475.365-92",
+    "password": "password"
+  },
+  {
+    "id": "2d67bf3e-ba00-4812-830d-95e35e521b6d",
+    "name": "Luna Veloso",
+    "cpf": "126.717.557-59",
+    "password": "password"
+  }
+]

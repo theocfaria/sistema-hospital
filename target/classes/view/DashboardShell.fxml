@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainLayout" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufjf.controller.MainDashboardController">
+    
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="70.0" style="-fx-background-color: #2c3e50; -fx-padding: 0 20 0 20;">
+            <children>
+                <Label text="HOSPITAL " textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox fx:id="sidebarMenu" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #ecf0f1; -fx-padding: 20;">
+            <children>
+                <Label text="NAVEGAÇÃO" textFill="#7f8c8d">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btnHome" maxWidth="Infinity" text="Início" />
+                <Separator />
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="36.0" prefWidth="77.0" text="Sair" />
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-background-color: white; -fx-padding: 20;">
+            <children>
+                <Label text="Selecione uma opção no menu" textFill="#bdc3c7" />
+            </children>
+        </StackPane>
+    </center>
+
+</BorderPane>
