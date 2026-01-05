@@ -17,9 +17,9 @@ public class MedicoFactory {
 
             String name = faker.expression("Dr. #{name.full_name}");
             String cpf = faker.cpf().valid(true);
-            Medico medico = new Medico(name, cpf, "password");
+            //Medico medico = new Medico(name, cpf, "password");
 
-            list.add(medico);
+            //list.add(medico);
         }
 
         MedicoRepository repo = new MedicoRepository();
