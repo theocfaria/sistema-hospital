@@ -26,6 +26,10 @@ abstract class BaseRepository<T> {
 
     protected abstract Type getListType();
 
+    protected String getFilePath() {
+        return FILEPATH;
+    }
+
     public void saveAll(List<T> list) {
         File file = new File(FILEPATH);
 
@@ -52,4 +56,6 @@ abstract class BaseRepository<T> {
             return new ArrayList<>();
         }
     }
+
+
 }

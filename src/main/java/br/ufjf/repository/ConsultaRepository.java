@@ -37,4 +37,16 @@ public class ConsultaRepository extends BaseRepository<Consulta> {
         }
         return null;
     }
+
+    public List<Consulta> findByMedico(Medico medico) {
+        List<Consulta> elements = loadAll();
+
+        List<Consulta> consultasMedico = new ArrayList<>();
+        for (Consulta element : elements) {
+            if (element.getMedico().getCpf().equals(medico.getCpf())) {
+                consultasMedico.add(element);
+            }
+        }
+        return consultasMedico;
+    }
 }

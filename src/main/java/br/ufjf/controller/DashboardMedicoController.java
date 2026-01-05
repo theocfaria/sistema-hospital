@@ -36,7 +36,7 @@ public class DashboardMedicoController implements DashboardController, ChangeScr
     }
 
     @FXML
-    public void emitirDocumentos(){ carregarContent(user, content,"EmitirDocumentos.fxml");}
+    public void emitirDocumentos(){ carregarContent(user, content,"medico/Documentos.fxml");}
 
     @FXML
     public void gerenciarAgenda(){

@@ -1,10 +1,10 @@
 [
   {
     "diasAtendimento": [
-      "WEDNESDAY"
+      "MONDAY"
     ],
     "inicio": "08:00",
-    "fim": "19:00",
+    "fim": "18:00",
     "duracao": 30,
     "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4c",
     "name": "Dr. João",
@@ -13,9 +13,11 @@
   },
   {
     "diasAtendimento": [
-      "WEDNESDAY"
+      "TUESDAY"
     ],
-    "duracao": 0,
+    "inicio": "08:00",
+    "fim": "18:00",
+    "duracao": 30,
     "id": "fb8e550d-8390-49ba-8e60-984190437398",
     "name": "Dr. Jonas",
     "cpf": "999.999.999-99",
