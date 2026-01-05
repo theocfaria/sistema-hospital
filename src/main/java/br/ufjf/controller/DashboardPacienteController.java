@@ -19,7 +19,7 @@ public class DashboardPacienteController implements DashboardController, ChangeS
     @FXML
     private Button BtnDocumentos;
     @FXML
-    private Button BtnPerfil;
+    private Button BtnHistoricoEDados;
     @FXML
     private Button BtnVisita;
     private User user;

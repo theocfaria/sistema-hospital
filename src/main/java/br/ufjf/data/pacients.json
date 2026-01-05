@@ -1,20 +1,32 @@
 [
   {
-    "id": "d7fcd933-c8e7-48b6-89ca-96d7dc737342",
-    "name": "Maria",
-    "cpf": "333-333-333-33",
+    "id": "94afe0b2-10a4-45ab-ad36-0d2b069b923a",
+    "name": "Célia de Lins",
+    "cpf": "108.645.821-45",
     "password": "password"
   },
   {
-    "id": "7f6372b5-08eb-4c12-ade1-a80ca4f9175f",
-    "name": "Denise",
-    "cpf": "111.111.111-11",
+    "id": "3218d103-00e6-4fcf-9475-c568aeea7146",
+    "name": "Sr. Maria da Bandeira",
+    "cpf": "226.045.741-01",
     "password": "password"
   },
   {
-    "id": "8e471d4e-ad83-4cae-b700-64c01e9d1c38",
-    "name": "Ana",
-    "cpf": "222.222.222-22",
+    "id": "eb7accea-8a85-47bd-8234-0a5dc6505d7f",
+    "name": "Antonia Espinheira",
+    "cpf": "400.654.245-30",
+    "password": "password"
+  },
+  {
+    "id": "7a6a5b01-9feb-4187-a2b4-76d0bc9ef316",
+    "name": "Lorena da Cruz Jr.",
+    "cpf": "218.218.566-60",
+    "password": "password"
+  },
+  {
+    "id": "b5e72652-0336-4590-938f-9a45e1e4ed6f",
+    "name": "Gabriel Ribeira",
+    "cpf": "436.600.151-99",
     "password": "password"
   }
 ]
