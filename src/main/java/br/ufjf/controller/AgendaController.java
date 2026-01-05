@@ -2,6 +2,7 @@ package br.ufjf.controller;
 
 import br.ufjf.model.*;
 import br.ufjf.repository.ConsultaRepository;
+import br.ufjf.repository.MedicoRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,7 +22,9 @@ public class AgendaController implements DashboardController {
     @FXML private TableColumn<Slot, LocalDate> colData;
     @FXML private TableColumn<Slot, LocalTime> colHora;
     @FXML private TableColumn<Slot, String> colPaciente;
+
     private ConsultaRepository consultaRepository;
+    private MedicoRepository medicoRepository;
     private Medico medico;
 
     private ObservableList<Slot> listaSlots = FXCollections.observableArrayList();
@@ -40,6 +43,7 @@ public class AgendaController implements DashboardController {
         tabelaAgenda.setItems(listaSlots);
 
         consultaRepository = new ConsultaRepository();
+        medicoRepository = new MedicoRepository();
     }
 
     @FXML
@@ -51,7 +55,12 @@ public class AgendaController implements DashboardController {
             LocalTime fim = LocalTime.parse(txtFim.getText());
             int duracao = Integer.parseInt(txtDuracao.getText());
 
-            List<DayOfWeek> diasSelecionados = obterDiasSelecionados();
+            List<DayOfWeek> diasSelecionados = medico.getDiasAtendimento();
+            if(diasSelecionados.isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Defina os dias para atendimento antes de gerar agenda");
+                alert.show();
+                return;
+            }
 
             LocalDate hoje = LocalDate.now();
             for (int i = 0; i < 7; i++) {
@@ -76,6 +85,24 @@ public class AgendaController implements DashboardController {
         }
     }
 
+    @FXML
+    public void salvarHorarios(){
+        List<DayOfWeek> diasSelecionados = obterDiasSelecionados();
+        LocalTime inicio = medico.getInicio();
+        LocalTime fim = medico.getFim();
+        int duracao = medico.getDuracao();
+
+        if(diasSelecionados.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Nenhum dia para atendimento selecionado");
+            alert.show();
+            return;
+        }
+        medicoRepository.updateHorarios(medico.getCpf(), diasSelecionados, inicio, fim, duracao);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Dias de atendimento salvos com sucesso");
+        alert.show();
+    }
+
     private List<DayOfWeek> obterDiasSelecionados() {
         List<DayOfWeek> dias = new ArrayList<>();
         if (chkSegunda.isSelected()) dias.add(DayOfWeek.MONDAY);
@@ -83,6 +110,7 @@ public class AgendaController implements DashboardController {
         if (chkQuarta.isSelected())  dias.add(DayOfWeek.WEDNESDAY);
         if (chkQuinta.isSelected())  dias.add(DayOfWeek.THURSDAY);
         if (chkSexta.isSelected())   dias.add(DayOfWeek.FRIDAY);
+
         return dias;
     }
 }
