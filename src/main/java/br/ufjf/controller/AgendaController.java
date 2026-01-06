@@ -14,14 +14,20 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AgendaController implements DashboardController {
+public class AgendaController implements DashboardController<Medico> {
 
-    @FXML private TextField txtInicio, txtFim, txtDuracao;
-    @FXML private CheckBox chkSegunda, chkTerca, chkQuarta, chkQuinta, chkSexta;
-    @FXML private TableView<Slot> tabelaAgenda;
-    @FXML private TableColumn<Slot, LocalDate> colData;
-    @FXML private TableColumn<Slot, LocalTime> colHora;
-    @FXML private TableColumn<Slot, String> colPaciente;
+    @FXML
+    private TextField txtInicio, txtFim, txtDuracao;
+    @FXML
+    private CheckBox chkSegunda, chkTerca, chkQuarta, chkQuinta, chkSexta;
+    @FXML
+    private TableView<Slot> tabelaAgenda;
+    @FXML
+    private TableColumn<Slot, LocalDate> colData;
+    @FXML
+    private TableColumn<Slot, LocalTime> colHora;
+    @FXML
+    private TableColumn<Slot, String> colPaciente;
 
     private ConsultaRepository consultaRepository;
     private MedicoRepository medicoRepository;
@@ -30,8 +36,8 @@ public class AgendaController implements DashboardController {
     private ObservableList<Slot> listaSlots = FXCollections.observableArrayList();
 
     @Override
-    public void setUser(User user){
-        this.medico=(Medico)user;
+    public void setUser(Medico user) {
+        this.medico = user;
     }
 
     @FXML
@@ -56,8 +62,9 @@ public class AgendaController implements DashboardController {
             int duracao = Integer.parseInt(txtDuracao.getText());
 
             List<DayOfWeek> diasSelecionados = medico.getDiasAtendimento();
-            if(diasSelecionados.isEmpty()){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION, "Defina os dias para atendimento antes de gerar agenda");
+            if (diasSelecionados.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                        "Defina os dias para atendimento antes de gerar agenda");
                 alert.show();
                 return;
             }
@@ -71,14 +78,14 @@ public class AgendaController implements DashboardController {
 
                     while (tempoAtual.plusMinutes(duracao).isBefore(fim.plusSeconds(1))) {
                         Consulta consulta = consultaRepository.findConsulta(medico, dataAlvo, tempoAtual);
-                        Pacient paciente = (consulta!=null) ? consulta.getPaciente() : null;
+                        Pacient paciente = (consulta != null) ? consulta.getPaciente() : null;
                         listaSlots.add(new Slot(dataAlvo, tempoAtual, paciente));
 
                         tempoAtual = tempoAtual.plusMinutes(duracao);
                     }
                 }
             }
-        }  catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
             alert.show();
@@ -86,13 +93,13 @@ public class AgendaController implements DashboardController {
     }
 
     @FXML
-    public void salvarHorarios(){
+    public void salvarHorarios() {
         List<DayOfWeek> diasSelecionados = obterDiasSelecionados();
         LocalTime inicio = medico.getInicio();
         LocalTime fim = medico.getFim();
         int duracao = medico.getDuracao();
 
-        if(diasSelecionados.isEmpty()){
+        if (diasSelecionados.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Nenhum dia para atendimento selecionado");
             alert.show();
             return;
@@ -105,11 +112,16 @@ public class AgendaController implements DashboardController {
 
     private List<DayOfWeek> obterDiasSelecionados() {
         List<DayOfWeek> dias = new ArrayList<>();
-        if (chkSegunda.isSelected()) dias.add(DayOfWeek.MONDAY);
-        if (chkTerca.isSelected())   dias.add(DayOfWeek.TUESDAY);
-        if (chkQuarta.isSelected())  dias.add(DayOfWeek.WEDNESDAY);
-        if (chkQuinta.isSelected())  dias.add(DayOfWeek.THURSDAY);
-        if (chkSexta.isSelected())   dias.add(DayOfWeek.FRIDAY);
+        if (chkSegunda.isSelected())
+            dias.add(DayOfWeek.MONDAY);
+        if (chkTerca.isSelected())
+            dias.add(DayOfWeek.TUESDAY);
+        if (chkQuarta.isSelected())
+            dias.add(DayOfWeek.WEDNESDAY);
+        if (chkQuinta.isSelected())
+            dias.add(DayOfWeek.THURSDAY);
+        if (chkSexta.isSelected())
+            dias.add(DayOfWeek.FRIDAY);
 
         return dias;
     }

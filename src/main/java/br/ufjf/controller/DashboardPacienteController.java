@@ -1,13 +1,14 @@
 package br.ufjf.controller;
 
+import br.ufjf.model.Pacient;
 import br.ufjf.model.User;
 import br.ufjf.navigation.ChangeScreen;
 import javafx.fxml.FXML;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
-public class DashboardPacienteController implements DashboardController, ChangeScreen {
+public class DashboardPacienteController implements DashboardController<Pacient>, ChangeScreen {
     @FXML
     private AnchorPane content;
     @FXML
@@ -25,7 +26,7 @@ public class DashboardPacienteController implements DashboardController, ChangeS
     private User user;
 
     @Override
-    public void setUser(User user) {
+    public void setUser(Pacient user) {
         this.user = user;
         LblUsername.setText("Olá, " + user.getName());
     }

@@ -20,38 +20,41 @@ import java.io.IOException;
 import java.util.List;
 
 public class LoginController {
-    @FXML private TextField TxtCpf;
-    @FXML private TextField TxtPassword;
-    @FXML private Button BtnLogin;
+    @FXML
+    private TextField TxtCpf;
+    @FXML
+    private TextField TxtPassword;
+    @FXML
+    private Button BtnLogin;
     private User usuarioLogado;
-    PacientRepository  pacientRepository = new PacientRepository();
+    PacientRepository pacientRepository = new PacientRepository();
     MedicoRepository medicoRepository = new MedicoRepository();
     ReceptionistRepository receptionistRepository = new ReceptionistRepository();
 
-    private User verificarLogin(){
+    private User verificarLogin() {
         String cpf = TxtCpf.getText();
         String password = TxtPassword.getText();
 
         List<Pacient> pacientes = pacientRepository.loadAll();
 
-        for(Pacient paciente: pacientes){
-            if(paciente.getCpf().equals(cpf) && paciente.getPassword().equals(password)){
+        for (Pacient paciente : pacientes) {
+            if (paciente.getCpf().equals(cpf) && paciente.getPassword().equals(password)) {
                 return paciente;
             }
         }
 
         List<Medico> medicos = medicoRepository.loadAll();
 
-        for(Medico medico: medicos){
-            if(medico.getCpf().equals(cpf) && medico.getPassword().equals(password)){
+        for (Medico medico : medicos) {
+            if (medico.getCpf().equals(cpf) && medico.getPassword().equals(password)) {
                 return medico;
             }
         }
 
         List<Receptionist> receptionists = receptionistRepository.loadAll();
 
-        for(Receptionist receptionist: receptionists){
-            if(receptionist.getCpf().equals(cpf) && receptionist.getPassword().equals(password)){
+        for (Receptionist receptionist : receptionists) {
+            if (receptionist.getCpf().equals(cpf) && receptionist.getPassword().equals(password)) {
                 return receptionist;
             }
         }
@@ -59,30 +62,29 @@ public class LoginController {
     }
 
     @FXML
-    private void login(){
+    private void login() {
         usuarioLogado = verificarLogin();
 
-        if(usuarioLogado==null){
+        if (usuarioLogado == null) {
             new Alert(Alert.AlertType.ERROR, "CPF e/ou senha incorretos. Não foi possível fazer o login").showAndWait();
             TxtCpf.setText("");
             TxtPassword.setText("");
-        }else{
+        } else {
             abrirTela(usuarioLogado);
         }
     }
 
-    private void abrirTela(User user){
-        try{
+    private void abrirTela(User user) {
+        try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/view/entities/"+user.getDashboardFxml())
-            );
+                    getClass().getResource("/view/entities/" + user.getDashboardFxml()));
 
-            Parent root= loader.load();
+            Parent root = loader.load();
 
-            DashboardController controller = loader.getController();
+            DashboardController<User> controller = loader.getController();
             controller.setUser(user);
 
-            Stage stage = (Stage)BtnLogin.getScene().getWindow();
+            Stage stage = (Stage) BtnLogin.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setResizable(false);
             stage.show();

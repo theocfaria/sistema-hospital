@@ -1,32 +1,32 @@
 [
   {
-    "id": "570bdce3-a70c-4f90-9da7-5a7b4d62bd92",
-    "name": "Nicolas Quarteira",
-    "cpf": "336.718.314-80",
+    "id": "b40c875f-7c8e-42cb-8bec-4bec2eec5edd",
+    "name": "João Luca Ramalho",
+    "cpf": "503.112.410-50",
     "password": "password"
   },
   {
-    "id": "dc41ea42-31a5-4639-932c-c0fb16589300",
-    "name": "Lorena Munhoz",
-    "cpf": "713.383.316-63",
+    "id": "ee416a30-649e-4bb8-baf3-77dc9cf1dc57",
+    "name": "Lucca Pinto",
+    "cpf": "102.465.610-17",
     "password": "password"
   },
   {
-    "id": "5e441ae2-b451-4d5e-85b7-d08532c5a7f6",
-    "name": "Maria Vitória Camacho",
-    "cpf": "384.148.058-68",
+    "id": "dd5a7b4b-7167-42d6-be27-4234158ecc8f",
+    "name": "Breno dos Reis Jr.",
+    "cpf": "441.454.807-16",
     "password": "password"
   },
   {
-    "id": "b0594803-198e-4fc0-8d96-6cdf46022ddd",
-    "name": "Vinicius Martins",
-    "cpf": "366.412.421-96",
+    "id": "60acdc18-a598-45ab-9719-9b9d1f279445",
+    "name": "João Lucas Macedo",
+    "cpf": "168.367.580-00",
     "password": "password"
   },
   {
-    "id": "e9992b85-7fc4-498d-a526-3f5d9c5aa5d2",
-    "name": "Ofélia Vimaranes",
-    "cpf": "421.120.800-40",
+    "id": "0242eb4f-ea4e-4d4c-96a9-3790da669282",
+    "name": "João Felipe Resende Filho",
+    "cpf": "833.225.550-38",
     "password": "password"
   }
 ]

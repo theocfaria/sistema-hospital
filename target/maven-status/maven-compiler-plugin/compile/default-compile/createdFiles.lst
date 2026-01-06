@@ -3,6 +3,7 @@ br/ufjf/repository/ReceptionistRepository.class
 br/ufjf/model/User.class
 br/ufjf/Main.class
 br/ufjf/controller/AgendaController.class
+br/ufjf/controller/AgendarConsultaController$1.class
 br/ufjf/controller/DashboardMedicoController.class
 br/ufjf/repository/PacientRepository.class
 br/ufjf/controller/DashboardPacienteController.class

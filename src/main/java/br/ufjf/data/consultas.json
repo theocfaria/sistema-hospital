@@ -1,38 +1,89 @@
 [
   {
-    "medico": {
-      "cpf": "000.000.000-00",
-      "name": "Dr. João"
-    },
-    "paciente": {
-      "cpf": "333-333-333-33",
-      "name": "Maria"
-    },
     "data": "2025-12-31",
-    "hora": "09:00"
+    "hora": "09:00",
+    "paciente": {
+      "name": "Maria",
+      "cpf": "333-333-333-33"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    }
   },
   {
-    "medico": {
-      "cpf": "000.000.000-00",
-      "name": "Dr. João"
-    },
-    "paciente": {
-      "cpf": "111.111.111-11",
-      "name": "Denise"
-    },
     "data": "2025-12-31",
-    "hora": "13:00"
+    "hora": "13:00",
+    "paciente": {
+      "name": "Denise",
+      "cpf": "111.111.111-11"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    }
   },
   {
-    "medico": {
-      "cpf": "999.999.999-99",
-      "name": "Dr. Jonas"
-    },
-    "paciente": {
-      "cpf": "222.222.222-22",
-      "name": "Ana"
-    },
     "data": "2025-12-31",
-    "hora": "17:00"
+    "hora": "17:00",
+    "paciente": {
+      "name": "Ana",
+      "cpf": "222.222.222-22"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. Jonas",
+      "cpf": "999.999.999-99"
+    }
+  },
+  {
+    "data": "2026-01-09",
+    "hora": "15:00",
+    "paciente": {
+      "id": "b40c875f-7c8e-42cb-8bec-4bec2eec5edd",
+      "name": "João Luca Ramalho",
+      "cpf": "503.112.410-50",
+      "password": "password"
+    },
+    "medico": {
+      "diasAtendimento": [
+        "FRIDAY",
+        "SATURDAY",
+        "SUNDAY"
+      ],
+      "inicio": "10:30",
+      "fim": "16:00",
+      "duracao": 30,
+      "id": "a4e720af-8c8e-4672-b6ac-97dea3aa8d2d",
+      "name": "Dr. Isaac Neves",
+      "cpf": "131.458.042-60",
+      "password": "password"
+    }
+  },
+  {
+    "data": "2026-01-10",
+    "hora": "12:00",
+    "paciente": {
+      "id": "b40c875f-7c8e-42cb-8bec-4bec2eec5edd",
+      "name": "João Luca Ramalho",
+      "cpf": "503.112.410-50",
+      "password": "password"
+    },
+    "medico": {
+      "diasAtendimento": [
+        "FRIDAY",
+        "SATURDAY",
+        "SUNDAY"
+      ],
+      "inicio": "10:30",
+      "fim": "16:00",
+      "duracao": 30,
+      "id": "a4e720af-8c8e-4672-b6ac-97dea3aa8d2d",
+      "name": "Dr. Isaac Neves",
+      "cpf": "131.458.042-60",
+      "password": "password"
+    }
   }
 ]

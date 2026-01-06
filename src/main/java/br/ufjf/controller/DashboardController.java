@@ -2,6 +2,6 @@ package br.ufjf.controller;
 
 import br.ufjf.model.User;
 
-public interface DashboardController {
-    void setUser(User user);
+public interface DashboardController<T extends User> {
+    void setUser(T user);
 }
