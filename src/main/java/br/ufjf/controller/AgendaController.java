@@ -8,6 +8,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -118,5 +120,28 @@ public class AgendaController implements DashboardController {
         if (chkSexta.isSelected())   dias.add(DayOfWeek.FRIDAY);
 
         return dias;
+    }
+
+    public void verificaFalta(List<Consulta> consultas){
+        for(Consulta consulta : consultas){
+
+        }
+    }
+
+    @FXML
+    public void alterarStatus(MouseEvent event) {
+        if(event.getClickCount()==2){
+            Consulta consulta = tabelaAgenda.getSelectionModel().getSelectedItem().getConsulta();
+
+            if(consulta==null){
+                return;
+            }
+
+            if(consulta.getStatusConsulta()==StatusConsulta.AGENDADA){
+                consulta.setStatusConsulta(StatusConsulta.REALIZADA);
+                consultaRepository.save(consulta);
+                tabelaAgenda.refresh();
+            }
+        }
     }
 }

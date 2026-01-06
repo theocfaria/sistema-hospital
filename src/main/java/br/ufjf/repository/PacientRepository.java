@@ -25,10 +25,30 @@ public class PacientRepository extends BaseUserRepository<Pacient> {
 
         for (Pacient paciente : pacientes) {
             if (paciente.getCpf().equals(cpf)) {
-                paciente.getDocumento().add(documento);
-                saveAll(pacientes);
-                return;
+                if(!isExists(documento, paciente)) {
+                    paciente.getDocumentos().add(documento);
+                    saveAll(pacientes);
+                    return;
+                }
             }
         }
+    }
+
+    public boolean isExists(Documento documento, Pacient paciente){
+        List<Documento> documentos = paciente.getDocumentos();
+
+        if(documentos==null){
+            return false;
+        }
+
+        for(Documento d : documentos){
+            if(documento.getTipoDocumento().equals(d.getTipoDocumento()) &&
+            documento.getConsulta().getId().equals(d.getConsulta().getId())){
+
+                return true;
+            }
+        }
+
+        return false;
     }
 }

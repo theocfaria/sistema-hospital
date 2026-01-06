@@ -1,41 +1,92 @@
 [
   {
-    "medico": {
-      "cpf": "000.000.000-00",
-      "name": "Dr. João"
-    },
-    "paciente": {
-      "cpf": "333-333-333-33",
-      "name": "Maria"
-    },
     "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4d",
     "data": "2026-01-05",
-    "hora": "09:00"
+    "hora": "09:00",
+    "paciente": {
+      "name": "Maria",
+      "cpf": "333-333-333-33"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    },
+    "statusConsulta": "REALIZADA"
   },
   {
-    "medico": {
-      "cpf": "000.000.000-00",
-      "name": "Dr. João"
-    },
-    "paciente": {
-      "cpf": "111.111.111-11",
-      "name": "Denise"
-    },
-    "id": "85df8756-49ff-48db-ad4c-8c761d6ddf4d",
+    "id": "95df8756-49ff-48db-ad4c-8c761d6ddf4d",
     "data": "2026-01-05",
-    "hora": "13:00"
+    "hora": "13:00",
+    "paciente": {
+      "name": "Denise",
+      "cpf": "111.111.111-11"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    },
+    "statusConsulta": "REALIZADA"
   },
   {
-    "medico": {
-      "cpf": "999.999.999-99",
-      "name": "Dr. Jonas"
-    },
-    "paciente": {
-      "cpf": "222.222.222-22",
-      "name": "Ana"
-    },
-    "id": "85df3766-49ff-48db-ad4c-8c761d6ddf4d",
+    "id": "851f8756-49ff-48db-ad4c-8c361d6ddf4d",
     "data": "2026-01-06",
-    "hora": "17:00"
+    "hora": "10:00",
+    "paciente": {
+      "name": "Denise",
+      "cpf": "111.111.111-11"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    },
+    "statusConsulta": "FALTOU"
+  },
+  {
+    "id": "85df8756-49ff-48db-ad4c-8c361d6ddf4d",
+    "data": "2026-01-06",
+    "hora": "12:02",
+    "paciente": {
+      "name": "Denise",
+      "cpf": "111.111.111-11"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    },
+    "statusConsulta": "FALTOU"
+  },
+  {
+    "id": "85df8756-49ff-48db-ad4c-8c361d6edf4d",
+    "data": "2026-01-06",
+    "hora": "12:11",
+    "paciente": {
+      "name": "Denise",
+      "cpf": "111.111.111-11"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    },
+    "statusConsulta": "REALIZADA"
+  },
+  {
+    "id": "85df8756-49ff-44db-ad4c-8c361d6edf4d",
+    "data": "2026-01-06",
+    "hora": "15:00",
+    "paciente": {
+      "name": "Denise",
+      "cpf": "111.111.111-11"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    },
+    "statusConsulta": "AGENDADA"
   }
 ]

@@ -32,7 +32,7 @@ public class DashboardMedicoController implements DashboardController, ChangeScr
 
     @FXML
     public void monitorarAssiduidade(){
-        carregarContent(user, content,"MonitorarAssiduidade.fxml");
+        carregarContent(user, content,"medico/MonitoramentoAssiduidade.fxml");
     }
 
     @FXML

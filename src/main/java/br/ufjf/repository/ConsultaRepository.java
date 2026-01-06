@@ -2,6 +2,7 @@ package br.ufjf.repository;
 
 import br.ufjf.model.Consulta;
 import br.ufjf.model.Medico;
+import br.ufjf.model.StatusConsulta;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
@@ -48,5 +49,16 @@ public class ConsultaRepository extends BaseRepository<Consulta> {
             }
         }
         return consultasMedico;
+    }
+
+    public void updateStatus(Consulta consulta, StatusConsulta statusConsulta) {
+        List<Consulta> consultas = loadAll();
+
+        for(Consulta c : consultas){
+            if(c.getId().equals(consulta.getId())){
+                c.setStatusConsulta(statusConsulta);
+                saveAll(consultas);
+            }
+        }
     }
 }

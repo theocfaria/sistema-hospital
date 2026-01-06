@@ -23,8 +23,8 @@
           }
         },
         "tipoDocumento": "ATESTADO",
-        "informacao": "aaa",
-        "diasAfastamento": 6
+        "informacao": "a",
+        "diasAfastamento": 1
       },
       {
         "consulta": {
@@ -42,7 +42,45 @@
           }
         },
         "tipoDocumento": "RECEITA",
-        "informacao": "bbb",
+        "informacao": "b",
+        "diasAfastamento": 0
+      },
+      {
+        "consulta": {
+          "id": "85df8756-49ff-48db-ad4c-8c761d6ddf1d",
+          "data": "2026-01-06",
+          "hora": "15:00",
+          "paciente": {
+            "name": "Denise",
+            "cpf": "111.111.111-11"
+          },
+          "medico": {
+            "duracao": 0,
+            "name": "Dr. João",
+            "cpf": "000.000.000-00"
+          }
+        },
+        "tipoDocumento": "ATESTADO",
+        "informacao": "aa",
+        "diasAfastamento": 23
+      },
+      {
+        "consulta": {
+          "id": "85df8756-49ff-48db-ad4c-8c761d6ddf1d",
+          "data": "2026-01-06",
+          "hora": "15:00",
+          "paciente": {
+            "name": "Denise",
+            "cpf": "111.111.111-11"
+          },
+          "medico": {
+            "duracao": 0,
+            "name": "Dr. João",
+            "cpf": "000.000.000-00"
+          }
+        },
+        "tipoDocumento": "RECEITA",
+        "informacao": "bb",
         "diasAfastamento": 0
       }
     ],

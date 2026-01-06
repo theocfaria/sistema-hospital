@@ -28,7 +28,7 @@
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="348.0" prefWidth="155.0" spacing="40.0" style="-fx-border-style: solid; -fx-border-color: gray; -fx-border-width: 2px; -fx-border-top-width: 0px;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="BtnAssiduidade" mnemonicParsing="false" text="Monitorar assiduidade" />
+            <Button fx:id="BtnAssiduidade" mnemonicParsing="false" onAction="#monitorarAssiduidade" text="Monitorar assiduidade" />
             <Button fx:id="BtnDocumentos" layoutX="34.0" layoutY="25.0" mnemonicParsing="false" onAction="#emitirDocumentos" text="Emitir documentos" />
             <Button fx:id="BtnAgenda" layoutX="34.0" layoutY="65.0" mnemonicParsing="false" onAction="#gerenciarAgenda" text="Gerenciar agenda" />
             <Button fx:id="BtnHistorico" layoutX="34.0" layoutY="105.0" mnemonicParsing="false" text="Histórico clínico" />

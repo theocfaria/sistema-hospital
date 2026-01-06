@@ -17,11 +17,11 @@ public class Pacient extends User {
         this.documentos = documentos != null ? documentos : new ArrayList<>();
     }
 
-    public List<Documento> getDocumento() {
+    public List<Documento> getDocumentos() {
         return documentos;
     }
 
-    public void setDocumento(List<Documento> documento) {
+    public void setDocumentos(List<Documento> documento) {
         this.documentos = documentos != null ? documentos : new ArrayList<>();
     }
 
