@@ -28,4 +28,9 @@ public class Pacient extends User {
     public String getDashboardFxml() {
         return "Pacient.fxml";
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

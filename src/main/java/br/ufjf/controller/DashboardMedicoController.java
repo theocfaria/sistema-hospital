@@ -45,7 +45,7 @@ public class DashboardMedicoController implements DashboardController, ChangeScr
 
     @FXML
     public void historicoClinico(){
-        carregarContent(user, content,"HistoricoClinico.fxml");
+        carregarContent(user, content,"medico/HistoricoClinico.fxml");
     }
 
     @FXML

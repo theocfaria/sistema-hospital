@@ -37,6 +37,7 @@ public class AssiduidadeController implements DashboardController {
     private AgendaController agenda;
     private ObservableList<Consulta> listaConsultas = FXCollections.observableArrayList();
 
+    @FXML
     public void initialize(){
         configurarColunas();
         consultaRepository = new ConsultaRepository();
@@ -72,8 +73,9 @@ public class AssiduidadeController implements DashboardController {
         LocalDate dataAtual = LocalDate.now();
 
         for(Consulta consulta : consultas){
-            if(consulta.getStatusConsulta() == StatusConsulta.AGENDADA && consulta.getData().isEqual(dataAtual) &&
-                    consulta.getHora().plusMinutes(medico.getDuracao()).isBefore(horaAtual)){
+            if(consulta.getStatusConsulta() == StatusConsulta.AGENDADA && ((consulta.getData().isEqual(dataAtual) &&
+                    consulta.getHora().plusMinutes(medico.getDuracao()).isBefore(horaAtual))||
+                    consulta.getData().isBefore(dataAtual))){
 
                 consulta.setStatusConsulta(StatusConsulta.FALTOU);
             }

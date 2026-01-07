@@ -27,6 +27,7 @@ public class DocumentosController implements DashboardController{
     Consulta consultaAtual;
     Medico medico;
 
+    @FXML
     public void initialize(){
         consultaRepository = new ConsultaRepository();
         documentoRepository = new DocumentoRepository();
