@@ -98,4 +98,15 @@ public class ConsultaRepository extends BaseRepository<Consulta> {
             }
         }
     }
+
+    public void updateDescricao(Consulta consulta, String descricao) {
+        List<Consulta> consultas = loadAll();
+
+        for(Consulta c : consultas){
+            if(c.getId().equals(consulta.getId())){
+                c.setDescricaoClinica(descricao);
+                saveAll(consultas);
+            }
+        }
+    }
 }

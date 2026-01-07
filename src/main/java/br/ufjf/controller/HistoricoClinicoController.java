@@ -24,24 +24,27 @@ public class HistoricoClinicoController implements DashboardController {
     @FXML private TableColumn<Consulta, String> colMedico;
     @FXML private RadioButton rbApto;
     @FXML private RadioButton rbNaoApto;
+    @FXML private TextArea txtEvolucao;
     @FXML private Button btnSalvar;
     @FXML private Button btnEdit;
 
     private ObservableList<Consulta> listaConsulta = FXCollections.observableArrayList();
     private Medico medico;
+    private Consulta consultaSelecionada;
     private ConsultaRepository consultaRepository;
 
     @FXML
     public void initialize() {
         consultaRepository = new ConsultaRepository();
         configurarColunas();
+        txtEvolucao.setEditable(false);
+        btnSalvar.setDisable(true);
     }
 
     @Override
     public void setUser(User user){
         this.medico = (Medico)user;
         carregarPacientes();
-        carregarTabela();
     }
 
     public void configurarColunas(){
@@ -59,12 +62,57 @@ public class HistoricoClinicoController implements DashboardController {
         cmbPacientes.getItems().addAll(pacientes);
     }
 
-    public void  carregarTabela(){
-        Pacient paciente = cmbPacientes.getValue();
-        List<Consulta> consultas = consultaRepository.findConsultabyPaciente(paciente.getCpf());
+    @FXML
+    public void pacienteSelecionado(){
+        Pacient pacienteSelected = cmbPacientes.getValue();
+
+        if(pacienteSelected != null){
+            carregarTabela(pacienteSelected);
+        }
+    }
+
+    public void  carregarTabela(Pacient pacienteSelected){
+        tabelaHistorico.getItems().clear();
+        List<Consulta> consultas = consultaRepository.findConsultabyPaciente(pacienteSelected.getCpf());
 
         listaConsulta.addAll(consultas);
         tabelaHistorico.setItems(listaConsulta);
     }
 
+    @FXML
+    public void editarDescricao(){
+        consultaSelecionada = tabelaHistorico.getSelectionModel().getSelectedItem();
+
+        if(consultaSelecionada==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Selecione alguma consulta para alterar a descrição");
+            alert.show();
+            return;
+        }
+
+        txtEvolucao.setEditable(true);
+        btnSalvar.setDisable(false);
+    }
+
+    @FXML
+    public void salvarDescricao(){
+        String descricaoClinica = txtEvolucao.getText();
+
+        if(descricaoClinica == null||descricaoClinica.isBlank()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Digite a descrição/evolução da consulta do paciente");
+            alert.show();
+            return;
+        }
+
+        consultaSelecionada.setDescricaoClinica(descricaoClinica);
+        consultaRepository.updateDescricao(consultaSelecionada, descricaoClinica);
+
+        tabelaHistorico.refresh();
+
+        txtEvolucao.setEditable(false);
+        txtEvolucao.clear();
+        btnSalvar.setDisable(true);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Descrição registrada com sucesso!");
+        alert.show();
+    }
 }
