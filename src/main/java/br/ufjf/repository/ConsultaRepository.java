@@ -75,6 +75,19 @@ public class ConsultaRepository extends BaseRepository<Consulta> {
         return pacientes;
     }
 
+    public List<Consulta> findConsultabyPaciente(String cpf){
+        List<Consulta> consultas = loadAll();
+
+        List<Consulta> consultasPaciente = new ArrayList<>();
+
+        for(Consulta consulta:consultas){
+            if(consulta.getPaciente().getCpf().equals(cpf)){
+                consultasPaciente.add(consulta);
+            }
+        }
+        return consultasPaciente;
+    }
+
     public void updateStatus(Consulta consulta, StatusConsulta statusConsulta) {
         List<Consulta> consultas = loadAll();
 

@@ -10,14 +10,16 @@ public class Consulta{
     private String hora;
     private Pacient paciente;
     private Medico medico;
+    private String descricaoClinica;
     private StatusConsulta statusConsulta;
 
-    public Consulta(LocalDate data, LocalTime hora, Pacient paciente, Medico medico, StatusConsulta statusConsulta) {
+    public Consulta(LocalDate data, LocalTime hora, Pacient paciente, Medico medico, String descricaoClinica, StatusConsulta statusConsulta) {
         this.id = UUID.randomUUID().toString();
         this.data = data.toString();
         this.hora = hora.toString();
         this.paciente = paciente;
         this.medico = medico;
+        this.descricaoClinica = descricaoClinica;
         this.statusConsulta = statusConsulta;
     }
 
@@ -26,6 +28,8 @@ public class Consulta{
     public LocalTime getHora() { return LocalTime.parse(hora); }
     public Pacient getPaciente() { return paciente; }
     public Medico getMedico() { return medico; }
+    public String getDescricaoClinica(){ return descricaoClinica; }
+    public void setDescricaoClinica(String descricaoClinica){ this.descricaoClinica = descricaoClinica;}
     public StatusConsulta getStatusConsulta() { return statusConsulta; }
     public void setStatusConsulta(StatusConsulta statusConsulta) { this.statusConsulta = statusConsulta; }
 

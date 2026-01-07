@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" prefHeight="500" prefWidth="800" spacing="15" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufjf.controller.HistoricoClinicoController">
+<VBox alignment="TOP_CENTER" prefHeight="500" prefWidth="800" spacing="15" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufjf.controller.HistoricoClinicoController">
 
     <padding>
         <Insets bottom="15" left="15" right="15" top="15" />
@@ -22,7 +22,7 @@
     <!-- Seleção do paciente -->
     <HBox alignment="CENTER_LEFT" spacing="10">
         <Label text="Paciente:" />
-        <ComboBox fx:id="cmbPacientes" prefWidth="300" />
+        <ComboBox fx:id="cmbPacientes" onAction="#pacienteSelecionado" prefWidth="300" />
       <Button fx:id="btnEdit" mnemonicParsing="false" text="Editar Descrição" />
     </HBox>
 
