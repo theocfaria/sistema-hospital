@@ -1,0 +1,40 @@
+[
+  {
+    "consulta": {
+      "id": "85df8546-49ef-44db-ad4c-8c361d6edf4d",
+      "data": "2026-01-08",
+      "hora": "15:00",
+      "paciente": {
+        "name": "Denise",
+        "cpf": "111.111.111-11"
+      },
+      "medico": {
+        "cpf": "000.000.000-00",
+        "name": "Dr. João"
+      },
+      "statusConsulta": "REALIZADA"
+    },
+    "tipoDocumento": "ATESTADO",
+    "informacao": "aaa",
+    "diasAfastamento": 3
+  },
+  {
+    "consulta": {
+      "id": "85df8546-49ef-44db-ad4c-8c361d6edf4d",
+      "data": "2026-01-08",
+      "hora": "15:00",
+      "paciente": {
+        "name": "Denise",
+        "cpf": "111.111.111-11"
+      },
+      "medico": {
+        "cpf": "000.000.000-00",
+        "name": "Dr. João"
+      },
+      "statusConsulta": "REALIZADA"
+    },
+    "tipoDocumento": "RECEITA",
+    "informacao": "aa",
+    "diasAfastamento": 0
+  }
+]

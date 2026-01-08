@@ -18,17 +18,14 @@
         <Insets bottom="15" left="15" right="15" top="15" />
     </padding>
 
-    <!-- Título -->
     <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Prontuário e Histórico Clínico" />
 
-    <!-- Seleção do paciente -->
     <HBox alignment="CENTER_LEFT" spacing="10">
         <Label text="Paciente:" />
         <ComboBox fx:id="cmbPacientes" onAction="#pacienteSelecionado" prefWidth="300" />
       <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#editarDescricao" text="Editar Dados" />
     </HBox>
 
-    <!-- Histórico clínico -->
     <TableView fx:id="tabelaHistorico" prefHeight="250" prefWidth="567.0">
 
         <columns>
@@ -39,14 +36,11 @@
 
     </TableView>
 
-    <!-- Evolução clínica -->
     <VBox spacing="5">
         <Label style="-fx-font-weight: bold;" text="Descrição / Evolução Clínica:" />
       <TextArea fx:id="txtEvolucao" prefHeight="200.0" prefWidth="200.0" />
     </VBox>
 
-
-    <!-- Status de internação -->
     <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-border-color: gray; -fx-padding: 10;">
 
         <Label style="-fx-font-weight: bold;" text="Status de Internação:" />
@@ -60,7 +54,6 @@
 
     </HBox>
 
-    <!-- Ações -->
     <HBox alignment="CENTER_RIGHT" spacing="15">
         <Button fx:id="btnSalvar" onAction="#salvarDescricao" text="Salvar Alterações" />
     </HBox>

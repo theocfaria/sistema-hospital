@@ -44,7 +44,12 @@ public class DocumentosController implements DashboardController{
         cbConsulta.getItems().clear();
 
         List<Consulta> consultas = consultaRepository.findByMedico(medico);
-        cbConsulta.getItems().addAll(consultas);
+
+        for(Consulta consulta:consultas){
+            if(consulta.getStatusConsulta()==StatusConsulta.REALIZADA){
+                cbConsulta.getItems().add(consulta);
+            }
+        }
         cbConsulta.setDisable(false);
     }
 

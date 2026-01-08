@@ -92,5 +92,36 @@
       "cpf": "000.000.000-00"
     },
     "statusConsulta": "FALTOU"
+  },
+  {
+    "id": "85df8546-49ff-44db-ad4c-8c361d6edf4d",
+    "data": "2026-01-08",
+    "hora": "14:30",
+    "paciente": {
+      "name": "Denise",
+      "cpf": "111.111.111-11"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    },
+    "descricaoClinica": "Ótimo estado",
+    "statusConsulta": "REALIZADA"
+  },
+  {
+    "id": "85df8546-49ef-44db-ad4c-8c361d6edf4d",
+    "data": "2026-01-08",
+    "hora": "15:00",
+    "paciente": {
+      "name": "Denise",
+      "cpf": "111.111.111-11"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    },
+    "statusConsulta": "REALIZADA"
   }
 ]

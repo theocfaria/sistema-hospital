@@ -1,7 +1,11 @@
 [
   {
     "diasAtendimento": [
-      "TUESDAY"
+      "MONDAY",
+      "TUESDAY",
+      "WEDNESDAY",
+      "THURSDAY",
+      "FRIDAY"
     ],
     "inicio": "08:00",
     "fim": "18:00",
