@@ -11,8 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/view/Login.fxml")
-        );
+                getClass().getResource("/view/Login.fxml"));
 
         Scene scene = new Scene(loader.load());
         stage.setScene(scene);
@@ -22,6 +21,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        Factory.populate(5);
         launch();
     }
 }

@@ -1,6 +1,6 @@
 package br.ufjf.controller;
 
-import br.ufjf.model.Medico;
+import br.ufjf.model.Pacient;
 import br.ufjf.model.User;
 import br.ufjf.navigation.ChangeScreen;
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-public class DashboardMedicoController implements DashboardController<Medico>, ChangeScreen {
+public class DashboardPacienteController implements DashboardController<Pacient>, ChangeScreen {
     @FXML
     private AnchorPane content;
     @FXML
@@ -20,33 +20,35 @@ public class DashboardMedicoController implements DashboardController<Medico>, C
     @FXML
     private Button BtnDocumentos;
     @FXML
-    private Button BtnPerfil;
+    private Button BtnHistoricoEDados;
     @FXML
     private Button BtnVisita;
     private User user;
 
     @Override
-    public void setUser(Medico user) {
+    public void setUser(Pacient user) {
         this.user = user;
         LblUsername.setText("Olá, " + user.getName());
     }
 
     @FXML
-    public void monitorarAssiduidade(){
-        carregarContent(user, content,"medico/MonitoramentoAssiduidade.fxml");
+    public void agendarConsultas() {
+        carregarContent(user, content, "paciente/agendarConsultas.fxml");
     }
 
     @FXML
-    public void emitirDocumentos(){ carregarContent(user, content,"medico/Documentos.fxml");}
-
-    @FXML
-    public void gerenciarAgenda() {
-        carregarContent(user, content, "medico/Agenda.fxml");
+    public void acessarDocumentos() {
+        carregarContent(user, content, "paciente/acessarDocumentos.fxml");
     }
 
     @FXML
-    public void historicoClinico(){
-        carregarContent(user, content,"medico/HistoricoClinico.fxml");
+    public void historicoEDados() {
+        carregarContent(user, content, "paciente/historicoEDados.fxml");
+    }
+
+    @FXML
+    public void checarVisitas() {
+        carregarContent(user, content, "paciente/checarVisitas.fxml");
     }
 
     @FXML

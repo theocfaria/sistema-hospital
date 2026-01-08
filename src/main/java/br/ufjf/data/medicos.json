@@ -6,9 +6,9 @@
     "inicio": "08:00",
     "fim": "18:00",
     "duracao": 30,
-    "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4c",
-    "name": "Dr. João",
-    "cpf": "000.000.000-00",
+    "id": "04d52790-badd-4fad-ba40-3bd7afaf72fe",
+    "name": "Dr. Leonardo Vasques",
+    "cpf": "077.401.202-19",
     "password": "password"
   },
   {
@@ -24,10 +24,17 @@
     "password": "password"
   },
   {
-    "duracao": 0,
-    "id": "7451117c-5aa7-4251-80b5-b04608bf16b3",
-    "name": "Aurora Resende Jr.",
-    "cpf": "282.503.415-03",
+    "diasAtendimento": [
+      "THURSDAY",
+      "SUNDAY",
+      "MONDAY"
+    ],
+    "inicio": "10:00",
+    "fim": "17:30",
+    "duracao": 30,
+    "id": "dca5b8f7-ffbc-4060-a8c5-5ec2728ff414",
+    "name": "Dr. Vitória Diegues",
+    "cpf": "880.468.663-42",
     "password": "password"
   }
 ]
