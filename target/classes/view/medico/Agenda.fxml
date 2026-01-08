@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" prefHeight="461.0" prefWidth="611.0" spacing="10" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufjf.controller.AgendaController">
+<VBox alignment="TOP_CENTER" prefHeight="461.0" prefWidth="611.0" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufjf.controller.AgendaController">
 
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
@@ -40,12 +40,11 @@
 
     <Button onAction="#gerarAgenda" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Ver agenda" />
 
-    <TableView fx:id="tabelaAgenda" prefHeight="287.0" prefWidth="496.0" VBox.vgrow="ALWAYS">
+    <TableView fx:id="tabelaAgenda" onMouseClicked="#alterarStatus" prefHeight="283.0" prefWidth="356.0" VBox.vgrow="ALWAYS">
         <columns>
-            <TableColumn fx:id="colData" prefWidth="120" text="Data" />
-            <TableColumn fx:id="colHora" prefWidth="100" text="Horário" />
-            <TableColumn fx:id="colPaciente" prefWidth="174.0" text="Paciente" />
-            <TableColumn fx:id="colStatus" prefWidth="176.0" text="Status" />
+            <TableColumn fx:id="colData" prefWidth="195.0" text="Data" />
+            <TableColumn fx:id="colHora" prefWidth="143.0" text="Horário" />
+            <TableColumn fx:id="colPaciente" prefWidth="232.0" text="Paciente" />
         </columns>
     </TableView>
 
