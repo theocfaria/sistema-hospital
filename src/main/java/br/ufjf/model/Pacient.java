@@ -10,6 +10,6 @@ public class Pacient extends User {
     }
 
     public String getDashboardFxml() {
-        return "Pacient.fxml";
+        return "DashboardPaciente.fxml";
     }
 }

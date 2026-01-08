@@ -3,7 +3,7 @@ package br.ufjf.model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Consulta{
+public class Consulta {
     private String data;
     private String hora;
     private Pacient paciente;
@@ -16,8 +16,19 @@ public class Consulta{
         this.medico = medico;
     }
 
-    public LocalDate getData() { return LocalDate.parse(data); }
-    public LocalTime getHora() { return LocalTime.parse(hora); }
-    public Pacient getPaciente() { return paciente; }
-    public Medico getMedico() { return medico; }
+    public LocalDate getData() {
+        return LocalDate.parse(data);
+    }
+
+    public LocalTime getHora() {
+        return LocalTime.parse(hora);
+    }
+
+    public Pacient getPaciente() {
+        return paciente;
+    }
+
+    public Medico getMedico() {
+        return medico;
+    }
 }
