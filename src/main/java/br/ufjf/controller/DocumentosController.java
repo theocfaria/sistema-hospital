@@ -1,0 +1,163 @@
+package br.ufjf.controller;
+
+import br.ufjf.model.*;
+import br.ufjf.repository.ConsultaRepository;
+import br.ufjf.repository.DocumentoRepository;
+import br.ufjf.repository.PacientRepository;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DocumentosController implements DashboardController{
+
+    @FXML private TextField txtPaciente;
+    @FXML private TextField txtCpf;
+    @FXML private TextField txtData;
+    @FXML private TextArea txtAtestado;
+    @FXML private TextArea txtReceita;
+    @FXML private TextField txtDiasAfastamento;
+    @FXML private ComboBox<Consulta> cbConsulta;
+    @FXML private Button btn;
+    ConsultaRepository  consultaRepository;
+    DocumentoRepository documentoRepository;
+    PacientRepository pacientRepository;
+
+    Consulta consultaAtual;
+    Medico medico;
+
+    @FXML
+    public void initialize(){
+        consultaRepository = new ConsultaRepository();
+        documentoRepository = new DocumentoRepository();
+        pacientRepository = new PacientRepository();
+    }
+
+    @Override
+    public void setUser(User user){
+        this.medico=(Medico)user;
+        carregarConsultas();
+    }
+
+    public void carregarConsultas(){
+        cbConsulta.getItems().clear();
+
+        List<Consulta> consultas = consultaRepository.findByMedico(medico);
+        cbConsulta.getItems().addAll(consultas);
+        cbConsulta.setDisable(false);
+    }
+
+    @FXML
+    public void consultaSelecionada(){
+        consultaAtual = cbConsulta.getValue();
+
+        if(consultaAtual != null){
+            preencherDadosConsulta(consultaAtual);
+        }
+    }
+
+    private void setConsultaAtual(Consulta consultaAtual){
+        this.consultaAtual = consultaAtual;
+    }
+
+    public void preencherDadosConsulta(Consulta consultaAtual){
+        txtPaciente.setText(consultaAtual.getPaciente().getName());
+        txtCpf.setText(consultaAtual.getPaciente().getCpf());
+        txtData.setText(consultaAtual.getData().toString());
+
+        txtPaciente.setEditable(false);
+        txtCpf.setEditable(false);
+        txtData.setEditable(false);
+    }
+
+    @FXML
+    private void gerarAtestado() {
+        String informacao = txtAtestado.getText();
+        int diasAfastamento = Integer.parseInt(txtDiasAfastamento.getText());
+
+        if(consultaAtual==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Selecione uma consulta");
+            alert.show();
+            return;
+        }
+
+        if(txtAtestado.getText().isBlank() || txtDiasAfastamento.getText().isBlank()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Nem todos os campos foram preenchidos");
+            alert.show();
+            return;
+        }
+        Documento atestado = new Documento(consultaAtual, TipoDocumento.ATESTADO, informacao, diasAfastamento);
+        documentoRepository.save(atestado);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION,"Atestado gerado com sucesso");
+        alert.show();
+    }
+
+    @FXML
+    private void enviarAtestado() {
+        if(consultaAtual==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Selecione uma consulta");
+            alert.show();
+            return;
+        }
+
+        Documento documento = documentoRepository.findDocumento(consultaAtual, TipoDocumento.ATESTADO);
+
+        if(documento==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Documento não encotrado");
+            alert.show();
+            return;
+        }
+
+        Pacient paciente = consultaAtual.getPaciente();
+        pacientRepository.updateDocumentos(paciente.getCpf(),documento);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Atestado enviado com sucesso");
+        alert.show();
+    }
+
+    @FXML
+    private void gerarReceita() {
+        String informacao = txtReceita.getText();
+
+        if(consultaAtual==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Selecione uma consulta");
+            alert.show();
+            return;
+        }
+
+        if(txtReceita.getText().isBlank()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Nem todos os campos foram preenchidos");
+            alert.show();
+            return;
+        }
+        Documento receita = new Documento(consultaAtual, TipoDocumento.RECEITA, informacao);
+        documentoRepository.save(receita);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION,"Receita gerada com sucesso");
+        alert.show();
+    }
+
+    @FXML
+    private void enviarReceita() {
+        if(consultaAtual==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Selecione uma consulta");
+            alert.show();
+            return;
+        }
+
+        Documento documento = documentoRepository.findDocumento(consultaAtual, TipoDocumento.RECEITA);
+
+        if(documento==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Documento não encotrado");
+            alert.show();
+            return;
+        }
+
+        String cpfPaciente = consultaAtual.getPaciente().getCpf();
+        Pacient paciente = pacientRepository.findByCPF(cpfPaciente);
+        pacientRepository.updateDocumentos(paciente.getCpf(),documento);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Receita enviada com sucesso");
+        alert.show();
+    }
+}

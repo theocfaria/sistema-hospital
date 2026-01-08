@@ -1,6 +1,7 @@
 [
   {
-    "data": "2025-12-31",
+    "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4d",
+    "data": "2026-01-05",
     "hora": "09:00",
     "paciente": {
       "name": "Maria",
@@ -10,10 +11,13 @@
       "duracao": 0,
       "name": "Dr. João",
       "cpf": "000.000.000-00"
-    }
+    },
+    "descricaoClinica": "Ótimo!",
+    "statusConsulta": "REALIZADA"
   },
   {
-    "data": "2025-12-31",
+    "id": "95df8756-49ff-48db-ad4c-8c761d6ddf4d",
+    "data": "2026-01-05",
     "hora": "13:00",
     "paciente": {
       "name": "Denise",
@@ -23,67 +27,70 @@
       "duracao": 0,
       "name": "Dr. João",
       "cpf": "000.000.000-00"
-    }
+    },
+    "descricaoClinica": "Ótimo estado",
+    "statusConsulta": "REALIZADA"
   },
   {
-    "data": "2025-12-31",
-    "hora": "17:00",
+    "id": "851f8756-49ff-48db-ad4c-8c361d6ddf4d",
+    "data": "2026-01-06",
+    "hora": "10:00",
     "paciente": {
-      "name": "Ana",
-      "cpf": "222.222.222-22"
+      "name": "Denise",
+      "cpf": "111.111.111-11"
     },
     "medico": {
       "duracao": 0,
-      "name": "Dr. Jonas",
-      "cpf": "999.999.999-99"
-    }
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    },
+    "descricaoClinica": "Ótimo estado!",
+    "statusConsulta": "FALTOU"
   },
   {
-    "data": "2026-01-09",
+    "id": "85df8756-49ff-48db-ad4c-8c361d6ddf4d",
+    "data": "2026-01-06",
+    "hora": "12:02",
+    "paciente": {
+      "name": "Denise",
+      "cpf": "111.111.111-11"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    },
+    "descricaoClinica": "Ótimo.",
+    "statusConsulta": "FALTOU"
+  },
+  {
+    "id": "85df8756-49ff-48db-ad4c-8c361d6edf4d",
+    "data": "2026-01-06",
+    "hora": "12:11",
+    "paciente": {
+      "name": "Denise",
+      "cpf": "111.111.111-11"
+    },
+    "medico": {
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
+    },
+    "statusConsulta": "REALIZADA"
+  },
+  {
+    "id": "85df8756-49ff-44db-ad4c-8c361d6edf4d",
+    "data": "2026-01-06",
     "hora": "15:00",
     "paciente": {
-      "id": "b40c875f-7c8e-42cb-8bec-4bec2eec5edd",
-      "name": "João Luca Ramalho",
-      "cpf": "503.112.410-50",
-      "password": "password"
+      "name": "Denise",
+      "cpf": "111.111.111-11"
     },
     "medico": {
-      "diasAtendimento": [
-        "FRIDAY",
-        "SATURDAY",
-        "SUNDAY"
-      ],
-      "inicio": "10:30",
-      "fim": "16:00",
-      "duracao": 30,
-      "id": "a4e720af-8c8e-4672-b6ac-97dea3aa8d2d",
-      "name": "Dr. Isaac Neves",
-      "cpf": "131.458.042-60",
-      "password": "password"
-    }
-  },
-  {
-    "data": "2026-01-10",
-    "hora": "12:00",
-    "paciente": {
-      "id": "b40c875f-7c8e-42cb-8bec-4bec2eec5edd",
-      "name": "João Luca Ramalho",
-      "cpf": "503.112.410-50",
-      "password": "password"
+      "duracao": 0,
+      "name": "Dr. João",
+      "cpf": "000.000.000-00"
     },
-    "medico": {
-      "diasAtendimento": [
-        "FRIDAY",
-        "SATURDAY",
-        "SUNDAY"
-      ],
-      "inicio": "10:30",
-      "fim": "16:00",
-      "duracao": 30,
-      "id": "a4e720af-8c8e-4672-b6ac-97dea3aa8d2d",
-      "name": "Dr. Isaac Neves",
-      "cpf": "131.458.042-60",
-      "password": "password"
-    }
+    "statusConsulta": "FALTOU"
   }
 ]

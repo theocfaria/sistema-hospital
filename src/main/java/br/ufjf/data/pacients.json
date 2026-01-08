@@ -1,32 +1,68 @@
 [
   {
-    "id": "b40c875f-7c8e-42cb-8bec-4bec2eec5edd",
-    "name": "João Luca Ramalho",
-    "cpf": "503.112.410-50",
+    "documentos": [
+      {
+        "consulta": {
+          "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4d",
+          "data": "2026-01-05",
+          "hora": "09:00",
+          "paciente": {
+            "name": "Maria",
+            "cpf": "333-333-333-33"
+          },
+          "medico": {
+            "duracao": 0,
+            "name": "Dr. João",
+            "cpf": "000.000.000-00"
+          },
+          "descricaoClinica": "Ótimo!",
+          "statusConsulta": "REALIZADA"
+        },
+        "tipoDocumento": "ATESTADO",
+        "informacao": "aaaa",
+        "diasAfastamento": 3
+      },
+      {
+        "consulta": {
+          "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4d",
+          "data": "2026-01-05",
+          "hora": "09:00",
+          "paciente": {
+            "name": "Maria",
+            "cpf": "333-333-333-33"
+          },
+          "medico": {
+            "duracao": 0,
+            "name": "Dr. João",
+            "cpf": "000.000.000-00"
+          },
+          "descricaoClinica": "Ótimo!",
+          "statusConsulta": "REALIZADA"
+        },
+        "tipoDocumento": "RECEITA",
+        "informacao": "bb",
+        "diasAfastamento": 0
+      }
+    ],
+    "statusInternacao": "NAO_INTERNADO",
+    "id": "d7fcd933-c8e7-48b6-89ca-96d7dc737342",
+    "name": "Maria",
+    "cpf": "333-333-333-33",
     "password": "password"
   },
   {
-    "id": "ee416a30-649e-4bb8-baf3-77dc9cf1dc57",
-    "name": "Lucca Pinto",
-    "cpf": "102.465.610-17",
+    "documentos": [],
+    "statusInternacao": "NAO_INTERNADO",
+    "id": "7f6372b5-08eb-4c12-ade1-a80ca4f9175f",
+    "name": "Denise",
+    "cpf": "111.111.111-11",
     "password": "password"
   },
   {
-    "id": "dd5a7b4b-7167-42d6-be27-4234158ecc8f",
-    "name": "Breno dos Reis Jr.",
-    "cpf": "441.454.807-16",
-    "password": "password"
-  },
-  {
-    "id": "60acdc18-a598-45ab-9719-9b9d1f279445",
-    "name": "João Lucas Macedo",
-    "cpf": "168.367.580-00",
-    "password": "password"
-  },
-  {
-    "id": "0242eb4f-ea4e-4d4c-96a9-3790da669282",
-    "name": "João Felipe Resende Filho",
-    "cpf": "833.225.550-38",
+    "documentos": [],
+    "id": "8e471d4e-ad83-4cae-b700-64c01e9d1c38",
+    "name": "Ana",
+    "cpf": "222.222.222-22",
     "password": "password"
   }
 ]

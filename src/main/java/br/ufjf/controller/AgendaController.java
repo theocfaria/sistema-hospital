@@ -8,6 +8,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -57,9 +59,9 @@ public class AgendaController implements DashboardController<Medico> {
         try {
             listaSlots.clear();
 
-            LocalTime inicio = LocalTime.parse(txtInicio.getText());
-            LocalTime fim = LocalTime.parse(txtFim.getText());
-            int duracao = Integer.parseInt(txtDuracao.getText());
+            LocalTime inicio = medico.getInicio();
+            LocalTime fim = medico.getFim();
+            int duracao = medico.getDuracao();
 
             List<DayOfWeek> diasSelecionados = medico.getDiasAtendimento();
             if (diasSelecionados.isEmpty()) {
@@ -78,8 +80,8 @@ public class AgendaController implements DashboardController<Medico> {
 
                     while (tempoAtual.plusMinutes(duracao).isBefore(fim.plusSeconds(1))) {
                         Consulta consulta = consultaRepository.findConsulta(medico, dataAlvo, tempoAtual);
-                        Pacient paciente = (consulta != null) ? consulta.getPaciente() : null;
-                        listaSlots.add(new Slot(dataAlvo, tempoAtual, paciente));
+                        Pacient paciente = (consulta!=null) ? consulta.getPaciente() : null;
+                        listaSlots.add(new Slot(dataAlvo, tempoAtual, paciente, consulta));
 
                         tempoAtual = tempoAtual.plusMinutes(duracao);
                     }
@@ -95,15 +97,21 @@ public class AgendaController implements DashboardController<Medico> {
     @FXML
     public void salvarHorarios() {
         List<DayOfWeek> diasSelecionados = obterDiasSelecionados();
-        LocalTime inicio = medico.getInicio();
-        LocalTime fim = medico.getFim();
-        int duracao = medico.getDuracao();
+        LocalTime inicio = LocalTime.parse(txtInicio.getText());;
+        LocalTime fim = LocalTime.parse(txtFim.getText());;;
+        int duracao = Integer.parseInt(txtDuracao.getText());
 
         if (diasSelecionados.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Nenhum dia para atendimento selecionado");
             alert.show();
             return;
         }
+
+        medico.setDiasAtendimento(diasSelecionados);
+        medico.setInicio(inicio);
+        medico.setFim(fim);
+        medico.setDuracao(duracao);
+
         medicoRepository.updateHorarios(medico.getCpf(), diasSelecionados, inicio, fim, duracao);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION, "Dias de atendimento salvos com sucesso");
@@ -124,5 +132,28 @@ public class AgendaController implements DashboardController<Medico> {
             dias.add(DayOfWeek.FRIDAY);
 
         return dias;
+    }
+
+    public void verificaFalta(List<Consulta> consultas){
+        for(Consulta consulta : consultas){
+
+        }
+    }
+
+    @FXML
+    public void alterarStatus(MouseEvent event) {
+        if(event.getClickCount()==2){
+            Consulta consulta = tabelaAgenda.getSelectionModel().getSelectedItem().getConsulta();
+
+            if(consulta==null){
+                return;
+            }
+
+            if(consulta.getStatusConsulta()==StatusConsulta.AGENDADA){
+                consulta.setStatusConsulta(StatusConsulta.REALIZADA);
+                consultaRepository.save(consulta);
+                tabelaAgenda.refresh();
+            }
+        }
     }
 }

@@ -32,14 +32,12 @@ public class DashboardMedicoController implements DashboardController<Medico>, C
     }
 
     @FXML
-    public void monitorarAssiduidade() {
-        carregarContent(user, content, "MonitorarAssiduidade.fxml");
+    public void monitorarAssiduidade(){
+        carregarContent(user, content,"medico/MonitoramentoAssiduidade.fxml");
     }
 
     @FXML
-    public void emitirDocumentos() {
-        carregarContent(user, content, "EmitirDocumentos.fxml");
-    }
+    public void emitirDocumentos(){ carregarContent(user, content,"medico/Documentos.fxml");}
 
     @FXML
     public void gerenciarAgenda() {
@@ -47,8 +45,8 @@ public class DashboardMedicoController implements DashboardController<Medico>, C
     }
 
     @FXML
-    public void historicoClinico() {
-        carregarContent(user, content, "HistoricoClinico.fxml");
+    public void historicoClinico(){
+        carregarContent(user, content,"medico/HistoricoClinico.fxml");
     }
 
     @FXML
