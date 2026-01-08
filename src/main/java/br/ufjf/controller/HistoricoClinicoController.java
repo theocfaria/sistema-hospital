@@ -38,6 +38,7 @@ public class HistoricoClinicoController implements DashboardController {
     public void initialize() {
         consultaRepository = new ConsultaRepository();
         pacientRepository = new PacientRepository();
+
         txtEvolucao.setEditable(false);
         btnSalvar.setDisable(true);
 
@@ -80,12 +81,12 @@ public class HistoricoClinicoController implements DashboardController {
         Pacient pacienteSelected = cmbPacientes.getValue();
 
         if(pacienteSelected != null){
-            btnSalvar.setDisable(true);
             grupoInternacao.selectToggle(null);
-
             rbApto.setDisable(true);
             rbNaoApto.setDisable(true);
             rbNaoInternado.setDisable(true);
+
+            btnSalvar.setDisable(true);
             txtEvolucao.clear();
             carregarTabela(pacienteSelected);
         }
