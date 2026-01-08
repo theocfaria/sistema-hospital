@@ -31,7 +31,7 @@ public class Pacient extends User {
     public StatusInternacao getStatusInternacao(){ return statusInternacao; }
 
     public String getDashboardFxml() {
-        return "DashboardPaciente.fxml";
+        return "Pacient.fxml";
     }
 
     @Override

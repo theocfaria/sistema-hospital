@@ -82,17 +82,6 @@ abstract class BaseUserRepository<T extends User> {
         return null;
     }
 
-    public T findByName(String name) {
-        List<T> elements = loadAll();
-
-        for (T element : elements) {
-            if (element.getName().toString().equals(name)) {
-                return element;
-            }
-        }
-        return null;
-    }
-
     public void updateByID(String id, String name, String password) {
         List<T> elements = loadAll();
 

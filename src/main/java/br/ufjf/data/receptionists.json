@@ -1,32 +1,20 @@
 [
   {
-    "id": "da9adb3f-dd2d-4579-bd64-838039ed8826",
-    "name": "Carla Gomes",
-    "cpf": "550.751.356-25",
+    "id": "dc8f1b45-4658-407e-947c-bd19efae7f89",
+    "name": "Louise Fontinhas",
+    "cpf": "514.834.687-63",
     "password": "password"
   },
   {
-    "id": "817ec84b-cdc2-4176-a0cf-4ac5322158ad",
-    "name": "Sirineu Raia",
-    "cpf": "877.643.712-46",
+    "id": "eaf4dbb0-4fde-442a-a082-5a29cbf94576",
+    "name": "Fábio Hernandes",
+    "cpf": "248.475.365-92",
     "password": "password"
   },
   {
-    "id": "6e2a9663-ddc0-40fe-aaef-17b74c667c9e",
-    "name": "Lucca Sales Neto",
-    "cpf": "110.257.353-15",
-    "password": "password"
-  },
-  {
-    "id": "64e05ec9-45e5-4ec6-85cb-eba5a83988d9",
-    "name": "Tertuliano Meira Filho",
-    "cpf": "146.081.701-04",
-    "password": "password"
-  },
-  {
-    "id": "05043f8b-6a73-4c52-99da-a25c6d5c1bbf",
-    "name": "João Samuel Guedes",
-    "cpf": "114.001.006-90",
+    "id": "2d67bf3e-ba00-4812-830d-95e35e521b6d",
+    "name": "Luna Veloso",
+    "cpf": "126.717.557-59",
     "password": "password"
   }
 ]

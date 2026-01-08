@@ -14,8 +14,7 @@ public class Medico extends User {
         super();
     }
 
-    public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento, String inicio, String fim,
-            int duracao) {
+    public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento, String inicio, String fim, int duracao) {
         super(name, cpf, password);
         this.diasAtendimento = diasAtendimento;
         this.inicio = inicio;
@@ -26,11 +25,9 @@ public class Medico extends User {
     public String getDashboardFxml() {
         return "DashboardMedico.fxml";
     }
-
     public void setDiasAtendimento(List<DayOfWeek> diasAtendimento) {
         this.diasAtendimento = diasAtendimento;
     }
-
     public List<DayOfWeek> getDiasAtendimento() {
         return this.diasAtendimento;
     }
