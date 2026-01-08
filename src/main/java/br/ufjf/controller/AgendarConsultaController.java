@@ -56,8 +56,8 @@ public class AgendarConsultaController implements DashboardController<Pacient>, 
 
         availabilityTable.setItems(listaSlots);
 
-        List<Medico> medicosReais = medico_repo.loadAll();
-        doctorComboBox.setItems(FXCollections.observableArrayList(medicosReais));
+        List<Medico> medicos = medico_repo.loadAll();
+        doctorComboBox.setItems(FXCollections.observableArrayList(medicos));
 
         doctorComboBox.setConverter(new javafx.util.StringConverter<Medico>() {
             @Override

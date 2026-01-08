@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" prefHeight="500" prefWidth="700" spacing="15" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufjf.controller.DocumentosController">
+
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <!-- TÍTULO -->
+    <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Documentos Médicos" />
+
+    <!-- DADOS DO PACIENTE -->
+    <GridPane hgap="10" vgap="10">
+        <Label text="Paciente:" GridPane.columnIndex="1" />
+        <TextField fx:id="txtPaciente" editable="false" GridPane.columnIndex="2" />
+
+        <Label text="CPF:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="txtCpf" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+        <Label text="Data:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="txtData" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <ComboBox fx:id="cbConsulta" onAction="#consultaSelecionada" prefWidth="150.0" promptText="Selecione a consulta" visibleRowCount="3" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <!-- ABAS -->
+    <TabPane prefHeight="350">
+
+        <!-- ================= ATESTADO ================= -->
+        <Tab closable="false" text="Atestado Médico">
+            <VBox spacing="10">
+
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+
+                <Label text="Motivo / Observações:" />
+                <TextArea fx:id="txtAtestado" prefRowCount="6" wrapText="true" />
+
+                <HBox spacing="10">
+                    <Label text="Dias de afastamento:" />
+                    <TextField fx:id="txtDiasAfastamento" prefWidth="80" />
+                </HBox>
+
+                <HBox alignment="CENTER_RIGHT" spacing="10">
+                    <Button onAction="#gerarAtestado" text="Gerar Atestado" />
+                    <Button onAction="#enviarAtestado" text="Enviar Digitalmente" />
+                </HBox>
+
+            </VBox>
+        </Tab>
+
+        <!-- ================= RECEITA ================= -->
+        <Tab closable="false" text="Receita Médica">
+            <VBox spacing="10">
+
+                <padding>
+                    <Insets bottom="10" left="10" right="10" top="10" />
+                </padding>
+
+                <Label text="Receita:" />
+                <TextArea fx:id="txtReceita" prefRowCount="8" wrapText="true" />
+
+                <HBox alignment="CENTER_RIGHT" spacing="10">
+                    <Button onAction="#gerarReceita" text="Gerar Receita" />
+                    <Button onAction="#enviarReceita" text="Enviar Digitalmente" />
+                </HBox>
+
+            </VBox>
+        </Tab>
+
+    </TabPane>
+
+</VBox>
