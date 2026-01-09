@@ -62,10 +62,6 @@ public class DocumentosController implements DashboardController<Medico>{
         }
     }
 
-    private void setConsultaAtual(Consulta consultaAtual){
-        this.consultaAtual = consultaAtual;
-    }
-
     public void preencherDadosConsulta(Consulta consultaAtual){
         txtPaciente.setText(consultaAtual.getPaciente().getName());
         txtCpf.setText(consultaAtual.getPaciente().getCpf());

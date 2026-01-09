@@ -1,8 +1,6 @@
 package br.ufjf.model;
 
-import javax.print.Doc;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Pacient extends User {
@@ -13,7 +11,8 @@ public class Pacient extends User {
         super();
     }
 
-    public Pacient(String name, String cpf, String password, List<Documento> documentos, StatusInternacao statusInternacao) {
+    public Pacient(String name, String cpf, String password, List<Documento> documentos,
+            StatusInternacao statusInternacao) {
         super(name, cpf, password);
         this.documentos = documentos != null ? documentos : new ArrayList<>();
         this.statusInternacao = statusInternacao;
@@ -23,15 +22,44 @@ public class Pacient extends User {
         return documentos;
     }
 
+    public List<Documento> getAtestados() {
+        documentos = getDocumentos();
+        List<Documento> atestados = new ArrayList<>();
+
+        for (Documento documento : documentos) {
+            if (documento.getTipoDocumento() == TipoDocumento.ATESTADO)
+                atestados.add(documento);
+        }
+
+        return atestados;
+    }
+
+    public List<Documento> getReceitas() {
+        documentos = getDocumentos();
+        List<Documento> receitas = new ArrayList<>();
+
+        for (Documento documento : documentos) {
+            if (documento.getTipoDocumento() == TipoDocumento.RECEITA)
+                receitas.add(documento);
+        }
+
+        return receitas;
+    }
+
     public void setDocumentos(List<Documento> documento) {
         this.documentos = documentos != null ? documentos : new ArrayList<>();
     }
 
-    public void setStatusInternacao(StatusInternacao statusInternacao){ this.statusInternacao = statusInternacao; }
-    public StatusInternacao getStatusInternacao(){ return statusInternacao; }
+    public void setStatusInternacao(StatusInternacao statusInternacao) {
+        this.statusInternacao = statusInternacao;
+    }
+
+    public StatusInternacao getStatusInternacao() {
+        return statusInternacao;
+    }
 
     public String getDashboardFxml() {
-        return "Pacient.fxml";
+        return "DashboardPaciente.fxml";
     }
 
     @Override

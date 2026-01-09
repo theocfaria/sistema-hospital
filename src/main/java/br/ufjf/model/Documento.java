@@ -7,7 +7,7 @@ public class Documento {
     private String informacao;
     private int diasAfastamento;
 
-    public Documento(Consulta consulta, TipoDocumento tipoDocumento, String informacao, int  diasAfastamento) {
+    public Documento(Consulta consulta, TipoDocumento tipoDocumento, String informacao, int diasAfastamento) {
         this.consulta = consulta;
         this.tipoDocumento = tipoDocumento;
         this.informacao = informacao;
@@ -34,6 +34,22 @@ public class Documento {
 
     public int getDiasAfastamento() {
         return diasAfastamento;
+    }
+
+    public String getData() {
+        return (consulta != null) ? consulta.getData().toString() : "";
+    }
+
+    public String getMedico() {
+        return (consulta != null) ? consulta.getMedico().getName() : "Não informado";
+    }
+
+    public String getTipo() {
+        return (tipoDocumento != null) ? tipoDocumento.toString() : "";
+    }
+
+    public String getDescricao() {
+        return informacao;
     }
 
     public void setConsulta(Consulta consulta) {
