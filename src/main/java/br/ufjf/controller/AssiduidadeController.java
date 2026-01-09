@@ -21,7 +21,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-public class AssiduidadeController implements DashboardController {
+public class AssiduidadeController implements DashboardController<Medico> {
 
     @FXML private TableView<Consulta> tabelaConsultas;
     @FXML private TableColumn<Consulta, String> colPaciente;
@@ -44,8 +44,8 @@ public class AssiduidadeController implements DashboardController {
     }
 
     @Override
-    public void setUser(User user){
-        this.medico=(Medico)user;
+    public void setUser(Medico user){
+        this.medico=user;
         verificarFalta();
         carregarConsultas();
     }

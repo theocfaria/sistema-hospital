@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HistoricoClinicoController implements DashboardController {
+public class HistoricoClinicoController implements DashboardController<Medico> {
 
     @FXML private ComboBox<Pacient> cmbPacientes;
     @FXML private TableView<Consulta> tabelaHistorico;
@@ -55,8 +55,8 @@ public class HistoricoClinicoController implements DashboardController {
     }
 
     @Override
-    public void setUser(User user){
-        this.medico = (Medico)user;
+    public void setUser(Medico user){
+        this.medico = user;
         carregarPacientes();
     }
 

@@ -37,7 +37,7 @@ public interface ChangeScreen {
 
             content.getChildren().clear();
 
-            DashboardController controller = loader.getController();
+            DashboardController<User> controller = loader.getController();
             controller.setUser(user);
 
             AnchorPane.setTopAnchor(tela, 0.0);

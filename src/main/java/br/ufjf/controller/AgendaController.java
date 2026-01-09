@@ -16,7 +16,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AgendaController implements DashboardController {
+public class AgendaController implements DashboardController<Medico> {
 
     @FXML private TextField txtInicio, txtFim, txtDuracao;
     @FXML private CheckBox chkSegunda, chkTerca, chkQuarta, chkQuinta, chkSexta;
@@ -32,8 +32,8 @@ public class AgendaController implements DashboardController {
     private ObservableList<Slot> listaSlots = FXCollections.observableArrayList();
 
     @Override
-    public void setUser(User user){
-        this.medico=(Medico)user;
+    public void setUser(Medico user){
+        this.medico=user;
 
         txtInicio.setText(medico.getInicio().toString());
         txtFim.setText(medico.getFim().toString());
@@ -134,21 +134,4 @@ public class AgendaController implements DashboardController {
         if(diasAtendimento.contains(DayOfWeek.THURSDAY)) chkQuinta.setSelected(true);
         if(diasAtendimento.contains(DayOfWeek.FRIDAY)) chkSexta.setSelected(true);
     }
-
-    /*@FXML
-    public void alterarStatus(MouseEvent event) {
-        if(event.getClickCount()==2){
-            Consulta consulta = tabelaAgenda.getSelectionModel().getSelectedItem().getConsulta();
-
-            if(consulta==null){
-                return;
-            }
-
-            if(consulta.getStatusConsulta()==StatusConsulta.AGENDADA){
-                consulta.setStatusConsulta(StatusConsulta.REALIZADA);
-                consultaRepository.save(consulta);
-                tabelaAgenda.refresh();
-            }
-        }
-    }*/
 }

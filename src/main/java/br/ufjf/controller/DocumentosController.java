@@ -10,7 +10,7 @@ import javafx.scene.control.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DocumentosController implements DashboardController{
+public class DocumentosController implements DashboardController<Medico>{
 
     @FXML private TextField txtPaciente;
     @FXML private TextField txtCpf;
@@ -35,8 +35,8 @@ public class DocumentosController implements DashboardController{
     }
 
     @Override
-    public void setUser(User user){
-        this.medico=(Medico)user;
+    public void setUser(Medico user){
+        this.medico=user;
         carregarConsultas();
     }
 

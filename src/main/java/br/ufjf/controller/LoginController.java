@@ -79,7 +79,7 @@ public class LoginController {
 
             Parent root= loader.load();
 
-            DashboardController controller = loader.getController();
+            DashboardController<User> controller = loader.getController();
             controller.setUser(user);
 
             Stage stage = (Stage)BtnLogin.getScene().getWindow();
