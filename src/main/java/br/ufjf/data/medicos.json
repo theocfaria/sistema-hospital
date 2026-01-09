@@ -1,10 +1,6 @@
 [
   {
     "diasAtendimento": [
-      "MONDAY",
-      "TUESDAY",
-      "WEDNESDAY",
-      "THURSDAY",
       "FRIDAY"
     ],
     "inicio": "08:00",

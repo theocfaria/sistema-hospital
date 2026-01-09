@@ -29,8 +29,8 @@
         <Label text="CPF:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <TextField fx:id="txtCpf" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
 
-        <Label text="Data:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <TextField fx:id="txtData" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Label text="Data e hora:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="txtDataHora" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <ComboBox fx:id="cbConsulta" onAction="#consultaSelecionada" prefWidth="150.0" promptText="Selecione a consulta" visibleRowCount="3" />
       <columnConstraints>
          <ColumnConstraints />

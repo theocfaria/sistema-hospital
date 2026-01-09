@@ -14,7 +14,7 @@ public class DocumentosController implements DashboardController{
 
     @FXML private TextField txtPaciente;
     @FXML private TextField txtCpf;
-    @FXML private TextField txtData;
+    @FXML private TextField txtDataHora;
     @FXML private TextArea txtAtestado;
     @FXML private TextArea txtReceita;
     @FXML private TextField txtDiasAfastamento;
@@ -69,11 +69,11 @@ public class DocumentosController implements DashboardController{
     public void preencherDadosConsulta(Consulta consultaAtual){
         txtPaciente.setText(consultaAtual.getPaciente().getName());
         txtCpf.setText(consultaAtual.getPaciente().getCpf());
-        txtData.setText(consultaAtual.getData().toString());
+        txtDataHora.setText(consultaAtual.getData().toString() + " | " + consultaAtual.getHora().toString());
 
         txtPaciente.setEditable(false);
         txtCpf.setEditable(false);
-        txtData.setEditable(false);
+        txtDataHora.setEditable(false);
     }
 
     @FXML
@@ -89,6 +89,11 @@ public class DocumentosController implements DashboardController{
 
         if(txtAtestado.getText().isBlank() || txtDiasAfastamento.getText().isBlank()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION,"Nem todos os campos foram preenchidos");
+            alert.show();
+            return;
+        }
+        if(documentoRepository.findDocumento(consultaAtual,TipoDocumento.ATESTADO)!=null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Já existe um atestado para essa consulta");
             alert.show();
             return;
         }
@@ -133,6 +138,11 @@ public class DocumentosController implements DashboardController{
 
         if(txtReceita.getText().isBlank()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION,"Nem todos os campos foram preenchidos");
+            alert.show();
+            return;
+        }
+        if(documentoRepository.findDocumento(consultaAtual,TipoDocumento.RECEITA)!=null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Já existe uma receita para essa consulta");
             alert.show();
             return;
         }
