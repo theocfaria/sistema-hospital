@@ -19,7 +19,7 @@
           "statusConsulta": "REALIZADA"
         },
         "tipoDocumento": "ATESTADO",
-        "informacao": "aaaa",
+        "informacao": "aaa",
         "diasAfastamento": 3
       },
       {
@@ -40,11 +40,11 @@
           "statusConsulta": "REALIZADA"
         },
         "tipoDocumento": "RECEITA",
-        "informacao": "bb",
+        "informacao": "b",
         "diasAfastamento": 0
       }
     ],
-    "statusInternacao": "NAO_INTERNADO",
+    "statusInternacao": "NAO_APTO",
     "id": "d7fcd933-c8e7-48b6-89ca-96d7dc737342",
     "name": "Maria",
     "cpf": "333-333-333-33",
@@ -59,7 +59,6 @@
     "password": "password"
   },
   {
-    "documentos": [],
     "id": "8e471d4e-ad83-4cae-b700-64c01e9d1c38",
     "name": "Ana",
     "cpf": "222.222.222-22",

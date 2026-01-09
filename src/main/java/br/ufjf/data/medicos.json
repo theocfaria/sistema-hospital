@@ -1,72 +1,33 @@
 [
   {
     "diasAtendimento": [
-      "TUESDAY",
-      "FRIDAY",
-      "SUNDAY"
+      "FRIDAY"
     ],
-    "inicio": "10:00",
-    "fim": "13:30",
+    "inicio": "08:00",
+    "fim": "18:00",
     "duracao": 30,
-    "id": "5c8f9999-b27a-4596-9979-df9270d223b5",
-    "name": "Dr. Maria Flor Diegues",
-    "cpf": "277.634.210-10",
+    "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4c",
+    "name": "Dr. João",
+    "cpf": "000.000.000-00",
     "password": "password"
   },
   {
     "diasAtendimento": [
-      "THURSDAY",
-      "FRIDAY",
-      "SATURDAY"
-    ],
-    "inicio": "09:00",
-    "fim": "14:00",
-    "duracao": 30,
-    "id": "39e614fb-4201-4c5e-9877-ac95c7e2f026",
-    "name": "Dr. Ana Lívia Carvalho",
-    "cpf": "815.047.653-97",
-    "password": "password"
-  },
-  {
-    "diasAtendimento": [
-      "WEDNESDAY",
-      "FRIDAY",
-      "SUNDAY"
-    ],
-    "inicio": "08:30",
-    "fim": "17:00",
-    "duracao": 30,
-    "id": "e2affc4d-9909-45fb-91fc-aa4cc159af20",
-    "name": "Dr. Natália Garcez Filho",
-    "cpf": "356.212.547-08",
-    "password": "password"
-  },
-  {
-    "diasAtendimento": [
-      "THURSDAY",
-      "MONDAY",
-      "SUNDAY"
-    ],
-    "inicio": "09:30",
-    "fim": "13:00",
-    "duracao": 30,
-    "id": "4586f3de-eae6-42e8-b949-79885745082e",
-    "name": "Dr. Dr. Núbia Jesus",
-    "cpf": "457.830.362-42",
-    "password": "password"
-  },
-  {
-    "diasAtendimento": [
-      "THURSDAY",
-      "FRIDAY",
       "TUESDAY"
     ],
     "inicio": "08:00",
-    "fim": "12:00",
+    "fim": "18:00",
     "duracao": 30,
-    "id": "b2b35134-cac0-4f0b-8167-7f919dcc980c",
-    "name": "Dr. Enzo Gabriel Figueira",
-    "cpf": "186.731.778-80",
+    "id": "fb8e550d-8390-49ba-8e60-984190437398",
+    "name": "Dr. Jonas",
+    "cpf": "999.999.999-99",
+    "password": "password"
+  },
+  {
+    "duracao": 0,
+    "id": "7451117c-5aa7-4251-80b5-b04608bf16b3",
+    "name": "Aurora Resende Jr.",
+    "cpf": "282.503.415-03",
     "password": "password"
   }
 ]

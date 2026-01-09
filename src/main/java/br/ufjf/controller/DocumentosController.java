@@ -10,11 +10,11 @@ import javafx.scene.control.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DocumentosController implements DashboardController{
+public class DocumentosController implements DashboardController<Medico>{
 
     @FXML private TextField txtPaciente;
     @FXML private TextField txtCpf;
-    @FXML private TextField txtData;
+    @FXML private TextField txtDataHora;
     @FXML private TextArea txtAtestado;
     @FXML private TextArea txtReceita;
     @FXML private TextField txtDiasAfastamento;
@@ -35,8 +35,8 @@ public class DocumentosController implements DashboardController{
     }
 
     @Override
-    public void setUser(User user){
-        this.medico=(Medico)user;
+    public void setUser(Medico user){
+        this.medico=user;
         carregarConsultas();
     }
 
@@ -44,7 +44,12 @@ public class DocumentosController implements DashboardController{
         cbConsulta.getItems().clear();
 
         List<Consulta> consultas = consultaRepository.findByMedico(medico);
-        cbConsulta.getItems().addAll(consultas);
+
+        for(Consulta consulta:consultas){
+            if(consulta.getStatusConsulta()==StatusConsulta.REALIZADA){
+                cbConsulta.getItems().add(consulta);
+            }
+        }
         cbConsulta.setDisable(false);
     }
 
@@ -57,18 +62,14 @@ public class DocumentosController implements DashboardController{
         }
     }
 
-    private void setConsultaAtual(Consulta consultaAtual){
-        this.consultaAtual = consultaAtual;
-    }
-
     public void preencherDadosConsulta(Consulta consultaAtual){
         txtPaciente.setText(consultaAtual.getPaciente().getName());
         txtCpf.setText(consultaAtual.getPaciente().getCpf());
-        txtData.setText(consultaAtual.getData().toString());
+        txtDataHora.setText(consultaAtual.getData().toString() + " | " + consultaAtual.getHora().toString());
 
         txtPaciente.setEditable(false);
         txtCpf.setEditable(false);
-        txtData.setEditable(false);
+        txtDataHora.setEditable(false);
     }
 
     @FXML
@@ -84,6 +85,11 @@ public class DocumentosController implements DashboardController{
 
         if(txtAtestado.getText().isBlank() || txtDiasAfastamento.getText().isBlank()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION,"Nem todos os campos foram preenchidos");
+            alert.show();
+            return;
+        }
+        if(documentoRepository.findDocumento(consultaAtual,TipoDocumento.ATESTADO)!=null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Já existe um atestado para essa consulta");
             alert.show();
             return;
         }
@@ -128,6 +134,11 @@ public class DocumentosController implements DashboardController{
 
         if(txtReceita.getText().isBlank()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION,"Nem todos os campos foram preenchidos");
+            alert.show();
+            return;
+        }
+        if(documentoRepository.findDocumento(consultaAtual,TipoDocumento.RECEITA)!=null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Já existe uma receita para essa consulta");
             alert.show();
             return;
         }

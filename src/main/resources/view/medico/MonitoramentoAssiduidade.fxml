@@ -14,11 +14,9 @@
         <Insets bottom="15" left="15" right="15" top="15" />
     </padding>
 
-    <!-- Título -->
     <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Monitoramento de Assiduidade" />
    <HBox prefHeight="100.0" prefWidth="200.0" />
 
-    <!-- Tabela de Consultas -->
     <TableView fx:id="tabelaConsultas" onMouseClicked="#alterarStatus" prefHeight="350">
 
         <columns>
@@ -31,7 +29,6 @@
 
     </TableView>
 
-    <!-- Ações -->
     <HBox alignment="CENTER_RIGHT" spacing="15">
         <Button fx:id="btnReagendar" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Reagendar Consulta" />
 

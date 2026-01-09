@@ -20,10 +20,8 @@
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
 
-    <!-- TÍTULO -->
     <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Documentos Médicos" />
 
-    <!-- DADOS DO PACIENTE -->
     <GridPane hgap="10" vgap="10">
         <Label text="Paciente:" GridPane.columnIndex="1" />
         <TextField fx:id="txtPaciente" editable="false" GridPane.columnIndex="2" />
@@ -31,8 +29,8 @@
         <Label text="CPF:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <TextField fx:id="txtCpf" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
 
-        <Label text="Data:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <TextField fx:id="txtData" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Label text="Data e hora:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="txtDataHora" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <ComboBox fx:id="cbConsulta" onAction="#consultaSelecionada" prefWidth="150.0" promptText="Selecione a consulta" visibleRowCount="3" />
       <columnConstraints>
          <ColumnConstraints />
@@ -46,10 +44,8 @@
       </rowConstraints>
     </GridPane>
 
-    <!-- ABAS -->
     <TabPane prefHeight="350">
 
-        <!-- ================= ATESTADO ================= -->
         <Tab closable="false" text="Atestado Médico">
             <VBox spacing="10">
 
@@ -73,7 +69,6 @@
             </VBox>
         </Tab>
 
-        <!-- ================= RECEITA ================= -->
         <Tab closable="false" text="Receita Médica">
             <VBox spacing="10">
 
