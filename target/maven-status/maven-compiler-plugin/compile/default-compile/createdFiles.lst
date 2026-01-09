@@ -35,6 +35,7 @@ br/ufjf/factory/ReceptionistFactory.class
 br/ufjf/controller/AssiduidadeController.class
 br/ufjf/factory/Factory.class
 br/ufjf/controller/HistoricoClinicoController.class
+br/ufjf/controller/VerificarVisitasController.class
 br/ufjf/model/Receptionist.class
 br/ufjf/serializer/MedicoResumoSerializer.class
 br/ufjf/repository/ConsultaRepository$1.class

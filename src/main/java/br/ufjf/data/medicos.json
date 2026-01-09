@@ -1,72 +1,72 @@
 [
   {
     "diasAtendimento": [
+      "TUESDAY",
       "FRIDAY",
-      "SUNDAY",
-      "MONDAY"
-    ],
-    "inicio": "10:30",
-    "fim": "14:00",
-    "duracao": 30,
-    "id": "ff9c79b6-8b77-4bf6-b1eb-a4297400e25c",
-    "name": "Dr. Srta. Fabiano Quaresma",
-    "cpf": "104.700.744-42",
-    "password": "password"
-  },
-  {
-    "diasAtendimento": [
-      "FRIDAY",
-      "WEDNESDAY",
       "SUNDAY"
     ],
-    "inicio": "11:30",
-    "fim": "16:00",
+    "inicio": "10:00",
+    "fim": "13:30",
     "duracao": 30,
-    "id": "8f80ca82-9a2d-400f-a91b-284da7532d4e",
-    "name": "Dr. Pedro Lucas Louzada",
-    "cpf": "757.435.204-61",
+    "id": "5c8f9999-b27a-4596-9979-df9270d223b5",
+    "name": "Dr. Maria Flor Diegues",
+    "cpf": "277.634.210-10",
     "password": "password"
   },
   {
     "diasAtendimento": [
       "THURSDAY",
-      "SATURDAY",
-      "MONDAY"
+      "FRIDAY",
+      "SATURDAY"
     ],
-    "inicio": "10:00",
-    "fim": "12:30",
+    "inicio": "09:00",
+    "fim": "14:00",
     "duracao": 30,
-    "id": "904a5c2a-4a56-4880-a423-ae71cdf8bd37",
-    "name": "Dr. Gúbio Mangueira",
-    "cpf": "372.104.203-47",
+    "id": "39e614fb-4201-4c5e-9877-ac95c7e2f026",
+    "name": "Dr. Ana Lívia Carvalho",
+    "cpf": "815.047.653-97",
     "password": "password"
   },
   {
     "diasAtendimento": [
       "WEDNESDAY",
-      "THURSDAY",
-      "FRIDAY"
+      "FRIDAY",
+      "SUNDAY"
     ],
-    "inicio": "08:00",
-    "fim": "12:30",
+    "inicio": "08:30",
+    "fim": "17:00",
     "duracao": 30,
-    "id": "7e74cb1a-26f7-42e7-99c5-7319efa276a5",
-    "name": "Dr. Talita Soeira",
-    "cpf": "525.457.284-11",
+    "id": "e2affc4d-9909-45fb-91fc-aa4cc159af20",
+    "name": "Dr. Natália Garcez Filho",
+    "cpf": "356.212.547-08",
     "password": "password"
   },
   {
     "diasAtendimento": [
+      "THURSDAY",
       "MONDAY",
-      "TUESDAY",
-      "SATURDAY"
+      "SUNDAY"
     ],
-    "inicio": "11:30",
-    "fim": "14:00",
+    "inicio": "09:30",
+    "fim": "13:00",
     "duracao": 30,
-    "id": "289c95cc-a333-47c4-b639-534b5a72294e",
-    "name": "Dr. Sr. Cecília Galvão",
-    "cpf": "545.416.617-05",
+    "id": "4586f3de-eae6-42e8-b949-79885745082e",
+    "name": "Dr. Dr. Núbia Jesus",
+    "cpf": "457.830.362-42",
+    "password": "password"
+  },
+  {
+    "diasAtendimento": [
+      "THURSDAY",
+      "FRIDAY",
+      "TUESDAY"
+    ],
+    "inicio": "08:00",
+    "fim": "12:00",
+    "duracao": 30,
+    "id": "b2b35134-cac0-4f0b-8167-7f919dcc980c",
+    "name": "Dr. Enzo Gabriel Figueira",
+    "cpf": "186.731.778-80",
     "password": "password"
   }
 ]

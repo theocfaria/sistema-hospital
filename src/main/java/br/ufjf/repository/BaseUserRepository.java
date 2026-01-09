@@ -93,6 +93,19 @@ abstract class BaseUserRepository<T extends User> {
         return null;
     }
 
+    public List<T> findManyByName(String name) {
+        List<T> elements = loadAll();
+        List<T> results = new ArrayList<>();
+
+        for (T element : elements) {
+            if (element.getName().contains(name)) {
+                results.add(element);
+            }
+        }
+
+        return results;
+    }
+
     public void updateByID(String id, String name, String password) {
         List<T> elements = loadAll();
 
