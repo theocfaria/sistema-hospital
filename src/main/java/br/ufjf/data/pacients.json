@@ -45,6 +45,9 @@
       }
     ],
     "statusInternacao": "NAO_APTO",
+    "email": "maria@gmail.com",
+    "telefone": "(32) 98888-8888",
+    "endereco": "Rua 2",
     "id": "d7fcd933-c8e7-48b6-89ca-96d7dc737342",
     "name": "Maria",
     "cpf": "333-333-333-33",

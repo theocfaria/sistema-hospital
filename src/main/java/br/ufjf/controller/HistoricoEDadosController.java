@@ -1,6 +1,8 @@
 package br.ufjf.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import br.ufjf.model.Pacient;
 import br.ufjf.repository.PacientRepository;
@@ -33,22 +35,36 @@ public class HistoricoEDadosController implements Initializable, DashboardContro
     @FXML
     private TableColumn<Documento, String> colData;
     @FXML
-    private TableColumn<Documento, String> colTipo;
-    @FXML
     private TableColumn<Documento, String> colDescricao;
     @FXML
     private TableColumn<Documento, String> colMedico;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Vinculação das colunas (Certifique-se que os nomes batem com os Getters em
-        // Documento)
         colData.setCellValueFactory(new PropertyValueFactory<>("data"));
-        colTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         colMedico.setCellValueFactory(new PropertyValueFactory<>("medico"));
 
         historyTable.setItems(listaHistorico);
+        historyTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2 && historyTable.getSelectionModel().getSelectedItem() != null) {
+                Documento doc = historyTable.getSelectionModel().getSelectedItem();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Detalhes do Registro Clínico");
+                alert.setHeaderText(doc.getTipo() + " - " + doc.getData());
+
+                String conteudo = "Médico: " + doc.getMedico() + "\n" +
+                        "Informação: " + doc.getInformacao();
+
+                if (doc.getDiasAfastamento() > 0) {
+                    conteudo += "\nDias de Afastamento: " + doc.getDiasAfastamento();
+                }
+
+                alert.setContentText(conteudo);
+                alert.showAndWait();
+            }
+        });
     }
 
     @Override
@@ -60,14 +76,16 @@ public class HistoricoEDadosController implements Initializable, DashboardContro
     }
 
     private void carregarDadosInterface() {
-        // 1. O QUE FALTA: Preencher os campos de texto com os dados atuais do paciente
         emailField.setText(user.getEmail());
         phoneField.setText(user.getTelefone());
-        addressField.setText(user.getEndereco()); // Assumindo que este getter existe em User/Pacient
+        addressField.setText(user.getEndereco());
 
-        // 2. Preencher a tabela
         if (user.getDocumentos() != null) {
-            listaHistorico.setAll(user.getDocumentos());
+            List<Documento> docs = new ArrayList<>(user.getDocumentos());
+
+            docs.sort((d1, d2) -> d2.getData().compareTo(d1.getData()));
+
+            listaHistorico.setAll(docs);
         }
     }
 
@@ -77,27 +95,22 @@ public class HistoricoEDadosController implements Initializable, DashboardContro
             return;
 
         try {
-            // 3. O QUE FALTA: Capturar todos os campos, incluindo endereço
             String novoEmail = emailField.getText().trim();
             String novoTelefone = phoneField.getText().trim();
             String novoEndereco = addressField.getText().trim();
 
-            // Validação simples
             if (novoEmail.isEmpty() || novoTelefone.isEmpty()) {
                 exibirAlerta("Erro", "Campos Obrigatórios", "E-mail e Telefone não podem estar vazios.",
                         Alert.AlertType.ERROR);
                 return;
             }
 
-            // Atualiza o objeto do usuário
             user.setEmail(novoEmail);
             user.setTelefone(novoTelefone);
             user.setEndereco(novoEndereco);
 
-            // Persiste no banco/repositório
             repo.update(user);
 
-            // 4. O QUE FALTA: Feedback visual de sucesso
             exibirAlerta("Sucesso", "Dados Atualizados", "Suas informações foram salvas com sucesso!",
                     Alert.AlertType.INFORMATION);
 
@@ -107,7 +120,6 @@ public class HistoricoEDadosController implements Initializable, DashboardContro
         }
     }
 
-    // Método auxiliar para mensagens na tela
     private void exibirAlerta(String titulo, String cabecalho, String conteudo, Alert.AlertType tipo) {
         Alert alerta = new Alert(tipo);
         alerta.setTitle(titulo);
