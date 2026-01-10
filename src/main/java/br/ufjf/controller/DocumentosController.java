@@ -82,7 +82,11 @@ public class DocumentosController implements DashboardController<Medico>{
             alert.show();
             return;
         }
-
+        if(consultaAtual.getDescricaoClinica()==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Primeiro registre a descrição clinica/evolução do paciente no menu Histórico Clínico");
+            alert.show();
+            return;
+        }
         if(txtAtestado.getText().isBlank() || txtDiasAfastamento.getText().isBlank()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION,"Nem todos os campos foram preenchidos");
             alert.show();

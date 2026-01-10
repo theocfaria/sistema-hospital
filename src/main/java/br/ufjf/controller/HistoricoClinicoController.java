@@ -2,6 +2,7 @@ package br.ufjf.controller;
 
 import br.ufjf.model.*;
 import br.ufjf.repository.ConsultaRepository;
+import br.ufjf.repository.DocumentoRepository;
 import br.ufjf.repository.PacientRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -38,6 +39,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
     public void initialize() {
         consultaRepository = new ConsultaRepository();
         pacientRepository = new PacientRepository();
+
         txtEvolucao.setEditable(false);
         btnSalvar.setDisable(true);
 
@@ -95,7 +97,11 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
         tabelaHistorico.getItems().clear();
         List<Consulta> consultas = consultaRepository.findConsultabyPaciente(pacienteSelected.getCpf());
 
-        listaConsulta.addAll(consultas);
+        for(Consulta consulta:consultas){
+            if(consulta.getStatusConsulta()==StatusConsulta.REALIZADA){
+                listaConsulta.add(consulta);
+            }
+        }
     }
 
     @FXML
@@ -121,13 +127,17 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
             rbNaoInternado.setSelected(true);
         }
 
-        txtEvolucao.setText(consultaSelecionada.getDescricaoClinica());
+        txtEvolucao.setEditable(true);
+
+        if(consultaSelecionada.getDescricaoClinica()!=null){
+            txtEvolucao.setText(consultaSelecionada.getDescricaoClinica());
+            txtEvolucao.setEditable(false);
+        }
 
         rbApto.setDisable(false);
         rbNaoApto.setDisable(false);
         rbNaoInternado.setDisable(false);
 
-        txtEvolucao.setEditable(true);
         btnSalvar.setDisable(false);
     }
 
@@ -143,7 +153,6 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
 
         consultaSelecionada.setDescricaoClinica(descricaoClinica);
         consultaRepository.updateDescricao(consultaSelecionada, descricaoClinica);
-
         tabelaHistorico.refresh();
 
         txtEvolucao.setEditable(false);
@@ -172,7 +181,6 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
             paciente.setStatusInternacao(StatusInternacao.NAO_INTERNADO);
             pacientRepository.updateStatusInternacao(paciente.getCpf(), StatusInternacao.NAO_INTERNADO);
         }
-
         return true;
     }
 }

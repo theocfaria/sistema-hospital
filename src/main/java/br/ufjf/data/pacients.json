@@ -15,12 +15,12 @@
             "name": "Dr. João",
             "cpf": "000.000.000-00"
           },
-          "descricaoClinica": "Ótimo!",
+          "descricaoClinica": "Ótimo estado",
           "statusConsulta": "REALIZADA"
         },
         "tipoDocumento": "ATESTADO",
-        "informacao": "aaa",
-        "diasAfastamento": 3
+        "informacao": "aa",
+        "diasAfastamento": 1
       },
       {
         "consulta": {
@@ -36,7 +36,7 @@
             "name": "Dr. João",
             "cpf": "000.000.000-00"
           },
-          "descricaoClinica": "Ótimo!",
+          "descricaoClinica": "Ótimo estado",
           "statusConsulta": "REALIZADA"
         },
         "tipoDocumento": "RECEITA",
