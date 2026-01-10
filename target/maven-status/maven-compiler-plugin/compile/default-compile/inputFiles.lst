@@ -16,6 +16,7 @@
 /home/theo/Projetos/java/sistema-hospitalar/src/main/java/br/ufjf/factory/Factory.java
 /home/theo/Projetos/java/sistema-hospitalar/src/main/java/br/ufjf/repository/MedicoRepository.java
 /home/theo/Projetos/java/sistema-hospitalar/src/main/java/br/ufjf/repository/BaseRepository.java
+/home/theo/Projetos/java/sistema-hospitalar/src/main/java/br/ufjf/controller/HistoricoEDadosController.java
 /home/theo/Projetos/java/sistema-hospitalar/src/main/java/br/ufjf/model/Consulta.java
 /home/theo/Projetos/java/sistema-hospitalar/src/main/java/br/ufjf/controller/VerificarVisitasController.java
 /home/theo/Projetos/java/sistema-hospitalar/src/main/java/br/ufjf/Main.java

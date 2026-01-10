@@ -8,6 +8,7 @@ br/ufjf/controller/DashboardPacienteController.class
 br/ufjf/controller/LoginController.class
 br/ufjf/factory/MedicoFactory.class
 br/ufjf/repository/ReceptionistRepository$1.class
+br/ufjf/controller/HistoricoEDadosController.class
 br/ufjf/model/Documento.class
 br/ufjf/model/Medico.class
 br/ufjf/navigation/ChangeScreen.class

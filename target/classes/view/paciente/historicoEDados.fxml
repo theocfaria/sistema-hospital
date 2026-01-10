@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufjf.controller.PerfilHistoricoController">
+<VBox alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufjf.controller.HistoricoEDadosController">
    <children>
       <VBox alignment="CENTER_LEFT" spacing="5.0">
          <children>
@@ -39,7 +39,7 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <GridPane hgap="15.0" vgap="15.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 5;">
+                        <GridPane hgap="15.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 5;" vgap="15.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
@@ -91,8 +91,7 @@
                         <TableView fx:id="historyTable" VBox.vgrow="ALWAYS">
                           <columns>
                             <TableColumn fx:id="colData" prefWidth="120.0" text="Data" />
-                            <TableColumn fx:id="colTipo" prefWidth="120.0" text="Tipo" />
-                            <TableColumn fx:id="colDescricao" prefWidth="250.0" text="Procedimento / Consulta" />
+                            <TableColumn fx:id="colDescricao" prefWidth="250.0" text="Evolução das Consultas" />
                             <TableColumn fx:id="colMedico" prefWidth="150.0" text="Profissional" />
                           </columns>
                            <columnResizePolicy>
