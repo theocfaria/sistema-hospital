@@ -28,6 +28,7 @@
       "name": "Dr. João",
       "cpf": "000.000.000-00"
     },
+    "descricaoClinica": "Ótimo estado!",
     "statusConsulta": "REALIZADA"
   },
   {
@@ -103,6 +104,7 @@
       "name": "Dr. João",
       "cpf": "000.000.000-00"
     },
+    "descricaoClinica": "Ótimo!",
     "statusConsulta": "REALIZADA"
   },
   {

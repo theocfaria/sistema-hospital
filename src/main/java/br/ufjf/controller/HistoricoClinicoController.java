@@ -36,7 +36,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
     private PacientRepository pacientRepository;
 
     @FXML
-    public void initialize() {
+    private void initialize() {
         consultaRepository = new ConsultaRepository();
         pacientRepository = new PacientRepository();
 
@@ -62,7 +62,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
         carregarPacientes();
     }
 
-    public void configurarColunas(){
+    private void configurarColunas(){
         colData.setCellValueFactory(new PropertyValueFactory<>("data"));
         colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricaoClinica"));
         colMedico.setCellValueFactory(new PropertyValueFactory<>("nomeMedico"));
@@ -70,7 +70,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
         tabelaHistorico.setItems(listaConsulta);
     }
 
-    public void carregarPacientes(){
+    private void carregarPacientes(){
         cmbPacientes.getItems().clear();
 
         List<Pacient> pacientes = consultaRepository.findPacientesbyMedico(medico);
@@ -78,7 +78,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
     }
 
     @FXML
-    public void pacienteSelecionado(){
+    private void pacienteSelecionado(){
         Pacient pacienteSelected = cmbPacientes.getValue();
 
         if(pacienteSelected != null){
@@ -93,7 +93,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
         }
     }
 
-    public void  carregarTabela(Pacient pacienteSelected){
+    private void  carregarTabela(Pacient pacienteSelected){
         tabelaHistorico.getItems().clear();
         List<Consulta> consultas = consultaRepository.findConsultabyPaciente(pacienteSelected.getCpf());
 
@@ -105,7 +105,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
     }
 
     @FXML
-    public void editarDescricao(){
+    private void editarDescricao(){
         consultaSelecionada = tabelaHistorico.getSelectionModel().getSelectedItem();
 
         if(consultaSelecionada==null){
@@ -142,7 +142,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
     }
 
     @FXML
-    public void salvarDescricao(){
+    private void salvarDescricao(){
         if(!mudarStatusInternacao(consultaSelecionada)){
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Selecione 1 opção para status de internação");
             alert.show();
@@ -164,7 +164,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
         alert.show();
     }
 
-    public boolean mudarStatusInternacao(Consulta consultaSelecionada){
+    private boolean mudarStatusInternacao(Consulta consultaSelecionada){
         if(!rbApto.isSelected() && !rbNaoApto.isSelected() && !rbNaoInternado.isSelected()){
             return false;
         }

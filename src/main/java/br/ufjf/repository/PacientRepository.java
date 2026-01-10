@@ -24,6 +24,10 @@ public class PacientRepository extends BaseUserRepository<Pacient> {
 
         for (Pacient paciente : pacientes) {
             if (paciente.getCpf().equals(cpf)) {
+                if(paciente.getDocumentos()==null){
+                    paciente.setDocumentos(new ArrayList<>());
+                }
+
                 if(!isExists(documento, paciente)) {
                     paciente.getDocumentos().add(documento);
                     saveAll(pacientes);

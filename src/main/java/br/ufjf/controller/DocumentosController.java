@@ -28,7 +28,7 @@ public class DocumentosController implements DashboardController<Medico>{
     Medico medico;
 
     @FXML
-    public void initialize(){
+    private void initialize(){
         consultaRepository = new ConsultaRepository();
         documentoRepository = new DocumentoRepository();
         pacientRepository = new PacientRepository();
@@ -40,7 +40,7 @@ public class DocumentosController implements DashboardController<Medico>{
         carregarConsultas();
     }
 
-    public void carregarConsultas(){
+    private void carregarConsultas(){
         cbConsulta.getItems().clear();
 
         List<Consulta> consultas = consultaRepository.findByMedico(medico);
@@ -62,7 +62,7 @@ public class DocumentosController implements DashboardController<Medico>{
         }
     }
 
-    public void preencherDadosConsulta(Consulta consultaAtual){
+    private void preencherDadosConsulta(Consulta consultaAtual){
         txtPaciente.setText(consultaAtual.getPaciente().getName());
         txtCpf.setText(consultaAtual.getPaciente().getCpf());
         txtDataHora.setText(consultaAtual.getData().toString() + " | " + consultaAtual.getHora().toString());
