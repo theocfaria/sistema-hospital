@@ -36,6 +36,9 @@ public class DashboardReceptionistController implements DashboardController<Rece
     }
 
     @FXML
+    public void monitorarFaltas() { carregarContent(user, content, "receptionist/MonitorarFaltas.fxml"); }
+
+    @FXML
     public void logout(){
         trocarTela(BtnLogout,"Login.fxml");
     }
