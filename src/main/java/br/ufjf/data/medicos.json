@@ -22,7 +22,7 @@
     "id": "fb8e550d-8390-49ba-8e60-984190437398",
     "name": "Dr. Jonas",
     "cpf": "999.999.999-99",
-    "password": "password"
+    "password": "password2"
   },
   {
     "duracao": "0",
@@ -30,5 +30,16 @@
     "name": "Aurora Resende Jr.",
     "cpf": "282.503.415-03",
     "password": "password"
+  },
+  {
+    "diasAtendimento": [],
+    "inicio": "08:00",
+    "fim": "16:00",
+    "duracao": "30",
+    "statusAtendimento": "DISPONIVEL",
+    "id": "5da8ebeb-9d78-454e-b3c0-15e92172db16",
+    "name": "Teste",
+    "cpf": "16164968607",
+    "password": "222"
   }
 ]

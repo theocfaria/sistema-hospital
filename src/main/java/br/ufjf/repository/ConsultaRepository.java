@@ -109,4 +109,23 @@ public class ConsultaRepository extends BaseRepository<Consulta> {
             }
         }
     }
+
+    public void updateDataHora(Consulta consultaEditada) {
+        List<Consulta> consultas = loadAll();
+        boolean encontrou = false;
+
+        for (int i = 0; i < consultas.size(); i++) {
+            if (consultas.get(i).getId().equals(consultaEditada.getId())) {
+                consultas.set(i, consultaEditada);
+                encontrou = true;
+                break;
+            }
+        }
+
+        if (encontrou) {
+            saveAll(consultas);
+        } else {
+            System.out.println("Erro: Consulta com ID " + consultaEditada.getId() + " não encontrada para atualização.");
+        }
+    }
 }

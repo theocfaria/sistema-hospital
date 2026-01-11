@@ -31,6 +31,8 @@ public abstract class User {
         return this.id;
     }
 
+    public void setCpf(String cpf) { this.cpf = cpf; }
+
     public String getName() {
         return this.name;
     }

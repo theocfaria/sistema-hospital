@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class LoginController {
     @FXML private TextField TxtCpf;
-    @FXML private TextField TxtPassword;
+    @FXML private PasswordField TxtPassword;
     @FXML private Button BtnLogin;
     private User usuarioLogado;
     PacientRepository  pacientRepository = new PacientRepository();
@@ -29,13 +30,13 @@ public class LoginController {
     ReceptionistRepository receptionistRepository = new ReceptionistRepository();
 
     private User verificarLogin(){
-        String cpf = TxtCpf.getText();
+        String cpf = TxtCpf.getText().trim().replaceAll("\\D", "");
         String password = TxtPassword.getText();
 
         List<Pacient> pacientes = pacientRepository.loadAll();
 
         for(Pacient paciente: pacientes){
-            if(paciente.getCpf().equals(cpf) && paciente.getPassword().equals(password)){
+            if(paciente.getCpf().trim().replaceAll("\\D", "").equals(cpf) && paciente.getPassword().equals(password)){
                 return paciente;
             }
         }
@@ -43,7 +44,7 @@ public class LoginController {
         List<Medico> medicos = medicoRepository.loadAll();
 
         for(Medico medico: medicos){
-            if(medico.getCpf().equals(cpf) && medico.getPassword().equals(password)){
+            if(medico.getCpf().trim().replaceAll("\\D", "").equals(cpf) && medico.getPassword().equals(password)){
                 return medico;
             }
         }
@@ -51,7 +52,7 @@ public class LoginController {
         List<Receptionist> receptionists = receptionistRepository.loadAll();
 
         for(Receptionist receptionist: receptionists){
-            if(receptionist.getCpf().equals(cpf) && receptionist.getPassword().equals(password)){
+            if(receptionist.getCpf().trim().replaceAll("\\D", "").equals(cpf) && receptionist.getPassword().equals(password)){
                 return receptionist;
             }
         }

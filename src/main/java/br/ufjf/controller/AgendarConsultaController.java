@@ -53,7 +53,10 @@ public class AgendarConsultaController implements DashboardController<Pacient>, 
 
         availabilityTable.setItems(listaSlots);
 
-        List<Medico> medicos = medico_repo.loadAll();
+        List<Medico> todosMedicos = medico_repo.loadAll();
+
+        List<Medico> medicos = todosMedicos.stream().filter(m -> m.getStatusAtendimento() != null && m.getStatusAtendimento() == StatusAtendimento.DISPONIVEL).toList();
+
         doctorComboBox.setItems(FXCollections.observableArrayList(medicos));
 
         doctorComboBox.setConverter(new javafx.util.StringConverter<Medico>() {

@@ -76,6 +76,18 @@ public class Consulta {
         return medico.getName();
     }
 
+    public void setData(LocalDate data) {
+        this.data = data.toString();
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public void setHora(LocalTime hora) {
+        this.hora = hora.toString();
+    }
+
     @Override
     public String toString() {
         return getData() + " | " + getPaciente().getName();
