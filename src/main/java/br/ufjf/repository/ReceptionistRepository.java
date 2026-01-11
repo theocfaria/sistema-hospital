@@ -15,4 +15,5 @@ public class ReceptionistRepository extends BaseUserRepository<Receptionist> {
         return new TypeToken<ArrayList<Receptionist>>() {
         }.getType();
     }
+
 }

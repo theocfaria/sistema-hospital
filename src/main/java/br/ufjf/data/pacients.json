@@ -1,0 +1,75 @@
+[
+  {
+    "documentos": [
+      {
+        "consulta": {
+          "id": "ef6cbd32-4fab-4d59-b7c1-1de553f44e97",
+          "data": "2026-01-14",
+          "hora": "16:00",
+          "paciente": {
+            "statusInternacao": "NAO_INTERNADO",
+            "email": "ryan@gmail.com",
+            "telefone": "(32) 99999-9999",
+            "endereco": "Rua 1",
+            "id": "a3ca0f26-334e-4ab8-ab93-09232c433a93",
+            "name": "Ryan",
+            "cpf": "603.532.726-55",
+            "password": "pass"
+          },
+          "medico": {
+            "name": "Dr. João",
+            "cpf": "858.773.506-33"
+          },
+          "descricaoClinica": "Paciente relatou dor ",
+          "statusConsulta": "REALIZADA"
+        },
+        "tipoDocumento": "ATESTADO",
+        "informacao": "Dor de cabeça",
+        "diasAfastamento": 3
+      },
+      {
+        "consulta": {
+          "id": "ef6cbd32-4fab-4d59-b7c1-1de553f44e97",
+          "data": "2026-01-14",
+          "hora": "16:00",
+          "paciente": {
+            "statusInternacao": "NAO_INTERNADO",
+            "email": "ryan@gmail.com",
+            "telefone": "(32) 99999-9999",
+            "endereco": "Rua 1",
+            "id": "a3ca0f26-334e-4ab8-ab93-09232c433a93",
+            "name": "Ryan",
+            "cpf": "603.532.726-55",
+            "password": "pass"
+          },
+          "medico": {
+            "name": "Dr. João",
+            "cpf": "858.773.506-33"
+          },
+          "descricaoClinica": "Paciente relatou dor ",
+          "statusConsulta": "REALIZADA"
+        },
+        "tipoDocumento": "RECEITA",
+        "informacao": "1 paracetamol"
+      }
+    ],
+    "statusInternacao": "NAO_INTERNADO",
+    "email": "ryan@gmail.com",
+    "telefone": "(32) 99999-9999",
+    "endereco": "Rua 1",
+    "id": "a3ca0f26-334e-4ab8-ab93-09232c433a93",
+    "name": "Ryan",
+    "cpf": "603.532.726-55",
+    "password": "pass"
+  },
+  {
+    "statusInternacao": "NAO_INTERNADO",
+    "email": "ryanguilherme@gmail.com",
+    "telefone": "(32) 99999-9999",
+    "endereco": "Rua 2",
+    "id": "71155d19-894a-4673-912f-67e6d9b733fa",
+    "name": "Ryan Guilherme",
+    "cpf": "852.495.836-79",
+    "password": "password"
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "ef6cbd32-4fab-4d59-b7c1-1de553f44e97",
+    "data": "2026-01-14",
+    "hora": "16:00",
+    "paciente": {
+      "statusInternacao": "NAO_INTERNADO",
+      "email": "ryan@gmail.com",
+      "telefone": "(32) 99999-9999",
+      "endereco": "Rua 1",
+      "id": "a3ca0f26-334e-4ab8-ab93-09232c433a93",
+      "name": "Ryan",
+      "cpf": "603.532.726-55",
+      "password": "pass"
+    },
+    "medico": {
+      "diasAtendimento": [
+        "WEDNESDAY"
+      ],
+      "inicio": "08:00",
+      "fim": "18:00",
+      "duracao": "30",
+      "statusAtendimento": "DISPONIVEL",
+      "id": "9d0e0b33-2c68-4173-ae3a-fbc4991bf5f9",
+      "name": "Dr. João",
+      "cpf": "858.773.506-33",
+      "password": "password"
+    },
+    "descricaoClinica": "Paciente relatou dor ",
+    "statusConsulta": "REALIZADA"
+  },
+  {
+    "id": "e30d5e15-d519-4923-a335-31793e1c8522",
+    "data": "2026-01-14",
+    "hora": "13:00",
+    "paciente": {
+      "documentos": [
+        {
+          "consulta": {
+            "id": "ef6cbd32-4fab-4d59-b7c1-1de553f44e97",
+            "data": "2026-01-14",
+            "hora": "16:00",
+            "paciente": {
+              "statusInternacao": "NAO_INTERNADO",
+              "email": "ryan@gmail.com",
+              "telefone": "(32) 99999-9999",
+              "endereco": "Rua 1",
+              "id": "a3ca0f26-334e-4ab8-ab93-09232c433a93",
+              "name": "Ryan",
+              "cpf": "603.532.726-55",
+              "password": "pass"
+            },
+            "medico": {
+              "name": "Dr. João",
+              "cpf": "858.773.506-33"
+            },
+            "descricaoClinica": "Paciente relatou dor ",
+            "statusConsulta": "REALIZADA"
+          },
+          "tipoDocumento": "ATESTADO",
+          "informacao": "Dor de cabeça",
+          "diasAfastamento": 3
+        },
+        {
+          "consulta": {
+            "id": "ef6cbd32-4fab-4d59-b7c1-1de553f44e97",
+            "data": "2026-01-14",
+            "hora": "16:00",
+            "paciente": {
+              "statusInternacao": "NAO_INTERNADO",
+              "email": "ryan@gmail.com",
+              "telefone": "(32) 99999-9999",
+              "endereco": "Rua 1",
+              "id": "a3ca0f26-334e-4ab8-ab93-09232c433a93",
+              "name": "Ryan",
+              "cpf": "603.532.726-55",
+              "password": "pass"
+            },
+            "medico": {
+              "name": "Dr. João",
+              "cpf": "858.773.506-33"
+            },
+            "descricaoClinica": "Paciente relatou dor ",
+            "statusConsulta": "REALIZADA"
+          },
+          "tipoDocumento": "RECEITA",
+          "informacao": "1 paracetamol"
+        }
+      ],
+      "statusInternacao": "NAO_INTERNADO",
+      "email": "ryan@gmail.com",
+      "telefone": "(32) 99999-9999",
+      "endereco": "Rua 1",
+      "id": "a3ca0f26-334e-4ab8-ab93-09232c433a93",
+      "name": "Ryan",
+      "cpf": "603.532.726-55",
+      "password": "pass"
+    },
+    "medico": {
+      "diasAtendimento": [
+        "WEDNESDAY"
+      ],
+      "inicio": "08:00",
+      "fim": "18:00",
+      "duracao": "30",
+      "statusAtendimento": "DISPONIVEL",
+      "id": "9d0e0b33-2c68-4173-ae3a-fbc4991bf5f9",
+      "name": "Dr. João",
+      "cpf": "858.773.506-33",
+      "password": "password"
+    },
+    "statusConsulta": "AGENDADA"
+  }
+]

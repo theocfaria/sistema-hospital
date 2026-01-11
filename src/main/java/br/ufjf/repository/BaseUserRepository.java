@@ -174,8 +174,6 @@ abstract class BaseUserRepository<T extends User> {
                 return true;
             }
         }
-
         return false;
-
     }
 }

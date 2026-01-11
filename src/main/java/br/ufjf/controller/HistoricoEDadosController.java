@@ -1,12 +1,15 @@
 package br.ufjf.controller;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import br.ufjf.model.Consulta;
 import br.ufjf.model.Pacient;
+import br.ufjf.repository.ConsultaRepository;
 import br.ufjf.repository.PacientRepository;
-import br.ufjf.model.Documento;
+import br.ufjf.helpers.AlertExibitor;
+import br.ufjf.helpers.TelefoneValidator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,8 +23,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class HistoricoEDadosController implements Initializable, DashboardController<Pacient> {
 
     private Pacient user;
-    private ObservableList<Documento> listaHistorico = FXCollections.observableArrayList();
-    private PacientRepository repo = new PacientRepository();
+    private ObservableList<Consulta> listaHistorico = FXCollections.observableArrayList();
+    private ConsultaRepository repo = new ConsultaRepository();
+    private PacientRepository repoPacient = new PacientRepository();
 
     @FXML
     private TextField emailField;
@@ -31,35 +35,31 @@ public class HistoricoEDadosController implements Initializable, DashboardContro
     private TextField addressField;
 
     @FXML
-    private TableView<Documento> historyTable;
+    private TableView<Consulta> historyTable;
     @FXML
-    private TableColumn<Documento, String> colData;
+    private TableColumn<Consulta, String> colData;
     @FXML
-    private TableColumn<Documento, String> colDescricao;
+    private TableColumn<Consulta, String> colDescricao;
     @FXML
-    private TableColumn<Documento, String> colMedico;
+    private TableColumn<Consulta, String> colMedico;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         colData.setCellValueFactory(new PropertyValueFactory<>("data"));
-        colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
-        colMedico.setCellValueFactory(new PropertyValueFactory<>("medico"));
+        colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricaoClinica"));
+        colMedico.setCellValueFactory(new PropertyValueFactory<>("nomeMedico"));
 
         historyTable.setItems(listaHistorico);
         historyTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2 && historyTable.getSelectionModel().getSelectedItem() != null) {
-                Documento doc = historyTable.getSelectionModel().getSelectedItem();
+                Consulta consulta = historyTable.getSelectionModel().getSelectedItem();
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Detalhes do Registro Clínico");
-                alert.setHeaderText(doc.getTipo() + " - " + doc.getData());
+                alert.setHeaderText(consulta.getData() + " - " + consulta.getHora());
 
-                String conteudo = "Médico: " + doc.getMedico() + "\n" +
-                        "Informação: " + doc.getInformacao();
-
-                if (doc.getDiasAfastamento() > 0) {
-                    conteudo += "\nDias de Afastamento: " + doc.getDiasAfastamento();
-                }
+                String conteudo = "Médico: " + consulta.getNomeMedico() + "\n" +
+                        "Informação: " + (consulta.getDescricaoClinica() != null? consulta.getDescricaoClinica() : "Sem informações disponíveis");
 
                 alert.setContentText(conteudo);
                 alert.showAndWait();
@@ -80,12 +80,11 @@ public class HistoricoEDadosController implements Initializable, DashboardContro
         phoneField.setText(user.getTelefone());
         addressField.setText(user.getEndereco());
 
-        if (user.getDocumentos() != null) {
-            List<Documento> docs = new ArrayList<>(user.getDocumentos());
 
-            docs.sort((d1, d2) -> d2.getData().compareTo(d1.getData()));
+        List<Consulta> consultas = repo.findConsultabyPaciente(user.getCpf());;
 
-            listaHistorico.setAll(docs);
+        if(consultas!=null){
+            listaHistorico.setAll(consultas);
         }
     }
 
@@ -99,32 +98,32 @@ public class HistoricoEDadosController implements Initializable, DashboardContro
             String novoTelefone = phoneField.getText().trim();
             String novoEndereco = addressField.getText().trim();
 
-            if (novoEmail.isEmpty() || novoTelefone.isEmpty()) {
-                exibirAlerta("Erro", "Campos Obrigatórios", "E-mail e Telefone não podem estar vazios.",
+            if (novoEmail.isEmpty() || novoTelefone.isEmpty() || novoEndereco.isEmpty()) {
+                AlertExibitor.exibirAlertaComplexo("Erro", "Campos Obrigatórios", "E-mail, Telefone  ou Endereço não podem estar vazios.",
                         Alert.AlertType.ERROR);
                 return;
             }
 
+            if(!TelefoneValidator.validaTelefone(novoTelefone)){
+                AlertExibitor.exibirAlerta("Telefone inválido");
+                return;
+            }
+
             user.setEmail(novoEmail);
-            user.setTelefone(novoTelefone);
+            String telefoneFormatado = TelefoneValidator.formatarTelefone(novoTelefone);
+            user.setTelefone(telefoneFormatado);
             user.setEndereco(novoEndereco);
 
-            repo.update(user);
+            repoPacient.update(user);
 
-            exibirAlerta("Sucesso", "Dados Atualizados", "Suas informações foram salvas com sucesso!",
+            phoneField.setText(telefoneFormatado);
+
+            AlertExibitor.exibirAlertaComplexo("Sucesso", "Dados Atualizados", "Suas informações foram salvas com sucesso!",
                     Alert.AlertType.INFORMATION);
 
         } catch (Exception e) {
-            exibirAlerta("Erro", "Falha ao Salvar", "Ocorreu um erro ao atualizar os dados: " + e.getMessage(),
+            AlertExibitor.exibirAlertaComplexo("Erro", "Falha ao Salvar", "Ocorreu um erro ao atualizar os dados: " + e.getMessage(),
                     Alert.AlertType.ERROR);
         }
-    }
-
-    private void exibirAlerta(String titulo, String cabecalho, String conteudo, Alert.AlertType tipo) {
-        Alert alerta = new Alert(tipo);
-        alerta.setTitle(titulo);
-        alerta.setHeaderText(cabecalho);
-        alerta.setContentText(conteudo);
-        alerta.showAndWait();
     }
 }

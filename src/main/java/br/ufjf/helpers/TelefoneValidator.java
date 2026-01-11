@@ -1,4 +1,4 @@
-package br.ufjf.utils;
+package br.ufjf.helpers;
 
 public class TelefoneValidator {
 

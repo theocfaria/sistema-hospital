@@ -3,8 +3,9 @@ package br.ufjf.controller;
 import br.ufjf.model.Pacient;
 import br.ufjf.model.StatusInternacao;
 import br.ufjf.repository.PacientRepository;
-import br.ufjf.utils.CpfValidator;
-import br.ufjf.utils.TelefoneValidator;
+import br.ufjf.helpers.AlertExibitor;
+import br.ufjf.helpers.CpfValidator;
+import br.ufjf.helpers.TelefoneValidator;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,20 +41,18 @@ public class PacienteFormController implements Initializable {
 
         PacientRepository pacientRepository = new PacientRepository();
 
+        if (txtNome.getText().isEmpty() || txtCpf.getText().isEmpty() || txtSenha.getText().isEmpty()) {
+            AlertExibitor.exibirAlerta("Preencha todos os campos obrigatórios!");
+            return;
+        }
+
         if(!CpfValidator.validaCpf(txtCpf.getText())){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "CPF inválido");
-            alert.show();
+            AlertExibitor.exibirAlerta("CPF inválido");
             return;
         }
 
         if(pacientRepository.checkCpfExists(txtCpf.getText())){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "CPF já registrado !");
-            alert.show();
-            return;
-        }
-
-        if (txtNome.getText().isEmpty() || txtCpf.getText().isEmpty() || txtSenha.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Preencha todos os campos obrigatórios!");
+            AlertExibitor.exibirAlerta("CPF já registrado");
             return;
         }
 

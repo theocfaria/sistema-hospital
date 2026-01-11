@@ -34,7 +34,7 @@ public class Pacient extends User {
     }
 
     public List<Documento> getDocumentos() {
-        return documentos;
+        return documentos != null ? documentos : new ArrayList<>();
     }
 
     public List<Documento> getAtestados() {

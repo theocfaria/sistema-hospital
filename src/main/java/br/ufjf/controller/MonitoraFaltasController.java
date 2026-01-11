@@ -4,7 +4,7 @@ import br.ufjf.model.Consulta;
 import br.ufjf.model.Receptionist;
 import br.ufjf.model.StatusConsulta;
 import br.ufjf.repository.ConsultaRepository;
-import br.ufjf.utils.AlertExibitor;
+import br.ufjf.helpers.AlertExibitor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

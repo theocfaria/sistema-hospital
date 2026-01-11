@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -60,6 +61,25 @@ public class AcessarDocumentosController implements Initializable, DashboardCont
                 carregarDocumentos(newValue);
             }
         });
+        documentosTable.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2 && documentosTable.getSelectionModel().getSelectedItem() != null) {
+                Documento doc = documentosTable.getSelectionModel().getSelectedItem();
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Detalhes do Registro Clínico");
+                alert.setHeaderText(doc.getTipo() + " - " + doc.getData());
+
+                String conteudo = "Médico: " + doc.getMedico() + "\n" +
+                        "Informação: " + doc.getInformacao();
+
+                if(doc.getDiasAfastamento()!=null){
+                    conteudo = conteudo + "\nDias de afastamento: " + doc.getDiasAfastamento();
+                }
+
+                alert.setContentText(conteudo);
+                alert.showAndWait();
+            }
+        });
     }
 
     private void carregarDocumentos(String s) {
@@ -70,10 +90,13 @@ public class AcessarDocumentosController implements Initializable, DashboardCont
 
         if ("Todos".equals(s) || s == null) {
             listaTemporaria = user.getDocumentos();
+
         } else if ("Receitas".equals(s)) {
             listaTemporaria = user.getReceitas();
+
         } else if ("Atestados".equals(s)) {
             listaTemporaria = user.getAtestados();
+
         }
 
         if (listaTemporaria != null) {

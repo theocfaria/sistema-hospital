@@ -1,0 +1,15 @@
+[
+  {
+    "diasAtendimento": [
+      "WEDNESDAY"
+    ],
+    "inicio": "08:00",
+    "fim": "18:00",
+    "duracao": "30",
+    "statusAtendimento": "DISPONIVEL",
+    "id": "9d0e0b33-2c68-4173-ae3a-fbc4991bf5f9",
+    "name": "Dr. João",
+    "cpf": "858.773.506-33",
+    "password": "password"
+  }
+]
