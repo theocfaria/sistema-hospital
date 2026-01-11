@@ -87,8 +87,10 @@ public class AgendarConsultaController implements DashboardController<Pacient>, 
 
         LocalTime inicio = medico.getInicio();
         LocalTime fim = medico.getFim();
-        int duracao = medico.getDuracao();
+        String duracao = medico.getDuracao();
         List<DayOfWeek> diasAtendimento = medico.getDiasAtendimento();
+        
+        int duracaoConsulta = Integer.parseInt(duracao);
 
         if (inicio == null || fim == null || diasAtendimento == null || diasAtendimento.isEmpty()) {
             return;
@@ -102,14 +104,14 @@ public class AgendarConsultaController implements DashboardController<Pacient>, 
             if (diasAtendimento.contains(dataAlvo.getDayOfWeek())) {
                 LocalTime tempoAtual = inicio;
 
-                while (tempoAtual.plusMinutes(duracao).isBefore(fim.plusSeconds(1))) {
+                while (tempoAtual.plusMinutes(duracaoConsulta).isBefore(fim.plusSeconds(1))) {
 
                     Consulta consultaExistente = consulta_repo.findConsulta(medico, dataAlvo, tempoAtual);
 
                     if (consultaExistente == null) {
                         listaSlots.add(new Slot(dataAlvo, tempoAtual, null));
                     }
-                    tempoAtual = tempoAtual.plusMinutes(duracao);
+                    tempoAtual = tempoAtual.plusMinutes(duracaoConsulta);
                 }
             }
         }
@@ -121,11 +123,13 @@ public class AgendarConsultaController implements DashboardController<Pacient>, 
             return;
 
         listaSlots.clear();
-
+        
         LocalTime inicio = medico.getInicio();
         LocalTime fim = medico.getFim();
-        int duracao = medico.getDuracao();
+        String duracao = medico.getDuracao();
         List<DayOfWeek> diasAtendimento = medico.getDiasAtendimento();
+        
+        int duracaoConsulta = Integer.parseInt(duracao);
 
         if (inicio == null || fim == null || diasAtendimento == null || diasAtendimento.isEmpty()) {
             return;
@@ -139,14 +143,14 @@ public class AgendarConsultaController implements DashboardController<Pacient>, 
             if (diasAtendimento.contains(dataAlvo.getDayOfWeek())) {
                 LocalTime tempoAtual = inicio;
 
-                while (tempoAtual.plusMinutes(duracao).isBefore(fim.plusSeconds(1))) {
+                while (tempoAtual.plusMinutes(duracaoConsulta).isBefore(fim.plusSeconds(1))) {
                     Consulta consultaExistente = consulta_repo.findConsulta(medico, dataAlvo, tempoAtual);
 
                     if (consultaExistente == null) {
                         listaSlots.add(new Slot(dataAlvo, tempoAtual, null));
                     }
 
-                    tempoAtual = tempoAtual.plusMinutes(duracao);
+                    tempoAtual = tempoAtual.plusMinutes(duracaoConsulta);
                 }
             }
         }

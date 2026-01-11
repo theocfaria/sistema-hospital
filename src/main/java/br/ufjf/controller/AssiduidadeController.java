@@ -74,7 +74,7 @@ public class AssiduidadeController implements DashboardController<Medico> {
 
         for(Consulta consulta : consultas){
             if(consulta.getStatusConsulta() == StatusConsulta.AGENDADA && ((consulta.getData().isEqual(dataAtual) &&
-                    consulta.getHora().plusMinutes(medico.getDuracao()).isBefore(horaAtual))||
+                    consulta.getHora().plusMinutes(Integer.parseInt(medico.getDuracao())).isBefore(horaAtual))||
                     consulta.getData().isBefore(dataAtual))){
 
                 consulta.setStatusConsulta(StatusConsulta.FALTOU);
