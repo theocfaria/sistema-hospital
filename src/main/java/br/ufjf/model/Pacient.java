@@ -49,7 +49,7 @@ public class Pacient extends User {
         return receitas;
     }
 
-    public void setDocumentos(List<Documento> documento) {
+    public void setDocumentos(List<Documento> documentos) {
         this.documentos = documentos != null ? documentos : new ArrayList<>();
     }
 

@@ -2,6 +2,7 @@ package br.ufjf.controller;
 
 import br.ufjf.model.*;
 import br.ufjf.repository.ConsultaRepository;
+import br.ufjf.repository.DocumentoRepository;
 import br.ufjf.repository.PacientRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,9 +36,10 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
     private PacientRepository pacientRepository;
 
     @FXML
-    public void initialize() {
+    private void initialize() {
         consultaRepository = new ConsultaRepository();
         pacientRepository = new PacientRepository();
+
         txtEvolucao.setEditable(false);
         btnSalvar.setDisable(true);
 
@@ -60,7 +62,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
         carregarPacientes();
     }
 
-    public void configurarColunas(){
+    private void configurarColunas(){
         colData.setCellValueFactory(new PropertyValueFactory<>("data"));
         colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricaoClinica"));
         colMedico.setCellValueFactory(new PropertyValueFactory<>("nomeMedico"));
@@ -68,7 +70,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
         tabelaHistorico.setItems(listaConsulta);
     }
 
-    public void carregarPacientes(){
+    private void carregarPacientes(){
         cmbPacientes.getItems().clear();
 
         List<Pacient> pacientes = consultaRepository.findPacientesbyMedico(medico);
@@ -76,7 +78,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
     }
 
     @FXML
-    public void pacienteSelecionado(){
+    private void pacienteSelecionado(){
         Pacient pacienteSelected = cmbPacientes.getValue();
 
         if(pacienteSelected != null){
@@ -91,15 +93,19 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
         }
     }
 
-    public void  carregarTabela(Pacient pacienteSelected){
+    private void  carregarTabela(Pacient pacienteSelected){
         tabelaHistorico.getItems().clear();
         List<Consulta> consultas = consultaRepository.findConsultabyPaciente(pacienteSelected.getCpf());
 
-        listaConsulta.addAll(consultas);
+        for(Consulta consulta:consultas){
+            if(consulta.getStatusConsulta()==StatusConsulta.REALIZADA){
+                listaConsulta.add(consulta);
+            }
+        }
     }
 
     @FXML
-    public void editarDescricao(){
+    private void editarDescricao(){
         consultaSelecionada = tabelaHistorico.getSelectionModel().getSelectedItem();
 
         if(consultaSelecionada==null){
@@ -121,18 +127,22 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
             rbNaoInternado.setSelected(true);
         }
 
-        txtEvolucao.setText(consultaSelecionada.getDescricaoClinica());
+        txtEvolucao.setEditable(true);
+
+        if(consultaSelecionada.getDescricaoClinica()!=null){
+            txtEvolucao.setText(consultaSelecionada.getDescricaoClinica());
+            txtEvolucao.setEditable(false);
+        }
 
         rbApto.setDisable(false);
         rbNaoApto.setDisable(false);
         rbNaoInternado.setDisable(false);
 
-        txtEvolucao.setEditable(true);
         btnSalvar.setDisable(false);
     }
 
     @FXML
-    public void salvarDescricao(){
+    private void salvarDescricao(){
         if(!mudarStatusInternacao(consultaSelecionada)){
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Selecione 1 opção para status de internação");
             alert.show();
@@ -143,7 +153,6 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
 
         consultaSelecionada.setDescricaoClinica(descricaoClinica);
         consultaRepository.updateDescricao(consultaSelecionada, descricaoClinica);
-
         tabelaHistorico.refresh();
 
         txtEvolucao.setEditable(false);
@@ -155,7 +164,7 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
         alert.show();
     }
 
-    public boolean mudarStatusInternacao(Consulta consultaSelecionada){
+    private boolean mudarStatusInternacao(Consulta consultaSelecionada){
         if(!rbApto.isSelected() && !rbNaoApto.isSelected() && !rbNaoInternado.isSelected()){
             return false;
         }
@@ -172,7 +181,6 @@ public class HistoricoClinicoController implements DashboardController<Medico> {
             paciente.setStatusInternacao(StatusInternacao.NAO_INTERNADO);
             pacientRepository.updateStatusInternacao(paciente.getCpf(), StatusInternacao.NAO_INTERNADO);
         }
-
         return true;
     }
 }

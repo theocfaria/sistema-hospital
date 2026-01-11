@@ -7,10 +7,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import br.ufjf.model.Consulta;
-import br.ufjf.model.Medico;
-import br.ufjf.model.Pacient;
-import br.ufjf.model.Slot;
+import br.ufjf.model.*;
 import br.ufjf.repository.ConsultaRepository;
 import br.ufjf.repository.MedicoRepository;
 import javafx.collections.FXCollections;
@@ -166,7 +163,7 @@ public class AgendarConsultaController implements DashboardController<Pacient>, 
         }
 
         Consulta novaConsulta = new Consulta(selecionado.getData(), selecionado.getHorario(),
-                user, medico);
+                user, medico, null, StatusConsulta.AGENDADA);
         consulta_repo.save(novaConsulta);
 
         new Alert(Alert.AlertType.INFORMATION, "Consulta marcada com sucesso.").show();

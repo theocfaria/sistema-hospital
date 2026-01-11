@@ -28,7 +28,7 @@ public class DocumentosController implements DashboardController<Medico>{
     Medico medico;
 
     @FXML
-    public void initialize(){
+    private void initialize(){
         consultaRepository = new ConsultaRepository();
         documentoRepository = new DocumentoRepository();
         pacientRepository = new PacientRepository();
@@ -40,7 +40,7 @@ public class DocumentosController implements DashboardController<Medico>{
         carregarConsultas();
     }
 
-    public void carregarConsultas(){
+    private void carregarConsultas(){
         cbConsulta.getItems().clear();
 
         List<Consulta> consultas = consultaRepository.findByMedico(medico);
@@ -62,7 +62,7 @@ public class DocumentosController implements DashboardController<Medico>{
         }
     }
 
-    public void preencherDadosConsulta(Consulta consultaAtual){
+    private void preencherDadosConsulta(Consulta consultaAtual){
         txtPaciente.setText(consultaAtual.getPaciente().getName());
         txtCpf.setText(consultaAtual.getPaciente().getCpf());
         txtDataHora.setText(consultaAtual.getData().toString() + " | " + consultaAtual.getHora().toString());
@@ -82,7 +82,11 @@ public class DocumentosController implements DashboardController<Medico>{
             alert.show();
             return;
         }
-
+        if(consultaAtual.getDescricaoClinica()==null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Primeiro registre a descrição clinica/evolução do paciente no menu Histórico Clínico");
+            alert.show();
+            return;
+        }
         if(txtAtestado.getText().isBlank() || txtDiasAfastamento.getText().isBlank()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION,"Nem todos os campos foram preenchidos");
             alert.show();

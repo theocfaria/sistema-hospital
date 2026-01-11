@@ -12,7 +12,7 @@
       "name": "Dr. João",
       "cpf": "000.000.000-00"
     },
-    "descricaoClinica": "Ótimo.",
+    "descricaoClinica": "Ótimo estado",
     "statusConsulta": "REALIZADA"
   },
   {
@@ -28,7 +28,7 @@
       "name": "Dr. João",
       "cpf": "000.000.000-00"
     },
-    "descricaoClinica": "Ótimo estado",
+    "descricaoClinica": "Ótimo estado!",
     "statusConsulta": "REALIZADA"
   },
   {
@@ -44,7 +44,6 @@
       "name": "Dr. João",
       "cpf": "000.000.000-00"
     },
-    "descricaoClinica": "Ótimo estado!",
     "statusConsulta": "FALTOU"
   },
   {
@@ -60,7 +59,6 @@
       "name": "Dr. João",
       "cpf": "000.000.000-00"
     },
-    "descricaoClinica": "Ótimo.",
     "statusConsulta": "FALTOU"
   },
   {
@@ -106,7 +104,7 @@
       "name": "Dr. João",
       "cpf": "000.000.000-00"
     },
-    "descricaoClinica": "Ótimo estado",
+    "descricaoClinica": "Ótimo!",
     "statusConsulta": "REALIZADA"
   },
   {
@@ -123,73 +121,5 @@
       "cpf": "000.000.000-00"
     },
     "statusConsulta": "REALIZADA"
-  },
-  {
-    "id": "45bbfc88-9cb2-4d7c-aa1c-f7d9cf4399a3",
-    "data": "2026-01-09",
-    "hora": "12:00",
-    "paciente": {
-      "documentos": [
-        {
-          "consulta": {
-            "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4d",
-            "data": "2026-01-05",
-            "hora": "09:00",
-            "paciente": {
-              "name": "Maria",
-              "cpf": "333-333-333-33"
-            },
-            "medico": {
-              "duracao": 0,
-              "name": "Dr. João",
-              "cpf": "000.000.000-00"
-            },
-            "descricaoClinica": "Ótimo!",
-            "statusConsulta": "REALIZADA"
-          },
-          "tipoDocumento": "ATESTADO",
-          "informacao": "aaa",
-          "diasAfastamento": 3
-        },
-        {
-          "consulta": {
-            "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4d",
-            "data": "2026-01-05",
-            "hora": "09:00",
-            "paciente": {
-              "name": "Maria",
-              "cpf": "333-333-333-33"
-            },
-            "medico": {
-              "duracao": 0,
-              "name": "Dr. João",
-              "cpf": "000.000.000-00"
-            },
-            "descricaoClinica": "Ótimo!",
-            "statusConsulta": "REALIZADA"
-          },
-          "tipoDocumento": "RECEITA",
-          "informacao": "b",
-          "diasAfastamento": 0
-        }
-      ],
-      "statusInternacao": "NAO_APTO",
-      "id": "d7fcd933-c8e7-48b6-89ca-96d7dc737342",
-      "name": "Maria",
-      "cpf": "333-333-333-33",
-      "password": "password"
-    },
-    "medico": {
-      "diasAtendimento": [
-        "FRIDAY"
-      ],
-      "inicio": "08:00",
-      "fim": "18:00",
-      "duracao": 30,
-      "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4c",
-      "name": "Dr. João",
-      "cpf": "000.000.000-00",
-      "password": "password"
-    }
   }
 ]

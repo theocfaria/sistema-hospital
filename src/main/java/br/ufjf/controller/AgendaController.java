@@ -31,19 +31,8 @@ public class AgendaController implements DashboardController<Medico> {
 
     private ObservableList<Slot> listaSlots = FXCollections.observableArrayList();
 
-    @Override
-    public void setUser(Medico user){
-        this.medico=user;
-
-        txtInicio.setText(medico.getInicio().toString());
-        txtFim.setText(medico.getFim().toString());
-        txtDuracao.setText(Integer.toString(medico.getDuracao()));
-
-        carregarDiasSelecionados();
-    }
-
     @FXML
-    public void initialize() {
+    private void initialize() {
         colData.setCellValueFactory(new PropertyValueFactory<>("data"));
         colHora.setCellValueFactory(new PropertyValueFactory<>("horario"));
         colPaciente.setCellValueFactory(new PropertyValueFactory<>("statusPaciente"));
@@ -53,6 +42,17 @@ public class AgendaController implements DashboardController<Medico> {
         consultaRepository = new ConsultaRepository();
         medicoRepository = new MedicoRepository();
 
+    }
+
+    @Override
+    public void setUser(Medico user){
+        this.medico=user;
+
+        txtInicio.setText(medico.getInicio().toString());
+        txtFim.setText(medico.getFim().toString());
+        txtDuracao.setText(Integer.toString(medico.getDuracao()));
+
+        carregarDiasSelecionados();
     }
 
     @FXML
@@ -91,7 +91,7 @@ public class AgendaController implements DashboardController<Medico> {
     }
 
     @FXML
-    public void salvarHorarios(){
+    private void salvarHorarios(){
         List<DayOfWeek> diasSelecionados = obterDiasSelecionados();
         LocalTime inicio = LocalTime.parse(txtInicio.getText());;
         LocalTime fim = LocalTime.parse(txtFim.getText());;;
