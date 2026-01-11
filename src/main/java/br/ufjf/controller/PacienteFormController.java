@@ -1,33 +1,32 @@
 package br.ufjf.controller;
 
-import br.ufjf.model.Medico;
-import br.ufjf.model.User;
-import br.ufjf.repository.MedicoRepository;
+import br.ufjf.model.Pacient;
+import br.ufjf.repository.PacientRepository;
 import br.ufjf.utils.CpfValidator;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.stage.Stage;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class MedicoFormController {
+public class PacienteFormController {
     @FXML private TextField txtNome;
     @FXML private TextField txtCpf;
     @FXML private TextField txtSenha;
     @FXML private Button btnCancelar;
     @FXML private Button btnSalvar;
 
-    private ObservableList<Medico> listaReferencia;
+    private ObservableList<Pacient> listaReferencia;
 
-    protected void setLista(ObservableList<Medico> lista){
+    protected void setLista(ObservableList<Pacient> lista){
         listaReferencia = lista;
     }
 
     @FXML
-    private void handleNovoMedico(){
+    private void handleNovoPaciente(){
 
-        MedicoRepository medicoRepository = new MedicoRepository();
+        PacientRepository pacientRepository = new PacientRepository();
 
         if(!CpfValidator.validaCpf(txtCpf.getText())){
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "CPF inválido");
@@ -35,7 +34,7 @@ public class MedicoFormController {
             return;
         }
 
-        if(medicoRepository.checkCpfExists(txtCpf.getText())){
+        if(pacientRepository.checkCpfExists(txtCpf.getText())){
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "CPF já registrado !");
             alert.show();
             return;
@@ -46,11 +45,11 @@ public class MedicoFormController {
             return;
         }
 
-        Medico novo = new Medico(txtNome.getText(), txtCpf.getText(), txtSenha.getText());
+        Pacient novo = new Pacient(txtNome.getText(), txtCpf.getText(), txtSenha.getText());
 
         listaReferencia.add(novo);
 
-        medicoRepository.saveAll(listaReferencia);
+        pacientRepository.saveAll(listaReferencia);
 
         fecharJanela();
     }
@@ -64,5 +63,4 @@ public class MedicoFormController {
         Stage stage = (Stage) txtNome.getScene().getWindow();
         stage.close();
     }
-
 }

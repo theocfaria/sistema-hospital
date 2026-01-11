@@ -1,7 +1,9 @@
 package br.ufjf.controller;
 
 import br.ufjf.model.Medico;
+import br.ufjf.model.Pacient;
 import br.ufjf.repository.MedicoRepository;
+import br.ufjf.repository.PacientRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,16 +18,16 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Optional;
 
-public class MedicoTableController {
+public class PacienteTableController {
 
-    @FXML private TableView<Medico> tableMedicos;
-    @FXML private TableColumn<Medico, String> colNome;
-    @FXML private TableColumn<Medico, String> colCpf;
-    @FXML private TableColumn<Medico, String> colPassword;
+    @FXML private TableView<Pacient> tablePacients;
+    @FXML private TableColumn<Pacient, String> colNome;
+    @FXML private TableColumn<Pacient, String> colCpf;
+    @FXML private TableColumn<Pacient, String> colPassword;
     @FXML private Button btnDelete;
     @FXML private Button btnAdd;
 
-    private ObservableList<Medico> medicoData = FXCollections.observableArrayList();
+    private ObservableList<Pacient> pacientData = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
@@ -34,9 +36,9 @@ public class MedicoTableController {
         colCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
 
-        tableMedicos.setOnMouseClicked(event -> {
-            if(event.getClickCount() == 2 && tableMedicos.getSelectionModel().getSelectedItem() != null){
-                abrirModalEdicao(tableMedicos.getSelectionModel().getSelectedItem());
+        tablePacients.setOnMouseClicked(event -> {
+            if(event.getClickCount() == 2 && tablePacients.getSelectionModel().getSelectedItem() != null){
+                abrirModalEdicao(tablePacients.getSelectionModel().getSelectedItem());
             }
         });
 
@@ -44,24 +46,24 @@ public class MedicoTableController {
     }
 
     private void carregarDados() {
-        medicoData.clear();
+        pacientData.clear();
 
-        MedicoRepository medicoRepository = new MedicoRepository();
+        PacientRepository pacientRepository = new PacientRepository();
 
-        medicoData.addAll(medicoRepository.loadAll());
+        pacientData.addAll(pacientRepository.loadAll());
 
-        tableMedicos.setItems(medicoData);
+        tablePacients.setItems(pacientData);
     }
 
     @FXML
-    private void abrirModalEdicao(Medico medico){
+    private void abrirModalEdicao(Pacient pacient){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/entities/Receptionist/ModalsMedico/Edit.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/entities/Receptionist/ModalsPacient/Edit.fxml"));
             Parent root = loader.load();
 
-            MedicoEditController controller = loader.getController();
+            PacienteEditController controller = loader.getController();
 
-            controller.setMedico(medico);
+            controller.setPaciente(pacient);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root, 400, 500));
@@ -79,12 +81,12 @@ public class MedicoTableController {
     @FXML
     private void handleAbrirCadastro() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/entities/Receptionist/ModalsMedico/Create.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/entities/Receptionist/ModalsPacient/Create.fxml"));
             Parent root = loader.load();
 
-            MedicoFormController formController = loader.getController();
+            PacienteFormController formController = loader.getController();
 
-            formController.setLista(medicoData);
+            formController.setLista(pacientData);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root, 400, 500));
@@ -98,9 +100,9 @@ public class MedicoTableController {
     }
 
     @FXML
-    private void handleExcluirMedico() {
+    private void handleExcluirPaciente() {
 
-        Medico selecionado = tableMedicos.getSelectionModel().getSelectedItem();
+        Pacient selecionado = tablePacients.getSelectionModel().getSelectedItem();
 
         if(selecionado != null){
 
@@ -116,8 +118,8 @@ public class MedicoTableController {
             Optional<ButtonType> resultado = alert.showAndWait();
 
             if(resultado.isPresent() && resultado.get() == botaoSim){
-                medicoData.remove(selecionado);
-                MedicoRepository repository = new MedicoRepository();
+                pacientData.remove(selecionado);
+                PacientRepository repository = new PacientRepository();
                 repository.deleteByCpf(selecionado.getCpf());
             }
         }

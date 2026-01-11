@@ -30,6 +30,11 @@ public class DashboardReceptionistController implements DashboardController, Cha
     }
 
     @FXML
+    public void gerenciarPacientes(){
+        carregarContent(content,"entities/Receptionist/TabelaGerenciarPacientes.fxml");
+    }
+
+    @FXML
     public void logout(){
         trocarTela(BtnLogout,"Login.fxml");
     }

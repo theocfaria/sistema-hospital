@@ -27,6 +27,8 @@ public abstract class User {
         this.password = password;
     }
 
+    public void setCpf(String cpf) { this.cpf = cpf; }
+
     public UUID getId() {
         return this.id;
     }

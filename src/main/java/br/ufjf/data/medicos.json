@@ -1,26 +1,20 @@
 [
   {
-    "id": "4166dafa-107f-4e73-af95-6fb1bfa8c185",
-    "name": "Hélio da Terra",
-    "cpf": "425.237.554-16",
+    "id": "d5248f40-0d6b-4c70-b75d-19d44bd7f8b1",
+    "name": "Amanda da Fontoura",
+    "cpf": "844.428.407-68",
     "password": "password"
   },
   {
-    "id": "668c9769-e9e8-41f9-b7ba-bcf403be920a",
-    "name": "Sr. Benjamin Corrêa",
-    "cpf": "152.547.424-37",
+    "id": "13e9cc47-f362-4c0e-94b2-5c12371b90e5",
+    "name": "Joana Ribeira",
+    "cpf": "602.588.738-17",
     "password": "password"
   },
   {
-    "id": "78284e5c-6379-4d64-a213-c8959db7e860",
-    "name": "Adriana de Sá",
-    "cpf": "484.123.147-19",
-    "password": "password"
-  },
-  {
-    "id": "afc6769b-8a26-4d0c-b621-d5045ddb387f",
-    "name": "Carlin",
-    "cpf": "02930193019",
+    "id": "c4b6cf56-d686-49c6-baaa-009abec80e18",
+    "name": "Mirella da Nóbrega",
+    "cpf": "388.017.516-05",
     "password": "password"
   }
 ]
