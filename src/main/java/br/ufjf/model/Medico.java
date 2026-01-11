@@ -8,6 +8,7 @@ public class Medico extends User {
     private List<DayOfWeek> diasAtendimento;
     private String inicio;
     private String fim;
+    private StatusAtendimento statusAtendimento;
     private int duracao;
 
     public Medico() {
@@ -16,6 +17,15 @@ public class Medico extends User {
 
     public Medico(String name, String cpf, String password){
         super(name, cpf, password);
+    }
+
+    public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento, String inicio, String fim, int duracao, StatusAtendimento statusAtendimento) {
+        super(name, cpf, password);
+        this.diasAtendimento = diasAtendimento;
+        this.inicio = inicio;
+        this.fim = fim;
+        this.duracao = duracao;
+        this.statusAtendimento = statusAtendimento;
     }
 
     public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento, String inicio, String fim, int duracao) {
@@ -36,17 +46,17 @@ public class Medico extends User {
         return this.diasAtendimento;
     }
 
-    public LocalTime getInicio() {
-        return LocalTime.parse(inicio);
-    }
+    public LocalTime getInicio() { return LocalTime.parse(this.inicio); }
+
+    public StatusAtendimento getStatusAtendimento() { return this.statusAtendimento; }
+
+    public void setStatusAtendimento(StatusAtendimento statusAtendimento) { this.statusAtendimento = statusAtendimento; }
 
     public void setInicio(LocalTime inicio) {
         this.inicio = inicio.toString();
     }
 
-    public LocalTime getFim() {
-        return LocalTime.parse(fim);
-    }
+    public LocalTime getFim() { return LocalTime.parse(this.fim); }
 
     public void setFim(LocalTime fim) {
         this.fim = fim.toString();
