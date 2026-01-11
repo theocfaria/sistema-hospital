@@ -164,4 +164,18 @@ abstract class BaseUserRepository<T extends User> {
         }
         saveAll(list);
     }
+
+    public boolean checkCpfExists(String cpf){
+
+        List<T> elements = loadAll();
+
+        for(T element : elements){
+            if(element.getCpf().trim().replaceAll("\\D", "").equals(cpf.trim().replaceAll("\\D", ""))){
+                return true;
+            }
+        }
+
+        return false;
+
+    }
 }

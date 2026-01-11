@@ -6,3 +6,6 @@
 .env
 
 .settings/
+
+/target/
+*.class
