@@ -21,7 +21,7 @@ public class MedicoRepository extends BaseUserRepository<Medico> {
         }.getType();
     }
 
-    public void updateHorarios(String cpf, List<DayOfWeek> dias, LocalTime inicio, LocalTime fim, int duracao) {
+    public void updateHorarios(String cpf, List<DayOfWeek> dias, LocalTime inicio, LocalTime fim, String duracao) {
         List<Medico> elements = loadAll();
 
         for (Medico element : elements) {

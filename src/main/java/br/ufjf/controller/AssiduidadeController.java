@@ -38,7 +38,7 @@ public class AssiduidadeController implements DashboardController<Medico> {
     private ObservableList<Consulta> listaConsultas = FXCollections.observableArrayList();
 
     @FXML
-    public void initialize(){
+    private void initialize(){
         configurarColunas();
         consultaRepository = new ConsultaRepository();
     }
@@ -50,7 +50,7 @@ public class AssiduidadeController implements DashboardController<Medico> {
         carregarConsultas();
     }
 
-    public void configurarColunas(){
+    private void configurarColunas(){
         colPaciente.setCellValueFactory(new PropertyValueFactory<>("nomePaciente"));
         colData.setCellValueFactory(new PropertyValueFactory<>("data"));
         colHorario.setCellValueFactory(new PropertyValueFactory<>("hora"));
@@ -60,21 +60,21 @@ public class AssiduidadeController implements DashboardController<Medico> {
         tabelaConsultas.setItems(listaConsultas);
     }
 
-    public void carregarConsultas(){
+    private void carregarConsultas(){
         listaConsultas.clear();
         List<Consulta> consultas = consultaRepository.findByMedico(medico);
 
         listaConsultas.addAll(consultas);
     }
 
-    public void verificarFalta(){
+    private void verificarFalta(){
         List<Consulta> consultas = consultaRepository.findByMedico(medico);
         LocalTime horaAtual = LocalTime.now();
         LocalDate dataAtual = LocalDate.now();
 
         for(Consulta consulta : consultas){
             if(consulta.getStatusConsulta() == StatusConsulta.AGENDADA && ((consulta.getData().isEqual(dataAtual) &&
-                    consulta.getHora().plusMinutes(medico.getDuracao()).isBefore(horaAtual))||
+                    consulta.getHora().plusMinutes(Integer.parseInt(medico.getDuracao())).isBefore(horaAtual))||
                     consulta.getData().isBefore(dataAtual))){
 
                 consulta.setStatusConsulta(StatusConsulta.FALTOU);
@@ -84,7 +84,7 @@ public class AssiduidadeController implements DashboardController<Medico> {
     }
 
     @FXML
-    public void alterarStatus(MouseEvent event){
+    private void alterarStatus(MouseEvent event){
         if(event.getClickCount() == 2){
             Consulta consultaSelecionada = tabelaConsultas.getSelectionModel().getSelectedItem();
             LocalTime horaAtual = LocalTime.now();

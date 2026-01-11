@@ -33,7 +33,7 @@ public class AcoesConsultaController {
     }
 
     private void configurarCalendario() {
-        // Agora pegando a lista como DayOfWeek
+
         List<DayOfWeek> diasAtendimento = consultaSelecionada.getMedico().getDiasAtendimento();
 
         dpNovaData.setDayCellFactory(picker -> new DateCell() {
@@ -43,13 +43,10 @@ public class AcoesConsultaController {
 
                 if (empty || date == null) return;
 
-                // 1. Bloqueia datas passadas
                 boolean ehPassado = date.isBefore(LocalDate.now());
 
-                // 2. Trava de 1 semana à frente
                 boolean muitoLonge = date.isAfter(LocalDate.now().plusWeeks(1));
 
-                // 3. Verifica se o médico atende nesse dia (Comparação direta de Enums!)
                 boolean medicoAtende = diasAtendimento.contains(date.getDayOfWeek());
 
                 if (ehPassado || muitoLonge || !medicoAtende) {
@@ -70,11 +67,11 @@ public class AcoesConsultaController {
 
         LocalTime atual = m.getInicio();
         LocalTime fim = m.getFim();
-        int duracao = m.getDuracao();
+        String duracao = m.getDuracao();
 
         while (atual.isBefore(fim)) {
             cbHorarios.getItems().add(atual.toString());
-            atual = atual.plusMinutes(duracao);
+            atual = atual.plusMinutes(Integer.parseInt(duracao));
         }
     }
 
@@ -88,12 +85,10 @@ public class AcoesConsultaController {
             return;
         }
 
-        // Atualiza os dados da consulta
         consultaSelecionada.setData(novaData);
         consultaSelecionada.setHora(novoHorario);
         consultaSelecionada.setStatusConsulta(StatusConsulta.AGENDADA);
 
-        // Salva a alteração
         repository.updateDataHora(consultaSelecionada);
 
         exibirAlerta("Consulta reagendada com sucesso!");

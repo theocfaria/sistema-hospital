@@ -49,26 +49,25 @@ public class MonitoraFaltasController implements DashboardController<Receptionis
 
         if (selecionada != null) {
             try {
-                // 1. Carrega o arquivo FXML do modal que criamos
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/receptionist/AcoesConsulta.fxml"));
                 Parent root = loader.load();
 
-                // 2. Pega o controller do modal e passa a consulta selecionada
                 AcoesConsultaController controller = loader.getController();
                 controller.setConsulta(selecionada);
 
-                // 3. Configura e abre a nova janela (Stage)
                 Stage stage = new Stage();
                 stage.setTitle("Ações de Consulta - Reagendamento");
-                stage.setScene(new Scene(root));
+                stage.setScene(new Scene(root, 500, 400));
 
-                // Define como MODAL (bloqueia a janela de trás até fechar esta)
+                stage.setMinWidth(500);
+                stage.setMinHeight(400);
+
+                stage.setResizable(false);
+
                 stage.initModality(Modality.APPLICATION_MODAL);
 
                 stage.showAndWait();
 
-                // 4. ATUALIZA A TABELA quando o modal fechar
-                // Assim, se a consulta foi reagendada (mudou de status), ela some da lista de faltas
                 carregarFaltasCancelamentos();
 
             } catch (IOException e) {

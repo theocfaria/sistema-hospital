@@ -8,8 +8,8 @@ public class Medico extends User {
     private List<DayOfWeek> diasAtendimento;
     private String inicio;
     private String fim;
+    private String duracao;
     private StatusAtendimento statusAtendimento;
-    private int duracao;
 
     public Medico() {
         super();
@@ -19,7 +19,7 @@ public class Medico extends User {
         super(name, cpf, password);
     }
 
-    public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento, String inicio, String fim, int duracao, StatusAtendimento statusAtendimento) {
+    public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento, String inicio, String fim, String duracao, StatusAtendimento statusAtendimento) {
         super(name, cpf, password);
         this.diasAtendimento = diasAtendimento;
         this.inicio = inicio;
@@ -28,7 +28,7 @@ public class Medico extends User {
         this.statusAtendimento = statusAtendimento;
     }
 
-    public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento, String inicio, String fim, int duracao) {
+    public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento, String inicio, String fim, String duracao) {
         super(name, cpf, password);
         this.diasAtendimento = diasAtendimento;
         this.inicio = inicio;
@@ -64,11 +64,11 @@ public class Medico extends User {
         this.fim = fim.toString();
     }
 
-    public int getDuracao() {
+    public String getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(Integer duracao) {
+    public void setDuracao(String duracao) {
         this.duracao = duracao;
     }
 }

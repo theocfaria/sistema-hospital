@@ -59,7 +59,7 @@ public class MedicoFormController implements Initializable {
 
         List<DayOfWeek> listaDiasAtendimento = new ArrayList<>();
 
-        Medico novo = new Medico(txtNome.getText(), txtCpf.getText(), txtSenha.getText(), listaDiasAtendimento, "08:00", "16:00", 30,  cbStatus.getValue());
+        Medico novo = new Medico(txtNome.getText(), txtCpf.getText(), txtSenha.getText(), listaDiasAtendimento, "08:00", "16:00", "30",  cbStatus.getValue());
 
         listaReferencia.add(novo);
 

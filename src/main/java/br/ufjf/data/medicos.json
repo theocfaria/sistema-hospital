@@ -1,12 +1,12 @@
 [
   {
     "diasAtendimento": [
+      "MONDAY",
       "FRIDAY"
     ],
     "inicio": "08:00",
     "fim": "18:00",
-    "statusAtendimento": "DISPONIVEL",
-    "duracao": 30,
+    "duracao": "30",
     "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4c",
     "name": "Dr. João",
     "cpf": "000.000.000-00",
@@ -14,45 +14,32 @@
   },
   {
     "diasAtendimento": [
-      "WEDNESDAY",
-      "THURSDAY"
+      "TUESDAY"
     ],
     "inicio": "08:00",
     "fim": "18:00",
-    "statusAtendimento": "DISPONIVEL",
-    "duracao": 30,
+    "duracao": "30",
     "id": "fb8e550d-8390-49ba-8e60-984190437398",
     "name": "Dr. Jonas",
     "cpf": "999.999.999-99",
-    "password": "password"
+    "password": "password2"
   },
   {
-    "diasAtendimento": [
-      "WEDNESDAY",
-      "THURSDAY"
-    ],
-    "inicio": "08:00",
-    "fim": "18:00",
-    "statusAtendimento": "DISPONIVEL",
-    "duracao": 0,
+    "duracao": "0",
     "id": "7451117c-5aa7-4251-80b5-b04608bf16b3",
     "name": "Aurora Resende Jr.",
     "cpf": "282.503.415-03",
     "password": "password"
   },
   {
-    "diasAtendimento": [
-      "MONDAY",
-      "TUESDAY",
-      "THURSDAY"
-    ],
-    "inicio": "08:30",
-    "fim": "16:30",
+    "diasAtendimento": [],
+    "inicio": "08:00",
+    "fim": "16:00",
+    "duracao": "30",
     "statusAtendimento": "DISPONIVEL",
-    "duracao": 60,
-    "id": "9db3b744-75d2-4e3a-b3b7-fa7964bd6715",
-    "name": "Ryan",
+    "id": "5da8ebeb-9d78-454e-b3c0-15e92172db16",
+    "name": "Teste",
     "cpf": "16164968607",
-    "password": "password"
+    "password": "222"
   }
 ]
