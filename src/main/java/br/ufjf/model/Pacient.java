@@ -18,6 +18,14 @@ public class Pacient extends User {
         super(name, cpf, password);
     }
 
+    public Pacient(String name, String cpf, String password, String email, String telefone, String endereco, StatusInternacao statusInternacao){
+        super(name, cpf, password);
+        this.email = email;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.statusInternacao = statusInternacao;
+    }
+
     public Pacient(String name, String cpf, String password, List<Documento> documentos,
             StatusInternacao statusInternacao) {
         super(name, cpf, password);

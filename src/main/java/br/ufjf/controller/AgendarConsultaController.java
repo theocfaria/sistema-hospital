@@ -7,10 +7,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import br.ufjf.model.Consulta;
-import br.ufjf.model.Medico;
-import br.ufjf.model.Pacient;
-import br.ufjf.model.Slot;
+import br.ufjf.model.*;
 import br.ufjf.repository.ConsultaRepository;
 import br.ufjf.repository.MedicoRepository;
 import javafx.collections.FXCollections;
@@ -56,7 +53,10 @@ public class AgendarConsultaController implements DashboardController<Pacient>, 
 
         availabilityTable.setItems(listaSlots);
 
-        List<Medico> medicos = medico_repo.loadAll();
+        List<Medico> todosMedicos = medico_repo.loadAll();
+
+        List<Medico> medicos = todosMedicos.stream().filter(m -> m.getStatusAtendimento() != null && m.getStatusAtendimento() == StatusAtendimento.DISPONIVEL).toList();
+
         doctorComboBox.setItems(FXCollections.observableArrayList(medicos));
 
         doctorComboBox.setConverter(new javafx.util.StringConverter<Medico>() {
