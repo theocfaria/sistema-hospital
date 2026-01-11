@@ -1,20 +1,33 @@
 [
   {
-    "id": "d5248f40-0d6b-4c70-b75d-19d44bd7f8b1",
-    "name": "Amanda da Fontoura",
-    "cpf": "844.428.407-68",
+    "diasAtendimento": [
+      "FRIDAY"
+    ],
+    "inicio": "08:00",
+    "fim": "18:00",
+    "duracao": 30,
+    "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4c",
+    "name": "Dr. João",
+    "cpf": "000.000.000-00",
     "password": "password"
   },
   {
-    "id": "13e9cc47-f362-4c0e-94b2-5c12371b90e5",
-    "name": "Joana Ribeira",
-    "cpf": "602.588.738-17",
+    "diasAtendimento": [
+      "TUESDAY"
+    ],
+    "inicio": "08:00",
+    "fim": "18:00",
+    "duracao": 30,
+    "id": "fb8e550d-8390-49ba-8e60-984190437398",
+    "name": "Dr. Jonas",
+    "cpf": "999.999.999-99",
     "password": "password"
   },
   {
-    "id": "c4b6cf56-d686-49c6-baaa-009abec80e18",
-    "name": "Mirella da Nóbrega",
-    "cpf": "388.017.516-05",
+    "duracao": 0,
+    "id": "7451117c-5aa7-4251-80b5-b04608bf16b3",
+    "name": "Aurora Resende Jr.",
+    "cpf": "282.503.415-03",
     "password": "password"
   }
 ]

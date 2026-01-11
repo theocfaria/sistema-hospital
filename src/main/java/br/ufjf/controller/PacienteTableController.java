@@ -2,12 +2,13 @@ package br.ufjf.controller;
 
 import br.ufjf.model.Medico;
 import br.ufjf.model.Pacient;
-import br.ufjf.repository.MedicoRepository;
+import br.ufjf.model.Receptionist;
 import br.ufjf.repository.PacientRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -18,7 +19,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Optional;
 
-public class PacienteTableController {
+public class PacienteTableController implements DashboardController<Receptionist> {
 
     @FXML private TableView<Pacient> tablePacients;
     @FXML private TableColumn<Pacient, String> colNome;
@@ -27,7 +28,14 @@ public class PacienteTableController {
     @FXML private Button btnDelete;
     @FXML private Button btnAdd;
 
+    Receptionist receptionist;
+
     private ObservableList<Pacient> pacientData = FXCollections.observableArrayList();
+
+    @Override
+    public void setUser(Receptionist user){
+        this.receptionist = user;
+    }
 
     @FXML
     public void initialize() {
@@ -58,7 +66,7 @@ public class PacienteTableController {
     @FXML
     private void abrirModalEdicao(Pacient pacient){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/entities/Receptionist/ModalsPacient/Edit.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/receptionist/ModalsPacient/Edit.fxml"));
             Parent root = loader.load();
 
             PacienteEditController controller = loader.getController();
@@ -81,7 +89,7 @@ public class PacienteTableController {
     @FXML
     private void handleAbrirCadastro() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/entities/Receptionist/ModalsPacient/Create.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/receptionist/ModalsPacient/Create.fxml"));
             Parent root = loader.load();
 
             PacienteFormController formController = loader.getController();

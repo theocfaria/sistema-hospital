@@ -1,5 +1,7 @@
 package br.ufjf.navigation;
 
+import br.ufjf.controller.DashboardController;
+import br.ufjf.model.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -10,7 +12,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public interface ChangeScreen {
-    default void trocarTela(Node node, String fxml){
+     default void trocarTela(Node node, String fxml){
         try{
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/view/"+fxml)
@@ -27,13 +29,16 @@ public interface ChangeScreen {
         }
     }
 
-    default void carregarContent(AnchorPane content, String fxml){
+    default void carregarContent(User user, AnchorPane content, String fxml){
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/"+fxml));
 
             Parent tela = loader.load();
 
             content.getChildren().clear();
+
+            DashboardController<User> controller = loader.getController();
+            controller.setUser(user);
 
             AnchorPane.setTopAnchor(tela, 0.0);
             AnchorPane.setBottomAnchor(tela,0.0);

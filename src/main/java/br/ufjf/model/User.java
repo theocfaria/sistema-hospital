@@ -3,7 +3,7 @@ package br.ufjf.model;
 import java.util.UUID;
 
 public abstract class User {
-    protected UUID id;
+    protected String id;
     protected String name;
     protected String cpf;
     protected String password;
@@ -13,7 +13,7 @@ public abstract class User {
     }
 
     public User(String name, String cpf, String password) {
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.cpf = cpf;
         this.password = password;
@@ -27,11 +27,11 @@ public abstract class User {
         this.password = password;
     }
 
-    public void setCpf(String cpf) { this.cpf = cpf; }
-
-    public UUID getId() {
+    public String getId() {
         return this.id;
     }
+
+    public void setCpf(String cpf) { this.cpf = cpf; }
 
     public String getName() {
         return this.name;

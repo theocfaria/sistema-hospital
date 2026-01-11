@@ -1,5 +1,6 @@
 package br.ufjf.controller;
 
+import br.ufjf.model.Receptionist;
 import br.ufjf.model.User;
 import br.ufjf.navigation.ChangeScreen;
 import javafx.fxml.FXML;
@@ -7,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-public class DashboardReceptionistController implements DashboardController, ChangeScreen {
+public class DashboardReceptionistController implements DashboardController<Receptionist>, ChangeScreen {
 
     @FXML private AnchorPane content;
     @FXML private Label LblUsername;
@@ -19,19 +20,19 @@ public class DashboardReceptionistController implements DashboardController, Cha
     private User user;
 
     @Override
-    public void setUser(User user) {
+    public void setUser(Receptionist user) {
         this.user = user;
         LblUsername.setText("Olá, "+user.getName());
     }
 
     @FXML
     public void gerenciarMedicos(){
-        carregarContent(content,"entities/Receptionist/TabelaGerenciarMedicos.fxml");
+        carregarContent(user, content,"receptionist/TabelaGerenciarMedicos.fxml");
     }
 
     @FXML
     public void gerenciarPacientes(){
-        carregarContent(content,"entities/Receptionist/TabelaGerenciarPacientes.fxml");
+        carregarContent(user, content,"receptionist/TabelaGerenciarPacientes.fxml");
     }
 
     @FXML

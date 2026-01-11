@@ -22,7 +22,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        Factory.populate(3);
         launch();
     }
 }

@@ -1,6 +1,7 @@
 package br.ufjf.controller;
 
 import br.ufjf.model.Medico;
+import br.ufjf.model.Receptionist;
 import br.ufjf.repository.MedicoRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +17,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Optional;
 
-public class MedicoTableController {
+public class MedicoTableController implements DashboardController<Receptionist> {
 
     @FXML private TableView<Medico> tableMedicos;
     @FXML private TableColumn<Medico, String> colNome;
@@ -25,7 +26,13 @@ public class MedicoTableController {
     @FXML private Button btnDelete;
     @FXML private Button btnAdd;
 
+    Receptionist receptionist;
+
     private ObservableList<Medico> medicoData = FXCollections.observableArrayList();
+
+    public void setUser(Receptionist user){
+        this.receptionist = user;
+    }
 
     @FXML
     public void initialize() {
@@ -56,7 +63,7 @@ public class MedicoTableController {
     @FXML
     private void abrirModalEdicao(Medico medico){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/entities/Receptionist/ModalsMedico/Edit.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/receptionist/ModalsMedico/Edit.fxml"));
             Parent root = loader.load();
 
             MedicoEditController controller = loader.getController();
@@ -79,7 +86,7 @@ public class MedicoTableController {
     @FXML
     private void handleAbrirCadastro() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/entities/Receptionist/ModalsMedico/Create.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/receptionist/ModalsMedico/Create.fxml"));
             Parent root = loader.load();
 
             MedicoFormController formController = loader.getController();
