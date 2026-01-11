@@ -12,14 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class MedicoRepositoryTest {
-    /*
     @Test
     @DisplayName("Deve salvar e carregar a lista de medicos corretamente")
     void testSaveAndLoad() {
         MedicoRepository repo = new MedicoRepository();
         List<Medico> list = new ArrayList<>();
 
-        list.add(new Medico("Dr.User1", "123.456.789-00", "password"));
+        list.add(new Medico("Dr.User1", "123.456.789-00", "password",null, null, null, null));
 
         repo.saveAll(list);
         List<Medico> loadedList = repo.loadAll();
@@ -34,8 +33,8 @@ public class MedicoRepositoryTest {
     void testFindByID() {
         List<Medico> list = new ArrayList<>();
 
-        Medico p1 = new Medico("Dr.User1", "123.456.789-00", "password");
-        Medico p2 = new Medico("Dr.User2", "987.654.321-00", "password");
+        Medico p1 = new Medico("Dr.User1", "123.456.789-00", "password",null, null, null, null);
+        Medico p2 = new Medico("Dr.User2", "987.654.321-00", "password",null, null, null, null);
 
         list.add(p1);
         list.add(p2);
@@ -47,7 +46,7 @@ public class MedicoRepositoryTest {
             }
         };
 
-        UUID id = list.get(1).getId();
+        String id = list.get(1).getId();
 
         Medico medico = repo.findByID(id.toString());
 
@@ -61,8 +60,8 @@ public class MedicoRepositoryTest {
     void testFindByCPF() {
         List<Medico> list = new ArrayList<>();
 
-        Medico p1 = new Medico("Dr.User1", "123.456.789-00", "password");
-        Medico p2 = new Medico("Dr.User2", "987.654.321-00", "password");
+        Medico p1 = new Medico("Dr.User1", "123.456.789-00", "password",null, null, null, null);
+        Medico p2 = new Medico("Dr.User2", "987.654.321-00", "password",null, null, null, null);
 
         list.add(p1);
         list.add(p2);
@@ -88,7 +87,7 @@ public class MedicoRepositoryTest {
     void testUpdate() {
         List<Medico> list = new ArrayList<>();
 
-        Medico p1 = new Medico("Dr.User1", "123.456.789-00", "password");
+        Medico p1 = new Medico("Dr.User1", "123.456.789-00", "password",null, null, null, null);
 
         list.add(p1);
 
@@ -111,8 +110,8 @@ public class MedicoRepositoryTest {
     void testDeleteByID() {
         List<Medico> list = new ArrayList<>();
 
-        Medico p1 = new Medico("Dr.User1", "123.456.789-00", "password");
-        Medico p2 = new Medico("Dr.User2", "987.654.321-00", "password");
+        Medico p1 = new Medico("Dr.User1", "123.456.789-00", "password",null, null, null, null);
+        Medico p2 = new Medico("Dr.User2", "987.654.321-00", "password",null, null, null, null);
 
         list.add(p1);
         list.add(p2);
@@ -141,8 +140,8 @@ public class MedicoRepositoryTest {
     void testDeleteByCPF() {
         List<Medico> list = new ArrayList<>();
 
-        Medico p1 = new Medico("Dr.User1", "222.222.222-22", "password");
-        Medico p2 = new Medico("Dr.User2", "123.456.789-00", "password");
+        Medico p1 = new Medico("Dr.User1", "222.222.222-22", "password",null, null, null, null);
+        Medico p2 = new Medico("Dr.User2", "123.456.789-00", "password",null, null, null, null);
 
         list.add(p1);
         list.add(p2);
@@ -164,5 +163,5 @@ public class MedicoRepositoryTest {
 
         assertEquals(1, list.size());
         assertEquals("Dr.User2", list.get(0).getName().toString());
-    }*/
+    }
 }

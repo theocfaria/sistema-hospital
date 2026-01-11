@@ -50,7 +50,7 @@ public class AgendaController implements DashboardController<Medico> {
 
         txtInicio.setText(medico.getInicio().toString());
         txtFim.setText(medico.getFim().toString());
-        txtDuracao.setText(Integer.toString(medico.getDuracao()));
+        txtDuracao.setText(medico.getDuracao());
 
         carregarDiasSelecionados();
     }
@@ -67,6 +67,8 @@ public class AgendaController implements DashboardController<Medico> {
                 return;
             }
 
+            int duracaoConsulta = Integer.parseInt(medico.getDuracao());
+
             LocalDate hoje = LocalDate.now();
             for (int i = 0; i < 7; i++) {
                 LocalDate dataAlvo = hoje.plusDays(i);
@@ -74,12 +76,12 @@ public class AgendaController implements DashboardController<Medico> {
                 if (diasSelecionados.contains(dataAlvo.getDayOfWeek())) {
                     LocalTime tempoAtual = medico.getInicio();
 
-                    while (tempoAtual.plusMinutes(medico.getDuracao()).isBefore(medico.getFim().plusSeconds(1))) {
+                    while (tempoAtual.plusMinutes(duracaoConsulta).isBefore(medico.getFim().plusSeconds(1))) {
                         Consulta consulta = consultaRepository.findConsulta(medico, dataAlvo, tempoAtual);
                         Pacient paciente = (consulta!=null) ? consulta.getPaciente() : null;
                         listaSlots.add(new Slot(dataAlvo, tempoAtual, paciente, consulta));
 
-                        tempoAtual = tempoAtual.plusMinutes(medico.getDuracao());
+                        tempoAtual = tempoAtual.plusMinutes(duracaoConsulta);
                     }
                 }
             }
@@ -95,7 +97,7 @@ public class AgendaController implements DashboardController<Medico> {
         List<DayOfWeek> diasSelecionados = obterDiasSelecionados();
         LocalTime inicio = LocalTime.parse(txtInicio.getText());;
         LocalTime fim = LocalTime.parse(txtFim.getText());;;
-        int duracao = Integer.parseInt(txtDuracao.getText());
+        String duracao = txtDuracao.getText();
 
         if(diasSelecionados.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Nenhum dia para atendimento selecionado");

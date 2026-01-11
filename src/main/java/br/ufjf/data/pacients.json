@@ -11,7 +11,7 @@
             "cpf": "333-333-333-33"
           },
           "medico": {
-            "duracao": 0,
+            "duracao": "0",
             "name": "Dr. João",
             "cpf": "000.000.000-00"
           },
@@ -32,7 +32,7 @@
             "cpf": "333-333-333-33"
           },
           "medico": {
-            "duracao": 0,
+            "duracao": "0",
             "name": "Dr. João",
             "cpf": "000.000.000-00"
           },
@@ -63,7 +63,7 @@
     "documentos": [],
     "statusInternacao": "NAO_INTERNADO",
     "email": "denise@gmail.com",
-    "telefone": "(32) 99999-9999",
+    "telefone": "(31) 99999-9999",
     "endereco": "Rua 1",
     "id": "7f6372b5-08eb-4c12-ade1-a80ca4f9175f",
     "name": "Denise",

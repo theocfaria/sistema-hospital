@@ -8,13 +8,13 @@ public class Medico extends User {
     private List<DayOfWeek> diasAtendimento;
     private String inicio;
     private String fim;
-    private int duracao;
+    private String duracao;
 
     public Medico() {
         super();
     }
 
-    public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento, String inicio, String fim, int duracao) {
+    public Medico(String name, String cpf, String password, List<DayOfWeek> diasAtendimento, String inicio, String fim, String duracao) {
         super(name, cpf, password);
         this.diasAtendimento = diasAtendimento;
         this.inicio = inicio;
@@ -48,11 +48,11 @@ public class Medico extends User {
         this.fim = fim.toString();
     }
 
-    public int getDuracao() {
+    public String getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(Integer duracao) {
+    public void setDuracao(String duracao) {
         this.duracao = duracao;
     }
 }
