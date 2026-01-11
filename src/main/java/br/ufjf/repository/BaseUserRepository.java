@@ -106,6 +106,26 @@ abstract class BaseUserRepository<T extends User> {
         return results;
     }
 
+    public void update(T user) {
+        List<T> elements = loadAll();
+        boolean encontrado = false;
+
+        for (int i = 0; i < elements.size(); i++) {
+            T currentElement = elements.get(i);
+
+            if (currentElement != null && currentElement.getId() != null) {
+                if (currentElement.getId().equals(user.getId())) {
+                    elements.set(i, user);
+                    encontrado = true;
+                    break;
+                }
+            }
+        }
+
+        if (encontrado)
+            saveAll(elements);
+    }
+
     public void updateByID(String id, String name, String password) {
         List<T> elements = loadAll();
 

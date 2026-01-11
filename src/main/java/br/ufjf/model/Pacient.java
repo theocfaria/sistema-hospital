@@ -6,6 +6,9 @@ import java.util.List;
 public class Pacient extends User {
     private List<Documento> documentos;
     private StatusInternacao statusInternacao;
+    private String email;
+    private String telefone;
+    private String endereco;
 
     public Pacient() {
         super();
@@ -58,6 +61,14 @@ public class Pacient extends User {
         return statusInternacao;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
     public String getDashboardFxml() {
         return "DashboardPaciente.fxml";
     }
@@ -65,5 +76,21 @@ public class Pacient extends User {
     @Override
     public String toString() {
         return getName();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getEndereco() {
+        return endereco;
     }
 }

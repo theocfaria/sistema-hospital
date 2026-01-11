@@ -15,12 +15,12 @@
             "name": "Dr. João",
             "cpf": "000.000.000-00"
           },
-          "descricaoClinica": "Ótimo estado",
+          "descricaoClinica": "Ótimo!",
           "statusConsulta": "REALIZADA"
         },
         "tipoDocumento": "ATESTADO",
-        "informacao": "aa",
-        "diasAfastamento": 1
+        "informacao": "aaa",
+        "diasAfastamento": 3
       },
       {
         "consulta": {
@@ -36,7 +36,7 @@
             "name": "Dr. João",
             "cpf": "000.000.000-00"
           },
-          "descricaoClinica": "Ótimo estado",
+          "descricaoClinica": "Ótimo!",
           "statusConsulta": "REALIZADA"
         },
         "tipoDocumento": "RECEITA",
@@ -44,24 +44,30 @@
         "diasAfastamento": 0
       }
     ],
-    "statusInternacao": "NAO_INTERNADO",
+    "statusInternacao": "NAO_APTO",
+    "email": "maria@gmail.com",
+    "telefone": "(32) 98888-8888",
+    "endereco": "Rua 2",
     "id": "d7fcd933-c8e7-48b6-89ca-96d7dc737342",
     "name": "Maria",
     "cpf": "333-333-333-33",
     "password": "password"
   },
   {
-    "documentos": [],
-    "statusInternacao": "NAO_INTERNADO",
-    "id": "7f6372b5-08eb-4c12-ade1-a80ca4f9175f",
-    "name": "Denise",
-    "cpf": "111.111.111-11",
-    "password": "password"
-  },
-  {
     "id": "8e471d4e-ad83-4cae-b700-64c01e9d1c38",
     "name": "Ana",
     "cpf": "222.222.222-22",
+    "password": "password"
+  },
+  {
+    "documentos": [],
+    "statusInternacao": "NAO_INTERNADO",
+    "email": "denise@gmail.com",
+    "telefone": "(32) 99999-9999",
+    "endereco": "Rua 1",
+    "id": "7f6372b5-08eb-4c12-ade1-a80ca4f9175f",
+    "name": "Denise",
+    "cpf": "111.111.111-11",
     "password": "password"
   }
 ]
