@@ -1,5 +1,6 @@
 package br.ufjf.model;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -43,5 +44,26 @@ public class Slot {
             return "LIVRE";
         }
         return paciente.getName();
+    }
+
+    public String getDiaSemanaFormatado(){
+        DayOfWeek diaSemana = data.getDayOfWeek();
+
+        if(diaSemana==DayOfWeek.MONDAY){
+            return "SEGUNDA";
+        }
+        if(diaSemana==DayOfWeek.TUESDAY){
+            return "TERÇA";
+        }
+        if(diaSemana==DayOfWeek.WEDNESDAY){
+            return "QUARTA";
+        }
+        if(diaSemana==DayOfWeek.THURSDAY){
+            return "QUINTA";
+        }
+        if(diaSemana==DayOfWeek.FRIDAY){
+            return "SEXTA";
+        }
+        return "";
     }
 }

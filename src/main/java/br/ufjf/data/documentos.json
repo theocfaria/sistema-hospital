@@ -1,42 +1,53 @@
 [
   {
     "consulta": {
-      "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4d",
-      "data": "2026-01-05",
-      "hora": "09:00",
+      "id": "ef6cbd32-4fab-4d59-b7c1-1de553f44e97",
+      "data": "2026-01-14",
+      "hora": "16:00",
       "paciente": {
-        "name": "Maria",
-        "cpf": "333-333-333-33"
+        "statusInternacao": "NAO_INTERNADO",
+        "email": "ryan@gmail.com",
+        "telefone": "(32) 99999-9999",
+        "endereco": "Rua 1",
+        "id": "a3ca0f26-334e-4ab8-ab93-09232c433a93",
+        "name": "Ryan",
+        "cpf": "603.532.726-55",
+        "password": "pass"
       },
       "medico": {
-        "cpf": "000.000.000-00",
+        "cpf": "858.773.506-33",
         "name": "Dr. João"
       },
-      "descricaoClinica": "Ótimo estado",
+      "descricaoClinica": "Paciente relatou dor ",
       "statusConsulta": "REALIZADA"
     },
     "tipoDocumento": "ATESTADO",
-    "informacao": "aa",
-    "diasAfastamento": 1
+    "informacao": "Dor de cabeça",
+    "diasAfastamento": 3
   },
   {
     "consulta": {
-      "id": "85df8766-49ff-48db-ad4c-8c761d6ddf4d",
-      "data": "2026-01-05",
-      "hora": "09:00",
+      "id": "ef6cbd32-4fab-4d59-b7c1-1de553f44e97",
+      "data": "2026-01-14",
+      "hora": "16:00",
       "paciente": {
-        "name": "Maria",
-        "cpf": "333-333-333-33"
+        "statusInternacao": "NAO_INTERNADO",
+        "email": "ryan@gmail.com",
+        "telefone": "(32) 99999-9999",
+        "endereco": "Rua 1",
+        "id": "a3ca0f26-334e-4ab8-ab93-09232c433a93",
+        "name": "Ryan",
+        "cpf": "603.532.726-55",
+        "password": "pass"
       },
       "medico": {
-        "cpf": "000.000.000-00",
+        "cpf": "858.773.506-33",
         "name": "Dr. João"
       },
-      "descricaoClinica": "Ótimo estado",
+      "descricaoClinica": "Paciente relatou dor ",
       "statusConsulta": "REALIZADA"
     },
     "tipoDocumento": "RECEITA",
-    "informacao": "b",
-    "diasAfastamento": 0
+    "informacao": "1 paracetamol"
   }
 ]

@@ -2,10 +2,9 @@ package br.ufjf.controller;
 
 import br.ufjf.model.Medico;
 import br.ufjf.model.StatusAtendimento;
-import br.ufjf.model.User;
 import br.ufjf.repository.MedicoRepository;
-import br.ufjf.utils.AlertExibitor;
-import br.ufjf.utils.CpfValidator;
+import br.ufjf.helpers.AlertExibitor;
+import br.ufjf.helpers.CpfValidator;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;

@@ -4,10 +4,10 @@ import br.ufjf.model.*;
 import br.ufjf.repository.ConsultaRepository;
 import br.ufjf.repository.DocumentoRepository;
 import br.ufjf.repository.PacientRepository;
+import br.ufjf.helpers.AlertExibitor;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DocumentosController implements DashboardController<Medico>{
@@ -74,29 +74,26 @@ public class DocumentosController implements DashboardController<Medico>{
 
     @FXML
     private void gerarAtestado() {
-        String informacao = txtAtestado.getText();
-        int diasAfastamento = Integer.parseInt(txtDiasAfastamento.getText());
-
         if(consultaAtual==null){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Selecione uma consulta");
-            alert.show();
+            AlertExibitor.exibirAlerta("Selecione uma consulta");
             return;
         }
         if(consultaAtual.getDescricaoClinica()==null){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Primeiro registre a descrição clinica/evolução do paciente no menu Histórico Clínico");
-            alert.show();
+            AlertExibitor.exibirAlerta("Primeiro registre a descrição clinica/evolução do paciente no menu Histórico Clínico");
             return;
         }
         if(txtAtestado.getText().isBlank() || txtDiasAfastamento.getText().isBlank()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Nem todos os campos foram preenchidos");
-            alert.show();
+            AlertExibitor.exibirAlerta("Nem todos os campos foram preenchidos");
             return;
         }
         if(documentoRepository.findDocumento(consultaAtual,TipoDocumento.ATESTADO)!=null){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION,"Já existe um atestado para essa consulta");
-            alert.show();
+            AlertExibitor.exibirAlerta("Já existe um atestado para essa consulta");
             return;
         }
+
+        String informacao = txtAtestado.getText();
+        Integer diasAfastamento = Integer.parseInt(txtDiasAfastamento.getText());
+
         Documento atestado = new Documento(consultaAtual, TipoDocumento.ATESTADO, informacao, diasAfastamento);
         documentoRepository.save(atestado);
         Alert alert = new Alert(Alert.AlertType.INFORMATION,"Atestado gerado com sucesso");

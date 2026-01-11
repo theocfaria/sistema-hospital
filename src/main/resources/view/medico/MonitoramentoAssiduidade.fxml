@@ -28,11 +28,4 @@
         </columns>
 
     </TableView>
-
-    <HBox alignment="CENTER_RIGHT" spacing="15">
-        <Button fx:id="btnReagendar" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Reagendar Consulta" />
-
-        <Button fx:id="btnAdiantar" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Adiantar Outro Atendimento" />
-    </HBox>
-
 </VBox>

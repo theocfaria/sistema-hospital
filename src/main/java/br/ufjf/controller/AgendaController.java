@@ -3,12 +3,12 @@ package br.ufjf.controller;
 import br.ufjf.model.*;
 import br.ufjf.repository.ConsultaRepository;
 import br.ufjf.repository.MedicoRepository;
+import br.ufjf.helpers.AlertExibitor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -94,6 +94,11 @@ public class AgendaController implements DashboardController<Medico> {
 
     @FXML
     private void salvarHorarios(){
+        if(txtInicio.getText().isBlank() || txtFim.getText().isBlank() || txtDuracao.getText().isBlank()){
+            AlertExibitor.exibirAlerta("Preencha os horários e a duração");
+            return;
+        }
+
         List<DayOfWeek> diasSelecionados = obterDiasSelecionados();
         LocalTime inicio = LocalTime.parse(txtInicio.getText());;
         LocalTime fim = LocalTime.parse(txtFim.getText());;;

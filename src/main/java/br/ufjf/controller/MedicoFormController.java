@@ -2,16 +2,12 @@ package br.ufjf.controller;
 
 import br.ufjf.model.Medico;
 import br.ufjf.model.StatusAtendimento;
-import br.ufjf.model.StatusInternacao;
-import br.ufjf.model.User;
 import br.ufjf.repository.MedicoRepository;
-import br.ufjf.utils.AlertExibitor;
-import br.ufjf.utils.CpfValidator;
-import javafx.collections.FXCollections;
+import br.ufjf.helpers.AlertExibitor;
+import br.ufjf.helpers.CpfValidator;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
@@ -42,6 +38,11 @@ public class MedicoFormController implements Initializable {
 
         MedicoRepository medicoRepository = new MedicoRepository();
 
+        if (txtNome.getText().isEmpty() || txtCpf.getText().isEmpty() || txtSenha.getText().isEmpty()) {
+            AlertExibitor.exibirAlerta("Preencha todos os campos !");
+            return;
+        }
+
         if(!CpfValidator.validaCpf(txtCpf.getText())){
             AlertExibitor.exibirAlerta("CPF Inválido!");
             return;
@@ -49,11 +50,6 @@ public class MedicoFormController implements Initializable {
 
         if(medicoRepository.checkCpfExists(txtCpf.getText())){
             AlertExibitor.exibirAlerta("CPF já registrado!");
-            return;
-        }
-
-        if (txtNome.getText().isEmpty() || txtCpf.getText().isEmpty() || txtSenha.getText().isEmpty()) {
-            AlertExibitor.exibirAlerta("Preencha todos os campos !");
             return;
         }
 

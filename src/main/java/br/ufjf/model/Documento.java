@@ -5,9 +5,9 @@ public class Documento {
     private Consulta consulta;
     private TipoDocumento tipoDocumento;
     private String informacao;
-    private int diasAfastamento;
+    private Integer diasAfastamento;
 
-    public Documento(Consulta consulta, TipoDocumento tipoDocumento, String informacao, int diasAfastamento) {
+    public Documento(Consulta consulta, TipoDocumento tipoDocumento, String informacao, Integer diasAfastamento) {
         this.consulta = consulta;
         this.tipoDocumento = tipoDocumento;
         this.informacao = informacao;
@@ -32,7 +32,7 @@ public class Documento {
         return informacao;
     }
 
-    public int getDiasAfastamento() {
+    public Integer getDiasAfastamento() {
         return diasAfastamento;
     }
 
@@ -64,7 +64,9 @@ public class Documento {
         this.informacao = informacao;
     }
 
-    public void setDiasAfastamento(int diasAfastamento) {
+    public String getDescricaoClinicaConsulta(){ return consulta.getDescricaoClinica();}
+
+    public void setDiasAfastamento(Integer diasAfastamento) {
         this.diasAfastamento = diasAfastamento;
     }
 }
