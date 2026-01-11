@@ -36,7 +36,7 @@ public class DashboardReceptionistController implements DashboardController<Rece
     }
 
     @FXML
-    public void monitorarFaltas() { carregarContent(user, content, "receptionist/MonitorarFaltas.fxml"); }
+    public void monitorarFaltas() { carregarContent(user, content, "receptionist/MonitoraFaltas.fxml"); }
 
     @FXML
     public void logout(){

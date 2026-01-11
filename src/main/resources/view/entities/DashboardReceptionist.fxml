@@ -30,8 +30,7 @@
             <children>
                 <Button fx:id="BtnPacientes" mnemonicParsing="false" text="Gerenciar Pacientes" onAction="#gerenciarPacientes" />
                 <Button fx:id="BtnMedicos" layoutX="34.0" layoutY="25.0" mnemonicParsing="false" text="Gerenciar Médicos" onAction="#gerenciarMedicos" />
-                <Button fx:id="BtnVisita" layoutX="34.0" layoutY="65.0" mnemonicParsing="false" text="Gerenciar Visitas" />
-                <Button fx:id="BtnDispon" layoutX="34.0" layoutY="105.0" mnemonicParsing="false" text="Monitorar Disponibilidade" />
+                <Button fx:id="BtnDispon" layoutX="34.0" layoutY="105.0" mnemonicParsing="false" text="Monitorar Faltas" onAction="#monitorarFaltas" />
             </children>
             <BorderPane.margin>
                 <Insets />

@@ -39,9 +39,11 @@ public class Medico extends User {
     public String getDashboardFxml() {
         return "DashboardMedico.fxml";
     }
+
     public void setDiasAtendimento(List<DayOfWeek> diasAtendimento) {
         this.diasAtendimento = diasAtendimento;
     }
+
     public List<DayOfWeek> getDiasAtendimento() {
         return this.diasAtendimento;
     }

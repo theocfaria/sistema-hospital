@@ -25,6 +25,7 @@ public class PacienteTableController implements DashboardController<Receptionist
     @FXML private TableColumn<Pacient, String> colNome;
     @FXML private TableColumn<Pacient, String> colCpf;
     @FXML private TableColumn<Pacient, String> colPassword;
+    @FXML private TableColumn<Pacient, String> colInternado;
     @FXML private Button btnDelete;
     @FXML private Button btnAdd;
 
@@ -43,6 +44,7 @@ public class PacienteTableController implements DashboardController<Receptionist
         colNome.setCellValueFactory(new PropertyValueFactory<>("name"));
         colCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+        colInternado.setCellValueFactory(new PropertyValueFactory<>("statusInternacao"));
 
         tablePacients.setOnMouseClicked(event -> {
             if(event.getClickCount() == 2 && tablePacients.getSelectionModel().getSelectedItem() != null){

@@ -12,12 +12,13 @@
                 <TableColumn fx:id="colNome" text="Nome" prefWidth="180.0" />
                 <TableColumn fx:id="colCpf" text="CPF" prefWidth="140.0" />
                 <TableColumn fx:id="colPassword" text="Senha" prefWidth="140.0" />
+                <TableColumn fx:id="colInternado" text="Internado" prefWidth="140.0" />
             </columns>
         </TableView>
 
         <HBox spacing="10" alignment="CENTER">
-            <Button id="btnAdd" text="Adicionar Novo" onAction="#handleAbrirCadastro" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
-            <Button id="btnDelete" text="Excluir" onAction="#handleExcluirPaciente" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" />
+            <Button id="btnAdd" text="Adicionar Novo" onAction="#handleAbrirCadastro" style="-fx-background-color: #2ecc71; -fx-text-fill: white;" />
+            <Button id="btnDelete" text="Excluir" onAction="#handleExcluirPaciente" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
         </HBox>
     </children>
 </VBox>

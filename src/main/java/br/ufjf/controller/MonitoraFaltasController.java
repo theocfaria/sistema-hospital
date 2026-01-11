@@ -1,49 +1,101 @@
 package br.ufjf.controller;
 
 import br.ufjf.model.Consulta;
+import br.ufjf.model.Receptionist;
 import br.ufjf.model.StatusConsulta;
 import br.ufjf.repository.ConsultaRepository;
+import br.ufjf.utils.AlertExibitor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MonitoraFaltasController {
+public class MonitoraFaltasController implements DashboardController<Receptionist>{
 
     @FXML private TableView<Consulta> tableFaltas;
     @FXML private TableColumn<Consulta, String> colPaciente;
     @FXML private TableColumn<Consulta, String> colMedico;
     @FXML private TableColumn<Consulta, LocalDate> colData;
+    @FXML private TableColumn<Consulta, StatusConsulta> colStatus;
 
+    private Receptionist receptionist;
     private ObservableList<Consulta> faltasData = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        // Configura as colunas usando os métodos que você já criou na classe Consulta
         colPaciente.setCellValueFactory(new PropertyValueFactory<>("nomePaciente"));
         colMedico.setCellValueFactory(new PropertyValueFactory<>("nomeMedico"));
         colData.setCellValueFactory(new PropertyValueFactory<>("data"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("statusConsulta"));
 
-        carregarFaltas();
+        carregarFaltasCancelamentos();
     }
 
-    private void carregarFaltas() {
+    @FXML
+    private void handleAcoes() {
+        Consulta selecionada = tableFaltas.getSelectionModel().getSelectedItem();
+
+        if (selecionada != null) {
+            try {
+                // 1. Carrega o arquivo FXML do modal que criamos
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/receptionist/AcoesConsulta.fxml"));
+                Parent root = loader.load();
+
+                // 2. Pega o controller do modal e passa a consulta selecionada
+                AcoesConsultaController controller = loader.getController();
+                controller.setConsulta(selecionada);
+
+                // 3. Configura e abre a nova janela (Stage)
+                Stage stage = new Stage();
+                stage.setTitle("Ações de Consulta - Reagendamento");
+                stage.setScene(new Scene(root));
+
+                // Define como MODAL (bloqueia a janela de trás até fechar esta)
+                stage.initModality(Modality.APPLICATION_MODAL);
+
+                stage.showAndWait();
+
+                // 4. ATUALIZA A TABELA quando o modal fechar
+                // Assim, se a consulta foi reagendada (mudou de status), ela some da lista de faltas
+                carregarFaltasCancelamentos();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                AlertExibitor.exibirAlerta("Erro ao abrir a tela de ações.");
+            }
+        } else {
+            AlertExibitor.exibirAlerta("Favor selecionar uma consulta na tabela.");
+        }
+    }
+
+    private void carregarFaltasCancelamentos() {
         faltasData.clear();
         ConsultaRepository repository = new ConsultaRepository();
 
         List<Consulta> todasAsConsultas = repository.loadAll();
 
-        List<Consulta> apenasFaltas = todasAsConsultas.stream()
+        List<Consulta> apenasFaltasCancelamentos = todasAsConsultas.stream()
                 .filter(c -> c.getStatusConsulta() == StatusConsulta.FALTOU || c.getStatusConsulta() == StatusConsulta.CANCELADA)
                 .collect(Collectors.toList());
 
-        faltasData.addAll(apenasFaltas);
+        faltasData.addAll(apenasFaltasCancelamentos);
         tableFaltas.setItems(faltasData);
+    }
+
+    @Override
+    public void setUser(Receptionist user) {
+        this.receptionist = user;
     }
 }
