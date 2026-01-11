@@ -58,7 +58,7 @@
     "telefone": "(32) 99999-9999",
     "endereco": "Rua 1",
     "id": "a3ca0f26-334e-4ab8-ab93-09232c433a93",
-    "name": "Ryan",
+    "name": "Ryan Alcim",
     "cpf": "603.532.726-55",
     "password": "pass"
   },
@@ -70,6 +70,16 @@
     "id": "71155d19-894a-4673-912f-67e6d9b733fa",
     "name": "Ryan Guilherme",
     "cpf": "852.495.836-79",
+    "password": "password"
+  },
+  {
+    "statusInternacao": "NAO_APTO",
+    "email": "carlo@example.com",
+    "telefone": "(32) 3211-4566",
+    "endereco": "Bairro Cascatinha",
+    "id": "d8ec2a31-c30d-4838-851c-3913bdcbf5f8",
+    "name": "Carlo",
+    "cpf": "113.681.590-28",
     "password": "password"
   }
 ]
