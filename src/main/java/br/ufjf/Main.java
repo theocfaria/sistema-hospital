@@ -6,6 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+//Autores:
+// Murilo Lacerda Dutra | 202435023
+//Ryan Pinto Alvim | 202435024
+//Theo Carvalho de Faria | 202435037
+
 public class Main extends Application {
 
     @Override
