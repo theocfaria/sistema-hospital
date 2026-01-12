@@ -38,7 +38,7 @@ public class DocumentoTest {
         assertNotNull(documento);
         assertEquals(TipoDocumento.RECEITA, documento.getTipoDocumento());
         assertEquals("Receita médica", documento.getInformacao());
-        assertEquals(0, documento.getDiasAfastamento());
+        assertNull(documento.getDiasAfastamento());
     }
 
     @Test
