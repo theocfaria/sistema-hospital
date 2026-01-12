@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,9 +101,6 @@ public class AgendaController implements DashboardController<Medico> {
         }
 
         List<DayOfWeek> diasSelecionados = obterDiasSelecionados();
-        LocalTime inicio = LocalTime.parse(txtInicio.getText());;
-        LocalTime fim = LocalTime.parse(txtFim.getText());;;
-        String duracao = txtDuracao.getText();
 
         if(diasSelecionados.isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Nenhum dia para atendimento selecionado");
@@ -110,15 +108,28 @@ public class AgendaController implements DashboardController<Medico> {
             return;
         }
 
-        medico.setDiasAtendimento(diasSelecionados);
-        medico.setInicio(inicio);
-        medico.setFim(fim);
-        medico.setDuracao(duracao);
+        try{
+            LocalTime inicio = LocalTime.parse(txtInicio.getText());;
+            LocalTime fim = LocalTime.parse(txtFim.getText());;;
+            String duracao = txtDuracao.getText();
 
-        medicoRepository.updateHorarios(medico.getCpf(), diasSelecionados, inicio, fim, duracao);
+            if (inicio.isAfter(fim)) {
+                AlertExibitor.exibirAlerta("Horário inicial não pode ser depois do final");
+                return;
+            }
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Dias de atendimento salvos com sucesso");
-        alert.show();
+            medico.setDiasAtendimento(diasSelecionados);
+            medico.setInicio(inicio);
+            medico.setFim(fim);
+            medico.setDuracao(duracao);
+
+            medicoRepository.updateHorarios(medico.getCpf(), diasSelecionados, medico.getInicio(), medico.getFim(), medico.getDuracao());
+
+            AlertExibitor.exibirAlerta("Dias de atendimento salvos com sucesso");
+
+        } catch (DateTimeParseException e) {
+            AlertExibitor.exibirAlerta("Horário inválido | Exemplo correto: 08:30");
+        }
     }
 
     private List<DayOfWeek> obterDiasSelecionados() {

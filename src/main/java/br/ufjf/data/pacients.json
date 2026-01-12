@@ -1,0 +1,67 @@
+[
+  {
+    "documentos": [
+      {
+        "consulta": {
+          "id": "86aea4b0-8e20-4be1-aa33-a3b1f31a34be",
+          "data": "2026-01-12",
+          "hora": "19:30",
+          "paciente": {
+            "documentos": [],
+            "statusInternacao": "NAO_INTERNADO",
+            "email": "",
+            "telefone": "",
+            "endereco": "",
+            "id": "42d17c66-fba5-4929-9e1a-828180caef4d",
+            "name": "João",
+            "cpf": "517.497.196-06",
+            "password": "pass"
+          },
+          "medico": {
+            "name": "Dr. João",
+            "cpf": "643.520.846-89"
+          },
+          "descricaoClinica": "aaa",
+          "statusConsulta": "REALIZADA"
+        },
+        "tipoDocumento": "ATESTADO",
+        "informacao": "a",
+        "diasAfastamento": 2
+      },
+      {
+        "consulta": {
+          "id": "86aea4b0-8e20-4be1-aa33-a3b1f31a34be",
+          "data": "2026-01-12",
+          "hora": "19:30",
+          "paciente": {
+            "documentos": [],
+            "statusInternacao": "NAO_INTERNADO",
+            "email": "",
+            "telefone": "",
+            "endereco": "",
+            "id": "42d17c66-fba5-4929-9e1a-828180caef4d",
+            "name": "João",
+            "cpf": "517.497.196-06",
+            "password": "pass"
+          },
+          "medico": {
+            "name": "Dr. João",
+            "cpf": "643.520.846-89"
+          },
+          "descricaoClinica": "aaa",
+          "statusConsulta": "REALIZADA"
+        },
+        "tipoDocumento": "RECEITA",
+        "informacao": "b"
+      }
+    ],
+    "statusInternacao": "NAO_INTERNADO",
+    "email": "a@gmail.com",
+    "telefone": "(32) 99999-9999",
+    "endereco": "Rua 1",
+    "id": "42d17c66-fba5-4929-9e1a-828180caef4d",
+    "name": "João",
+    "cpf": "517.497.196-06",
+    "password": "pass"
+  }
+]

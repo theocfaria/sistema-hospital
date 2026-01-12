@@ -65,7 +65,7 @@ public class PacienteFormController implements Initializable {
 
         String telefone = TelefoneValidator.formatarTelefone(txtTelefone.getText());
 
-        Pacient novo = new Pacient(txtNome.getText(), txtCpf.getText(), txtSenha.getText(), txtEmail.getText(), telefone, txtEndereco.getText(), cbStatus.getValue());
+        Pacient novo = new Pacient(txtNome.getText(), txtCpf.getText(), txtSenha.getText(), txtEmail.getText(), telefone, txtEndereco.getText(), null, cbStatus.getValue());
 
         listaReferencia.add(novo);
 
